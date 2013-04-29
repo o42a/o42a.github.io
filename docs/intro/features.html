@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Language Features</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active">
+              <a href="features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Introduction</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="language_features">Language Features</h1>
+<h2 id="syntax">Syntax</h2>
+<ul>
+<li>A multi-word, case-insensitive names may contain numbers and hyphens.<br />
+  All of these are valid names:<ul>
+<li><code>Hello World</code>,</li>
+<li><code>Plug-in</code>,</li>
+<li><code>String 2 integer</code>, which is the same as <code>string2integer</code>,</li>
+<li><code>Links-2-3-4</code>.</li>
+</ul>
+</li>
+<li>No keywords.</li>
+<li>Natural punctuation with a logical meaning:<ul>
+<li>Statements organized in sentences ending with:<ul>
+<li><em>period</em> (<code>.</code>) when the sentence is a <em>proposition</em>,</li>
+<li><em>exclamation mark</em> (<code>!</code>) when the sentence is a <em>claim</em>, or</li>
+<li><em>question mark</em> (<code>?</code>) when the sentence is an <em>issue</em>.</li>
+</ul>
+</li>
+<li>Statements within the same sentence may be delimited by:<ul>
+<li><em>comma</em> (<code>,</code>), which stands for <em>logical AND</em>, or</li>
+<li><em>semicolon</em> (<code>;</code>), which stands for <em>logical OR</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Colon</em> (<code>:</code>) is used as a field access modifier:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>Foo: bar      ~~ Accessing field `bar` of object `foo`
+Foo: bar: baz ~~ Accessing field `baz` of field `bar` of object `foo`
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>o42a supports <em>phrases</em> - a pure syntactic, customizable way to build a
+  domain-specific expressions. It is possible to declare syntactic rules
+  to interpret the following expressions:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>Print &quot;Hello, World!&quot; nl
+Use object &#39;main&#39; from &#39;console&#39; as &#39;run&#39;
+SELECT [&#39;t1.foo&#39;, &#39;t1.bar&#39;, &#39;t2.baz&#39;] FROM &#39;t1&#39; LEFT OUTER JOIN &#39;t2&#39; ON &#39;id&#39; ORDER BY &#39;foo&#39;
+</pre></div>
+</td></tr></table>
+
+<h2 id="values_type_system">Values &amp; Type System</h2>
+<ul>
+<li>Every object has a <strong>value</strong> of some basic type. The following scalar value types supported:<ul>
+<li><em>void</em> - nothing;</li>
+<li><em>integer</em> - a 64-bit integer number;</li>
+<li><em>float</em> - a 64-bit floating-point number;</li>
+<li><em>string</em> - a Unicode string of text;</li>
+</ul>
+</li>
+<li>Composite types like arrays, links, and variables are also supported.</li>
+<li>The o42a type system is static, which means once defined a type of the object
+  can not be changed or overridden in derived objects. The only exception is
+  <em>void</em> type, which is the base of all other types.</li>
+<li>Every type is represented by intrinsic object.</li>
+<li>The <code>Void</code> object, representing <em>void</em> type is an ancestor of every other object.</li>
+</ul>
+<h2 id="logical_meaning">Logical Meaning</h2>
+<ul>
+<li>Every value has a logical precondition of its existence called
+  <strong>logical value</strong>.</li>
+<li>There are <strong>no nulls</strong> and <strong>no exceptions</strong>.
+  They are replaced by the logical values.</li>
+<li>Every expression has a logical meaning derived from the value it produces.
+  The syntax is designed in favor of this. For example, here is a definition of
+  the arithmetic <code>signum</code> function:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>Signum :=&gt; integer (
+  Arg :=&lt; integer
+  Arg &gt; 0? = 1  ~~ If `arg` is positive, return 1.
+  Arg &lt; 0? = -1 ~~ Otherwise, if `arg` is negative, return -1.
+  = Arg         ~~ Otherwise, return the value itself.
+                ~~ Can be either zero or false.
+)
+</pre></div>
+</td></tr></table>
+
+<h2 id="declarative_imperative_paradigms">Declarative &amp; Imperative Paradigms</h2>
+<ul>
+<li>o42a supports both declarative and imperative coding styles within 
+  appropriate code blocks.</li>
+<li>The code is declarative by default. The imperative code is the one enclosed
+  in curly braces (<code>{}</code>).</li>
+<li>Any code consists of sentences evaluating the enclosing object's value.</li>
+<li>The <a href="http://wikipedia.org/wiki/Declarative_programming">declarative code</a> can additionally define the enclosing object's
+  structure by declaring its members.</li>
+<li>The <a href="http://wikipedia.org/wiki/Imperative_programming">imperative code</a> may contain advanced evaluation algorithms,
+  such as loops:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre>{
+  I := ``0 ~~ This is a local integer variable initialized to zero. 
+  {
+    ~~ Some code here. ~~
+    I = i + 1
+    I &lt; 10? ... ~~ While `i` less than 10, repeat.
+  }
+  {
+    ~~ Some code here. ~~
+    I = i + 1
+    I &gt;= 20?!  ~~ Exit when `i` greater or equal to 20.
+    ...        ~~ Repeat otherwise.
+  }
+}
+</pre></div>
+</td></tr></table>
+
+<h2 id="object_model">Object Model</h2>
+<ul>
+<li>An o42a object model is <a href="http://wikipedia.org/wiki/Prototype-based_programming">prototype-based</a>, which means there is
+  <strong>no classes or interfaces</strong>. Objects derive other objects directly.</li>
+<li>Furthermore, there is <strong>no methods</strong>, and <strong>no constructors</strong>. The inheritance
+  is the only way to construct a new object.</li>
+<li>Everything in o42a is represented as an object, including:<ul>
+<li><em>scalar values</em>,</li>
+<li><em>strings</em>,</li>
+<li><em>arrays</em>,</li>
+<li><em>links</em> to an objects,</li>
+<li><em>variables</em>, which are the links modifiable at run time,</li>
+<li>program <em>modules</em>,</li>
+<li>compiler <em>directives</em>,</li>
+<li><em>macros</em>.</li>
+</ul>
+</li>
+<li>An object's <strong>field</strong> is just a nested object with name.</li>
+<li>There is <strong>no packages</strong>, <strong>no primitive values</strong>, and <strong>nothing else but 
+  objects</strong>.</li>
+<li>o42a features an <strong>instant <a href="http://wikipedia.org/wiki/Generic_programming">generic programming</a></strong>. An object inherits an
+  expression, not just another static object. So, the nested object's ancestor
+  is updated automatically when the enclosing object is inherited:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (     ~~ `A` is a base object.
+  Foo := void ( ~~ `Foo` is a field of `A`.
+    F := 1      ~~ `Foo` contains field `F`.
+  )
+  Bar := foo () ~~ `Bar` is another field of `A`, which inherits `Foo`.
+)
+
+B := A (        ~~ `B` inherits `A`.
+  Foo = * (     ~~ `Foo` is overridden in `B`.
+    G := 2      ~~ `G` is a new field of `B: foo`.
+  )
+)
+
+B: bar: g       ~~ Equals to 2. This is valid, because `b: bar` derived from `b: foo`,
+                ~~ which has a field `g`.  
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>A more traditional <a href="http://wikipedia.org/wiki/Parametric_polymorphism">parametric polymorphism</a> (generics)
+  is available with the use of <strong>type parameters</strong>.</li>
+<li>A more advanced meta-programming is possible with <strong>macros</strong>.</li>
+<li>An <strong>object propagation</strong> is a form of object derivation used in o42a instead
+  of the <a href="http://wikipedia.org/wiki/Multiple_inheritance">multiple inheritance</a>:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (Foo := 1)
+B := void (Bar := 2)
+C := void &amp; a &amp; b
+C: foo      ~~ Equals to 1, derived from `A`.
+C: foo @a   ~~ A more precise specification of where `foo` came from. 
+C: bar      ~~ Equals to 2, derived from `B`.
+C: bar @b   ~~ A more precise specification of where `bar` came from. 
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>o42a supports <strong><a href="http://wikipedia.org/wiki/Adapter_pattern">adapters</a></strong> at syntax level. Adapters are used when
+  implicit type conversion needed. The adapter is a field with interface object
+  as identifier. There is a special syntax for accessing the adapter itself
+  or one of its fields:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+  Foo := 1
+)
+B := void (
+  @A := * (Foo = 2) ~~ An adapter of `B` to `A` declaration.
+)
+
+b @@a      ~~ An adapter to `A`.
+b: foo @a  ~~ The field `Foo` of adapter to `A`.
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Some adapters have predefined meaning and recognized by the compiler.
+  For example, the following code can be used to declare a <strong>main object</strong>
+  of the program:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre>Use namespace &#39;Console&#39;       ~~ Import symbols declared in `Console` module.
+
+@Main :=&gt; * {                 ~~ Declare the main object.
+  Print &quot;Program executed&quot; nl ~~ Print the message.
+  = 0                         ~~ Return the code of success.
+}
+</pre></div>
+</td></tr></table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="active">
+      <a href="../intro/features.html">Language Features</a>
+  </li>
+  
+  <li class="">
+      <a href="../intro/hello_world_explained.html">"Hello, World!" Explained</a>
+  </li>
+  
+  </ul>
+    </li>
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

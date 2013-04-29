@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Development Status</title>
+
+  <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../docs/intro/features.html">
+                Features
+              </a>
+            </li>
+            <li >
+              <a href="../docs/index.html">
+                Documentation
+              </a>
+            </li>
+            <li class="active">
+              <a href="index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li class="active">
+              Development
+              
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="development_status">Development Status</h1>
+<p>The development started in April, 2009. The initial language concepts were 
+changed several times since then. But today the conceptual work is almost done.</p>
+<p>The prototype of compiler is under development.
+This compiler is written in Java and uses <a href="http://llvm.org">LLVM</a> for executable
+code generation.</p>
+<p>All documented language features are implemented. The development is currently
+focused on core libraries implementation, compiler stability, and implementation
+of additional language features necessary to make libraries handy and efficient.</p>
+<p>The next major step is a 0.3.0 release, which should contain the core libraries
+and should be stable and practically usable.</p>
+<blockquote>
+<p>You may track the development activity <a href="http://bitbucket.org/o42a/o42a/changesets">here</a>.</p>
+</blockquote>
+<h2 id="development_plan">Development Plan</h2>
+<p>The development planned to consist of the two main phases:</p>
+<ul>
+<li>a prototype development, and</li>
+<li>a production compiler development (since release 0.5.0).</li>
+</ul>
+<p>The prototype will be written in Java and should become a bootstrap compiler
+for the upcoming production compiler, which will be written in o42a.</p>
+<p>A production compiler written in o42a is not just a get-rid-of-Java task.
+The more important objective is to proof the language maturity and
+it's usefulness in a serious development. Well, the compiler is really a serious
+project and it's development will be an excellent practice of the
+language usage.</p>
+<p>Because Java has a rich set of development tools it better suits for the
+conceptual work, experimenting and refactoring. The production compiler written
+in o42a will be a rewrite of a prototype one. Its development will start only
+when the prototype compiler will be considered good enough in terms of feature
+set, stability and performance.</p>
+<table>
+<thead>
+<tr>
+<th>Releases</th>
+<th>Status</th>
+<th>Objectives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1.0</td>
+<td>Draft</td>
+<td>The initial release with some basic features missing</td>
+</tr>
+<tr>
+<td>0.1.x</td>
+<td>Draft</td>
+<td>Implement the missing language features. Improve stability.</td>
+</tr>
+<tr>
+<td>0.2.0</td>
+<td>Prototype</td>
+<td>First feature-complete release.</td>
+</tr>
+<tr>
+<td>0.2.x</td>
+<td>Prototype</td>
+<td>Implement an additional features. Write the base library.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The main room for experimenting.</td>
+</tr>
+<tr>
+<td>0.3.0</td>
+<td>Bootstrap</td>
+<td>A base of bootstrap compiler implementation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is a start of the work on production compiler.</td>
+</tr>
+<tr>
+<td>0.3.x</td>
+<td>Bootstrap</td>
+<td>Improve stability. Implement the features demanded by production compiler.</td>
+</tr>
+<tr>
+<td>0.4.0</td>
+<td>Bootstrap</td>
+<td>The last major release of the Java-based compiler. Will be released at the same time as 0.5.0.</td>
+</tr>
+<tr>
+<td>0.4.x</td>
+<td>Bootstrap</td>
+<td>Bug fixes.</td>
+</tr>
+<tr>
+<td>0.5.0</td>
+<td>Pre-alpha</td>
+<td>The initial release of the production compiler written in o42a.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The latest release from 0.4.x branch will be used as a bootstrap compiler from this point.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Every upcoming release should be able to compile itself.</td>
+</tr>
+<tr>
+<td>0.5.x</td>
+<td>Pre-alpha</td>
+<td>Improve stability. Port the missing features from bootstrap compiler.</td>
+</tr>
+<tr>
+<td>0.6.0</td>
+<td>Pre-alpha</td>
+<td>The first release, which does not rely on a bootstrap compiler written in Java.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The latest release of 0.5.x branch will be used as a bootstrap compiler from this point.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The 0.4.x branch will be closed soon after this release.</td>
+</tr>
+<tr>
+<td>0.6.x</td>
+<td>Pre-alpha</td>
+<td>Improve the native code interoperability. It would be hard to move on without easy integration with native libraries.</td>
+</tr>
+<tr>
+<td>0.7.x</td>
+<td>Alpha</td>
+<td>Alpha release cycle. Improve the compiler, extend the runtime and possibly the language itself.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The latest minor release from preceding major release branch will be used as a bootstrap compiler, e.g. 0.6.x for 0.7, 0.7.x for 0.8, etc.</td>
+</tr>
+<tr>
+<td>0.8.x</td>
+<td>Beta</td>
+<td>Beta release cycle. Work on stability. New features are possible, but not likely.</td>
+</tr>
+<tr>
+<td>0.9.x</td>
+<td>RC</td>
+<td>Release candidates. Final testing and fixes.</td>
+</tr>
+<tr>
+<td>1.0.0</td>
+<td>Stable</td>
+<td>The first stable release.</td>
+</tr>
+</tbody>
+</table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+      <li >
+        <a href="mission.html">Mission Statement</a>
+      </li>
+      <li class="active">
+        <a href="index.html">Development Status</a>
+      </li>
+      <li>
+        <a href="../releases/index.html">Releases</a>
+      </li>
+      <li>
+        <a href="https://bitbucket.org/o42a/o42a/issues?status=new&status=open">
+          Issue Tracker
+        </a>
+    </li>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

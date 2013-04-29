@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Value Definition</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../intro/features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Objects</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="value_definition">Value Definition</h1>
+<!--
+Copyright (C) 2010-2013 Ruslan Lopatin.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+-->
+
+<p>An object value definition consists of <a href="../sentences/index.html">sentences</a>,
+which define the algorithm of the value evaluation.</p>
+<h2 id="value_evaluation">Value Evaluation</h2>
+<p>An object value is evaluated on each request, unless it has a stateful type like
+<a href="../core/variables.html">variable</a> or mutable <a href="../core/arrays.html">array</a>
+(not row). A client code may request the value evaluation to happen at most once
+with a <a href="../expressions/unary.html#keep_value">keep value</a> operator.</p>
+<p>The definition is evaluated in the scope of the object. So the same definition
+can evaluate to different value in another (derived) object:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>A := integer (
+  Value := 1
+  = Value + 1
+)
+B := a (
+  Value = 41
+)
+</pre></div>
+</td></tr></table>
+
+<p>Here objects <code>A</code> and <code>B</code> has the same definition, but different values: the
+value of <code>A</code> is <code>2</code>, while the value of <code>B</code> is <code>42</code>.</p>
+<h2 id="definition_syntax">Definition Syntax</h2>
+<p>There are multiple ways to provide a definition for an object. Only a very basic
+ones represented here.</p>
+<h3 id="field_value_expression">Field Value Expression</h3>
+<p>The simplest way to provide a value for an object, is to declare a field with
+an expression:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>Integer constant := 1            ~~ Inherit `integer`, assign value `1`.
+String constant := &quot;value&quot;       ~~ Inherit `string`, assign value `&quot;value&quot;`.
+Negation := -a                   ~~ Unary operator.
+Sum := a + b                     ~~ Binary operator.
+Float constant := float &#39;123.45&#39; ~~ Phrase.
+</pre></div>
+</td></tr></table>
+
+<p>In this case an object ancestor is the same, as an ancestor of the expression
+result.</p>
+<h3 id="self-assignment">Self-Assignment</h3>
+<p>Within an object definition body a <em>self-assignment</em> statement can be used to
+provide a value for the object.</p>
+<p>The syntax is:</p>
+<blockquote>
+<p><code>'=' &lt;value&gt;</code></p>
+</blockquote>
+<p>where <code>&lt;value&gt;</code> is an arbitrary expression producing the object value.</p>
+<p>Examples:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>Integer (= 1)
+String (= &quot;value&quot;)
+Foo (= a + b)
+</pre></div>
+</td></tr></table>
+
+<h3 id="conditional_values">Conditional Values</h3>
+<p>A conditional definition can be used to provide multiple value alternatives.
+Only the first one, which precondition is met, will be used.</p>
+<p>Here is an example of mathematical <code>signum</code> function declaration:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre>Signum :=&gt; integer (
+  Arg :=&lt; integer ~~ Function input.
+  Arg &lt; 0? = -1   ~~ The value is `-1` if an input is negative.
+  Arg &gt; 0? = 1    ~~ Otherwise, the value is `1` if an input is positive.
+  = 0             ~~ Otherwise, the value is `0`.
+)
+</pre></div>
+</td></tr></table>
+
+<p>Note that the conditions are tested in order of their appearance.</p>
+<hr />
+<blockquote>
+<p>Learn more about <a href="../sentences/index.html">sentences</a>, then read the
+<a href="../sentences/definition.html">Understanding The Value Definition</a> article 
+to fully understand the value definition concepts.</p>
+</blockquote>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="">
+      <a href="../objects/creation.html">Object Creation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/value.html">Object Value</a>
+  </li>
+  
+  <li class="active">
+      <a href="../objects/definition.html">Value Definition</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/fields.html">Fields</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/adapters.html">Adapters</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/inheritance.html">Inheritance</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/propagation.html">Field Propagation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/samples.html">Sample Propagation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/inheritance_vs_propagation.html">Inheritance vs Propagation</a>
+  </li>
+  
+  </ul>
+    </li>
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

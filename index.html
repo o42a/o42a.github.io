@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » About</title>
+
+  <link rel="stylesheet" type="text/css" href="media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "./";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="docs/intro/features.html">
+                Features
+              </a>
+            </li>
+            <li >
+              <a href="docs/index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span8">
+    <h1 id="about">About</h1>
+<p><strong>o42a</strong> is a high-level general purpose programming language. It is:</p>
+<ul>
+<li><strong>compiled</strong>,</li>
+<li><strong>statically-typed</strong>,</li>
+<li><strong>prototype-based</strong>,</li>
+<li><strong>logic-driven</strong>, and</li>
+<li>primarily <strong>declarative</strong>, while</li>
+<li>the <strong>imperative</strong> programming style is also supported. </li>
+</ul>
+<p>A program written in o42a is closer to natural English text than one written
+in any C-like programming language.</p>
+<p>The language is designed with programming productivity and code maintainability
+ as main priorities. This achieved by</p>
+<ul>
+<li><strong>powerful, yet restrained, semantics</strong>, and</li>
+<li><strong>expressive and natural syntax</strong>.</li>
+</ul>
+<blockquote>
+<p>See the <a href="devel/mission.html">Mission Statement</a><br />
+Take a look at the <a href="docs/intro/features.html">feature list</a> for overall 
+language description.<br />
+Read the <a href="docs/index.html">documentation</a> for the details.</p>
+</blockquote>
+<h2 id="development_status">Development Status</h2>
+<p>A prototype of compiler is under development.
+This compiler is written in Java and uses <a href="http://llvm.org">LLVM</a> for executable
+code generation.</p>
+<p>All documented language features are implemented. The development is currently
+focused on core libraries implementation, compiler stability, and implementation
+of additional language features necessary to make libraries handy and efficient.</p>
+<blockquote>
+<p>See the detailed <a href="devel/index.html">development</a> status and plan.</p>
+</blockquote>
+<h2 id="hello_world">Hello, World!</h2>
+<p>Here is a "Hello, World!" program written in o42a:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>Use namespace &#39;Console&#39;.
+
+@Main := * {
+  Print &quot;Hello, World!&quot; nl.
+}
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>See the <a href="docs/intro/hello_world_explained.html">explanation</a>.</p>
+</blockquote>
+<h2 id="download">Download</h2>
+<p>The o42a compiler and source code are available under the terms of
+<a href="http://gnu.org/licenses/gpl-3.0.html">GNU General Public License, version 3 or later</a>.</p>
+<p>The run-time libraries and source code are available under the terms of
+<a href="http://www.mozilla.org/MPL/2.0/">Mozilla Public License, version 2.0</a>.</p>
+<blockquote>
+<p>Proceed to the <a href="downloads.html">download</a> section.</p>
+</blockquote>
+  </div>
+  <div class="span4">
+    <div class="news-feed" feed-size="3">
+    </div>
+    <ul class="pager">
+      <li class="previous">
+        <a href="news/index.html">
+          &larr; News Archive
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="media/js/jquery.js"></script>
+  <script type="application/javascript" src="media/js/bootstrap.js"></script>
+  <script type="application/javascript" src="news/articles.js"></script>
+  <script type="application/javascript" src="news/news.js"></script>
+  
+</body>
+</html>

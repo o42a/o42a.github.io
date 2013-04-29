@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Downloads</title>
+
+  <link rel="stylesheet" type="text/css" href="media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "./";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="docs/intro/features.html">
+                Features
+              </a>
+            </li>
+            <li >
+              <a href="docs/index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="devel/index.html">
+                Development
+              </a>
+            </li>
+            <li class="active">
+              <a href="downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="./index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <h1 id="downloads">Downloads</h1>
+<p>The o42a compiler and source code are available under the terms of 
+<a href="http://gnu.org/licenses/gpl-3.0.html">GNU General Public License, version 3 or later</a>.</p>
+<p>The run-time libraries and source code are available under the terms of
+<a href="http://www.mozilla.org/MPL/2.0">Mozilla Public License, version 2.0</a></p>
+<h2 id="source_code">Source Code</h2>
+<blockquote>
+<p>The source code is available for download
+<strong><a href="http://bitbucket.org/o42a/o42a/downloads">here</a></strong>.</p>
+</blockquote>
+<p>The latest sources can be obtained from project's Mercurial repository.
+For that, type the following command in console:</p>
+<blockquote>
+<p><code>hg clone https://bitbucket.org/o42a/o42a</code></p>
+</blockquote>
+<p>Or follow to the <a href="http://bitbucket.org/o42a/o42a/src">source</a> section
+at Bitbucket.</p>
+<p>Information about releases can be found <a href="releases/index.html">here</a>.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="requirements">Requirements</h3>
+<p>o42a works on GNU/Linux with x86_64 architecture.
+Other configurations not tested.</p>
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+<li><a href="http://www.oracle.com/technetwork/java/index.html">Java SE 1.6</a></li>
+<li><a href="http://llvm.org">LLVM 3.2</a></li>
+<li><a href="http://icu-project.org">ICU 4.6</a> (May also work with earlier releases)</li>
+<li><a href="http://ant.apache.org/">Apache Ant 1.8</a></li>
+<li><a href="http://gnu.org/software/make/">GNU Make</a></li>
+<li><a href="http://gnu.org/software/gcc/">GCC</a> or compatible C/C++ compiler</li>
+<li><a href="http://gnu.org/software/bash/">Bash</a></li>
+</ul>
+<h3 id="customize_the_build">Customize The Build</h3>
+<p>You may be required to customize the build. For that:</p>
+<ul>
+<li>enter the 'build' directory,</li>
+<li>locate the files you want to customize (those with names containing
+  <code>.default.</code> sub-string) and follow customization instructions inside.</li>
+</ul>
+<h3 id="build">Build</h3>
+<p>Once all dependencies installed, enter the directory, where o42a located
+and invoke the following command:</p>
+<blockquote>
+<p><code>ant</code></p>
+</blockquote>
+<h3 id="install">Install</h3>
+<p>o42a does not require a special installation procedure. To invoke <code>o42ac</code>
+just add the o42a directory to the <code>PATH</code> environment variable or create
+an alias for <code>o42ac</code> executable.</p>
+<h2 id="hello_world_execution">"Hello, World!" Execution</h2>
+<p>Enter the <code>examples</code> directory and type in the following command:</p>
+<blockquote>
+<p><code>ant hello-world</code></p>
+</blockquote>
+<p>to compile and run the program, or</p>
+<blockquote>
+<p><code>ant compile</code></p>
+</blockquote>
+<p>to only compile, but not execute it.</p>
+<p>The compiled executable will be called <code>bin/hello_world</code>.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="media/js/jquery.js"></script>
+  <script type="application/javascript" src="media/js/bootstrap.js"></script>
+  
+</body>
+</html>

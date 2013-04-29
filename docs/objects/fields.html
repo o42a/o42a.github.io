@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Fields</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../intro/features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Objects</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="fields">Fields</h1>
+<!--
+Copyright (C) 2010-2013 Ruslan Lopatin.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+-->
+
+<p>A field is a nested object, which can be accessed by identifier. An object can
+have an arbitrary number of fields.</p>
+<p>Identifiers of fields declared within the same object should be unique, but
+object <strong>may</strong> declare a new field with the same identifier as a field of
+ascendant. In the latter case, two <strong>different</strong> fields with the same identifier
+will co-exist in the object. See the
+<a href="#naming_conflicts_resolution">naming conflicts resolution</a> section below.</p>
+<h2 id="field_declaration">Field Declaration</h2>
+<p>Field declaration syntax is:</p>
+<blockquote>
+<p><code>[&lt;visibility&gt;] &lt;name&gt; [ ['@' ['('] &lt;ascendant&gt; [')'] ] | ':'] [{'=' | '=&gt;' | '=&lt;' | '=&lt;&gt;'}] &lt;definition&gt;</code></p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li><code>&lt;visibility&gt;</code> is one of:<ul>
+<li>'<strong><code>:</code></strong>' - to declare <em>private</em> field;</li>
+<li>'<strong><code>::</code></strong>' - to declare <em>protected</em> field;</li>
+<li>otherwise:<ul>
+<li>the field is <em>public</em>, if it is a new field declaration;</li>
+<li>the field has the same visibility as overridden field, if it is a field
+  override;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>&lt;name&gt;</code> is arbitrary field name;</li>
+<li><code>&lt;ascendant&gt;</code> is a reference to object's ascendant, the overridden field is
+  present in;</li>
+<li><code>&lt;definition&gt;</code> is an expression either constructing a new object or referring
+  to its ancestor.</li>
+</ul>
+<p>The <em>colon</em> (<strong><code>:</code></strong>) presence before the <em>equals sign</em> (<strong><code>=</code></strong>) indicates the
+field declaration, while it's absence means the field override. In the latter
+case it is expected that the field with the same identifier is present in
+object's ascendant. Because object may have multiple ascendants, it is possible
+to explicitly specify an <code>&lt;ascendant&gt;</code> the overridden field is originated from.</p>
+<p>The sign following the <em>equals sign</em> indicates the following:</p>
+<table>
+<thead>
+<tr>
+<th>Sign</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>Ordinary field declaration.</td>
+</tr>
+<tr>
+<td><code>=&gt;</code></td>
+<td>Prototype declaration. Prototype is an incompletely defined object, which doesn't have an instance. The contents of prototype are not accessible from outside the prototype itself, but prototype can be derived.</td>
+</tr>
+<tr>
+<td><code>=&lt;</code></td>
+<td>Input (abstract) field declaration. This is only allowed within prototype declaration. When creating an object derived from enclosing prototype, it is required to provide definition for such field, unless the derived object is a prototype or abstract field too.</td>
+</tr>
+<tr>
+<td><code>=&lt;&gt;</code></td>
+<td>Abstract prototype declaration. This is only allowed within another prototype declaration. When creating an object derived from enclosing prototype, it is required to provide definition for such field, unless the derived object is a prototype or abstract field too.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre>Binary operation :=&gt; float ( ~~ Public prototype.
+  ::Operand 1 :=&lt; float ~~ Protected input field.
+  ::Operand 2 :=&lt; float ~~ Protected input field. 
+)
+Addition :=&gt; binary operation ( ~~ Public prototype.
+  = operand 1 + operand 2
+)
+:Sum := addition ( ~~ Ordinary private object.
+  Operand 1 = 11 ~~ Override `operand 1`.
+  Operand 2 = 31 ~~ Override `operand 2`.
+)
+</pre></div>
+</td></tr></table>
+
+<h2 id="field_visibility">Field Visibility</h2>
+<p>As mentioned above, there are three kinds of visibility:</p>
+<ul>
+<li><em>public</em> - field is visible from everywhere;</li>
+<li><em>protected</em> - field is visible from the same file, from nested objects and
+  definitions, and from derived objects;</li>
+<li><em>private</em> - field is only visible from the same file or from nested objects
+  and definitions.</li>
+</ul>
+<p>A field can not change its visibility when overridden.</p>
+<p>Private fields can not be overridden, even if they are visible to the derived
+object.</p>
+<h2 id="field_access">Field Access</h2>
+<p>The field of an object can be accessed by its name with the following syntax:</p>
+<blockquote>
+<p><code>&lt;owner&gt; ':' &lt;name&gt; ['@' ['('] &lt;ascendant&gt; [')'] ]</code></p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li><code>&lt;owner&gt;</code> is an arbitrary <a href="../expressions/index.html">expression</a>
+  resolving to an object containing the field;</li>
+<li><code>&lt;name&gt;</code> is a field name;</li>
+<li><code>&lt;ascendant&gt;</code> is the owner's ascendant
+  <a href="../expressions/references.html">reference</a>, the field is present in.</li>
+</ul>
+<p>Examples:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>foo: field
+foo: field @foo ascendant
+</pre></div>
+</td></tr></table>
+
+<h3 id="naming_conflicts_resolution">Naming Conflicts Resolution</h3>
+<p>An object derived from another object can declare a new field with the same
+identifier (name or adapter interface) as  the one of ascendant's field. In this
+case an unqualified field access means access to the explicitly declared field.
+To access the field derived from ascendant an explicit qualification required.</p>
+<p>Example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+  Foo := 1 ~~ Declare the field `foo`.
+)
+B := a ( ~~ Inherit `a`.
+  Foo := &quot;foo&quot; ~~ Declare a new field with the same name `foo`.
+)
+
+B: foo    ~~ Access the field `foo` declared in `b`.
+B: foo @b ~~ The same as above. Qualifier is redundant here.
+B: foo @a ~~ Access the field `foo` of object `b` derived from `a`.
+</pre></div>
+</td></tr></table>
+
+<p>If an object has multiple ascendants and some ascendants contain different
+fields with the same identifier, then unqualified field access means access to
+the <strong>last</strong> ascendant in the list. To access the fields derived from other
+ascendants an explicit qualification required.</p>
+<p>Example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+  Foo := 1 ~~ Declare the field `foo`.
+)
+B := void (
+  Foo := 1 ~~ Declare a field with the same name `foo`.
+)
+C := * &amp; a &amp; b ~~ `C` derived from both `a` and `b`.
+
+C: foo    ~~ Access the field `foo` of object `c` derived from `b`.
+C: foo @b ~~ The same as above. Qualifier is not required here, but may be a good idea.
+B: foo @a ~~ Access the field `foo` of object `c` derived from `a`.
+</pre></div>
+</td></tr></table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="">
+      <a href="../objects/creation.html">Object Creation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/value.html">Object Value</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/definition.html">Value Definition</a>
+  </li>
+  
+  <li class="active">
+      <a href="../objects/fields.html">Fields</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/adapters.html">Adapters</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/inheritance.html">Inheritance</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/propagation.html">Field Propagation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/samples.html">Sample Propagation</a>
+  </li>
+  
+  <li class="">
+      <a href="../objects/inheritance_vs_propagation.html">Inheritance vs Propagation</a>
+  </li>
+  
+  </ul>
+    </li>
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

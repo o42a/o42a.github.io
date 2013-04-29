@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Binary Operators</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../intro/features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Expressions</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="binary_operators">Binary Operators</h1>
+<!--
+Copyright (C) 2010-2013 Ruslan Lopatin.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+-->
+
+<p>The following binary operators supported:</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>Arithmetic Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td><code>×</code> (U+00D7)</td>
+<td><code>⋅</code> (U+22C5)</td>
+<td><strong>Multiplication</strong>. Returns the product of numeric operands. Can be <a href="../phrases/operators.html#binary_operators">overridden</a>.</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td><code>÷</code> (U+00F7)</td>
+<td><code>∕</code> (U+2215)</td>
+<td><strong>Division</strong>. Returns the quotient of numeric operands. Can be <a href="../phrases/operators.html#binary_operators">overridden</a>.</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td></td>
+<td></td>
+<td><strong>Addition</strong>. Returns the sum of numeric operands. Can be <a href="../phrases/operators.html#binary_operators">overridden</a>.</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td><code>−</code> (U+2212)</td>
+<td></td>
+<td><strong>Subtraction</strong>. Returns the difference of numeric operands. Can be <a href="../phrases/operators.html#binary_operators">overridden</a>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Comparison Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td></td>
+<td><strong>Equals</strong>. Returns <code>true</code> if operands are equal, or <code>false</code> otherwise. Equality check algorithm can be <a href="../phrases/operators.html#comparison_operators">customized</a>.</td>
+</tr>
+<tr>
+<td><code>&lt;&gt;</code></td>
+<td><code>≠</code> (U+2260)</td>
+<td><strong>Not equals</strong>. Returns <code>false</code> if operands are not equal, or <code>false</code> otherwise. Can be customized together with <code>==</code> operator.</td>
+</tr>
+<tr>
+<td><code>&lt;=&gt;</code></td>
+<td></td>
+<td><strong>Compare</strong>. Compares operands. The result of comparison may have arbitrary type. Comparison algorithm can be <a href="../phrases/operators.html#comparison_operators">customized</a>.</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td></td>
+<td><strong>Greater than</strong>. Returns <code>true</code> if the left operand is greater than the right one, or <code>false</code> otherwise. Can be customized together with <code>&lt;=&gt;</code> operator.</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>≥</code> (U+2265)</td>
+<td><strong>Greater than or equal to</strong>. Returns <code>true</code> if the left operand is greater than or equal to the right one, or <code>false</code> otherwise. Can be customized together with <code>&lt;=&gt;</code> operator.</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td></td>
+<td><strong>Less than</strong>. Returns <code>true</code> if the left operand is less than the right one, or <code>false</code> otherwise. Can be customized together with <code>&lt;=&gt;</code> operator.</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>≤</code> (U+2264)</td>
+<td><strong>Less than or equal to</strong>. Returns <code>true</code> if the left operand is less than or equal to the right one, or <code>false</code> otherwise. Can be customized together with <code>&lt;=&gt;</code> operator.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Special Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~</code></td>
+<td><strong>Suffix</strong>. A special operator capable of representing things such as quantities, like <code>3~minutes</code>. Can be <a href="../phrases/operators.html#suffix_operator">customized</a>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>Note, that the right operand should be at the same line with the left operand
+and operator sign. The following code will raise a compile time error:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>1 +  ~~ Right operand expected here.
+2
+</pre></div>
+</td></tr></table>
+
+<p>While the following code will not be interpreted as a binary operator:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>1    ~~ First statement.
++ 2  ~~ Second statement.
+</pre></div>
+</td></tr></table>
+
+<p>An <a href="../syntax/underscore.html">underscore</a> should be used to place the
+binary operator on multiple lines:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Place an underscore on the next line (__recommended practice__).
+1 +
+_2
+
+~~ Place an underscore before the sign.
+1
+_+ 2
+</pre></div>
+</td></tr></table>
+
+</blockquote>
+<h2 id="operators_precedence">Operators Precedence</h2>
+<p>Binary operators has lower precedence, than <a href="unary.html">unary operators</a> and
+<a href="references.html">reference</a> qualifiers.</p>
+<table>
+<thead>
+<tr>
+<th>Precedence</th>
+<th>Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>*</code>, <code>×</code>, <code>⋅</code>, <code>/</code>, <code>÷</code>, <code>∕</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>+</code>, <code>-</code>, <code>−</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>&lt;=&gt;</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>==</code>, <code>&lt;&gt;</code>, <code>≠</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>≥</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>≤</code></td>
+</tr>
+</tbody>
+</table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="">
+      <a href="../expressions/references.html">References</a>
+  </li>
+  
+  <li class="">
+      <a href="../expressions/unary.html">Unary Operators</a>
+  </li>
+  
+  <li class="active">
+      <a href="../expressions/binary.html">Binary Operators</a>
+  </li>
+  
+  </ul>
+    </li>
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » o42a-0.2.3 Release Notes</title>
+
+  <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../docs/intro/features.html">
+                Features
+              </a>
+            </li>
+            <li >
+              <a href="../docs/index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Releases</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="o42a-023_release_notes">o42a-0.2.3 Release Notes</h1>
+<h2 id="stateless_values">Stateless Values</h2>
+<p>Object values are now stateless by default. A stateless value is not cached in
+the object like before. Instead, it is evaluated on each request, like the
+object is a function without arguments.</p>
+<p>Some value types are stateful however. Namely variables and mutable arrays (not
+rows). These values evaluated at most once and then stored inside objects. The
+subsequent value requests will return the same value. In case of variable, the
+value can be reassigned, but will never be re-evaluated.</p>
+<h2 id="no_more_getters">No More Getters</h2>
+<p>Getters are gone. They are not needed any more. Links became stateless ant act
+exactly like getters before. A custom assignment can be applied to any link now.</p>
+<h2 id="the_keep_value_operator">The 'Keep Value' Operator</h2>
+<p>It is possible to evaluate the value once and to use it multiple times after
+that with a <em>keep value</em> operator:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>Left := //a
+Right := //b
+Print [left] &#39; + &#39; [right] &#39; = &#39; [left + right] nl
+</pre></div>
+</td></tr></table>
+
+<p>Note that each of the operands is evaluated only once, which can be really
+useful if their value evaluation algorithms are heavy-weight, has side effects,
+or non-deterministic.</p>
+<h2 id="the_value_of_operator">The 'Value Of' Operator</h2>
+<p>A new <em>value of</em> operator extracts the value of an object. It is a convenience
+expression, which makes it possible to write</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>/(a + b)
+</pre></div>
+</td></tr></table>
+
+<p>instead of</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Integer (= a + b)
+</pre></div>
+</td></tr></table>
+
+<h2 id="runtime_license_change">Runtime License Change</h2>
+<p>The language run-time libraries are licensed under the terms of LGPLv3 or later
+now. This allows to develop the proprietary programs in o42a.</p>
+  </div>
+  <div class="span3 well">
+    
+
+<ul class="nav nav-list">
+  <li >
+      <a href="0.2.6.html">Release 0.2.6</a>
+  </li>
+  <li class="nav-header">
+    Older releases
+  </li>
+  <li>
+    <ul class="nav nav-list">
+      <li >
+      <a href="0.2.5.html">Release 0.2.5</a>
+  </li>
+      <li >
+      <a href="0.2.4.html">Release 0.2.4</a>
+  </li>
+      <li class="active">
+      <a href="0.2.3.html">Release 0.2.3</a>
+  </li>
+      <li >
+      <a href="0.2.2.html">Release 0.2.2</a>
+  </li>
+      <li >
+      <a href="0.2.1.html">Release 0.2.1</a>
+  </li>
+      <li >
+      <a href="0.2.0.html">Release 0.2.0</a>
+  </li>
+    </ul>
+  </li>
+  <li class="nav-header">
+     0.1.x releases
+  </li>
+    <ul class="nav nav-list">
+      <li >
+      <a href="0.1.8.html">Release 0.1.8</a>
+  </li>
+      <li >
+      <a href="0.1.7.html">Release 0.1.7</a>
+  </li>
+      <li >
+      <a href="0.1.6.html">Release 0.1.6</a>
+  </li>
+      <li >
+      <a href="0.1.5.html">Release 0.1.5</a>
+  </li>
+      <li >
+      <a href="0.1.4.html">Release 0.1.4</a>
+  </li>
+      <li >
+      <a href="0.1.3.html">Release 0.1.3</a>
+  </li>
+      <li >
+      <a href="0.1.2.html">Release 0.1.2</a>
+  </li>
+      <li >
+      <a href="0.1.1.html">Release 0.1.1</a>
+  </li>
+      <li >
+      <a href="0.1.0.html">Release 0.1.0</a>
+  </li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

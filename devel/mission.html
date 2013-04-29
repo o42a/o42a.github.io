@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Mission Statement</title>
+
+  <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../docs/intro/features.html">
+                Features
+              </a>
+            </li>
+            <li >
+              <a href="../docs/index.html">
+                Documentation
+              </a>
+            </li>
+            <li class="active">
+              <a href="index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Development</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="mission_statement">Mission Statement</h1>
+<p>Consider programming as formalizing some logic, or just your thoughts, in the
+form the machine can operate with.</p>
+<p><strong>The mission of this project is to create a better tool of thoughts
+formalization.</strong></p>
+<p>What means "better"?</p>
+<ul>
+<li>
+<p><strong>Let programmer operate with a high level entities, which are natural for
+    human understanding</strong>.</p>
+<p>A low-level machine-dependent entities are not natural for human mind.
+They require programmer to "compile" his thoughts into a lower-level
+semantics and thus distract him from actual task.</p>
+</li>
+<li>
+<p><strong>Limit the number of entity kinds</strong>.</p>
+<p>Too many options to select from is another example of distraction.</p>
+</li>
+<li>
+<p><strong>Reduce the boilerplate</strong>.</p>
+<p>The most annoying thing is to write the same statements again and again,
+especially when it's unavoidable, like writing declarations.</p>
+</li>
+<li>
+<p><strong>Let others read your code easily</strong>.</p>
+<p>In fact, the code you write is for you and other developers in your team.
+This code should be readable and easy to understand.</p>
+</li>
+<li>
+<p><strong>Computing performance is important</strong>.</p>
+<p>But is less important than development performance though. Often, it is
+cheaper to buy more computing power than to optimize the code. Also, more
+development means more time. And time is priceless.</p>
+<p>But. It is better to have computing performance than not. An idea is to let
+the compiler to perform optimizations instead of requiring programmer
+to doing it.</p>
+</li>
+</ul>
+<p><strong>It's all about development costs actually.</strong></p>
+<ul>
+<li>
+<p>High-level <strong>development is faster</strong> than a low-level one.</p>
+<p>Less time wasted, less money spent.</p>
+</li>
+<li>
+<p>High-level code is shorter and contains <strong>less bugs</strong>.</p>
+<p>Less support costs. Less user complaints.</p>
+</li>
+<li>
+<p>High-level code is generally <strong>more extensible</strong>.</p>
+<p>More features faster and cheaper.</p>
+</li>
+<li>
+<p>High-level code contains <strong>less or no security flaws</strong>.</p>
+<p>In fact, we should blame the low-level programming languages for the
+majority of the critical security vulnerabilities leading to arbitrary code
+execution.</p>
+</li>
+</ul>
+<p>Critics of high-level programming often pointing out the worse computing
+performance. But the proper high-level semantics allows the wider range of
+automated optimization techniques. In fact, we can talk about code normalization
+instead of optimization hacks in this case. Manual code optimization (except for
+algorithms optimization) is a routine task. Why not let the compiler to do it
+for us? Why wasting the developer's time on the manual work instead of
+automating it?</p>
+<p>And the last. Some high-level languages are not easy to learn and use, as they
+rely on the knowledge of some aspects of mathematics, such as predicate logic or
+lambda calculus. They may also apply a strong limitations, such as an absence of
+state or i/o side effects, which is impractical in too many situations.
+<strong>The general principle of this project is to stay pragmatic.</strong> The programming
+language should be easy to learn and use.</p>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+      <li class="active">
+        <a href="mission.html">Mission Statement</a>
+      </li>
+      <li >
+        <a href="index.html">Development Status</a>
+      </li>
+      <li>
+        <a href="../releases/index.html">Releases</a>
+      </li>
+      <li>
+        <a href="https://bitbucket.org/o42a/o42a/issues?status=new&status=open">
+          Issue Tracker
+        </a>
+    </li>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

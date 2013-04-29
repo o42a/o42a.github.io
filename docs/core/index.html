@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » Core Objects</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../intro/features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li class="active">
+              Core Objects
+              
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="core_objects">Core Objects</h1>
+<!--
+Copyright (C) 2010-2013 Ruslan Lopatin.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+-->
+
+<p>There are several objects available to any program.</p>
+<h2 id="module">Module</h2>
+<p>This is an object representing your program. The file passed as an argument to
+the <a href="../sources/o42ac.html">compiler</a> contains the module definition.
+Therefore, the module object contains all other objects and definitions of your
+program.</p>
+<p>Module object inherits <a href="#void">void</a> by default. But this can be changed in the
+<a href="../sources/file.html#title">title</a>.</p>
+<h2 id="void">Void</h2>
+<p>This is a representation of <em>void</em> type. <strong>Every</strong> other object inherits <code>void</code>.</p>
+<h2 id="false">False</h2>
+<p>This is an object of type <em>void</em>, which <a href="../objects/value.html">value</a> is
+always <code>false</code>. Its value is <a href="../sentences/claim.html">claimed</a> and can not
+be overridden by descendants.</p>
+<h2 id="root">Root</h2>
+<p>The <em>root</em> object contains language intrinsics. These are directives, basic
+types, and other objects available to any program.</p>
+<p>Also, the <em>root</em> is a last resort of the name lookup. This means that if some
+name can't be found in the object hierarchy of the program, it will be searched
+for in the <em>root</em>.</p>
+<p>Here are some of the objects nested inside the <em>root</em> as its fields:</p>
+<h3 id="basic_types">Basic Types</h3>
+<p>Every basic type is represented by a built-in object, accessible as a field of root:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Float</code></td>
+<td>64-bit floating point number</td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td>64-bit integer</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td>Unicode string</td>
+</tr>
+<tr>
+<td><code>Link</code></td>
+<td>Immutable link to another object</td>
+</tr>
+<tr>
+<td><code>Variable</code></td>
+<td>A link to another object, which can be modified at run time</td>
+</tr>
+<tr>
+<td><code>Array</code></td>
+<td>Array, which elements could be modified at run time</td>
+</tr>
+<tr>
+<td><code>Row</code></td>
+<td>Immutable array</td>
+</tr>
+<tr>
+<td><code>Directive</code></td>
+<td>A prototype of every directive</td>
+</tr>
+<tr>
+<td><code>Macro</code></td>
+<td>A prototype of every macro</td>
+</tr>
+</tbody>
+</table>
+<h3 id="directives">Directives</h3>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Use namespace</code></td>
+<td>Makes the members of another module or object available in the file this directive appears in.</td>
+</tr>
+<tr>
+<td><code>Use object</code></td>
+<td>Makes another object or module available in the file this directive appears in, and optionally declares an alias for it.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="other_modules">Other Modules</h2>
+<p>Modules can be reused in your program. <code>Use namespace</code> and <code>Use object</code>
+directives exist for that.</p>
+<p>For example, the following code:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Use module &#39;Console&#39;
+</pre></div>
+</td></tr></table>
+
+<p>makes all public members of <code>Console</code> module available in the current file.</p>
+<p>And this code:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Use object _ from &#39;Console&#39; as &#39;con&#39;
+</pre></div>
+</td></tr></table>
+
+<p>creates an alias <code>con</code> for module <code>Console</code> visible in the current file. You can
+access the fields of <code>Console</code> by the code like this:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>Con: main
+Con: print
+</pre></div>
+</td></tr></table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class="active nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="">
+      <a href="../core/links.html">Links</a>
+  </li>
+  
+  <li class="">
+      <a href="../core/variables.html">Variables</a>
+  </li>
+  
+  <li class="">
+      <a href="../core/arrays.html">Arrays</a>
+  </li>
+  
+  <li class="">
+      <a href="../core/macros.html">Macros</a>
+  </li>
+  
+  <li class="">
+      <a href="../core/type_parameters.html">Type Parameters</a>
+  </li>
+  
+  </ul>
+    </li>
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>

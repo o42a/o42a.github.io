@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>o42a » File Structure</title>
+
+  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
+
+  
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20313524-1']);
+    _gaq.push(['_setDomainName', 'o42a.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  <script type="text/javascript">
+    var root_path = "../../";
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button
+            id="magic-btn"
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="pull-right">
+          <a
+              class="brand"
+              href="../../index.html">
+            o42a Programming Language
+          </a>
+        </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li >
+              <a href="../intro/features.html">
+                Features
+              </a>
+            </li>
+            <li class="active">
+              <a href="../index.html">
+                Documentation
+              </a>
+            </li>
+            <li >
+              <a href="../../devel/index.html">
+                Development
+              </a>
+            </li>
+            <li >
+              <a href="../../downloads.html">
+                Downloads
+              </a>
+            </li>
+            <li>
+              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+            <li>
+              <a href="../../index.html">o42a</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../index.html">Documentation</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="./index.html">Source Files</a>
+              <span class="divider">/</span>
+            </li>
+      </ul>
+    </div>
+  
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="file_structure">File Structure</h1>
+<!--
+Copyright (C) 2010-2013 Ruslan Lopatin.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+-->
+
+<p>By default, the source file declares either module or new public object
+<a href="../objects/fields.html">field</a>, which inherits <code>void</code>.</p>
+<p>But it is possible to inherit any object and specify samples. Also, a non-module
+file may declare an <a href="../objects/adapters.html">adapter</a>,
+<a href="../core/links.html">link</a>, or <a href="../core/variables.html">variable</a>, specify the
+field visibility and override the enclosing object's field or adapter.</p>
+<p>All of this can be specified in a file title.</p>
+<h2 id="title">Title</h2>
+<p>The title is a line consisting of three or more <em>equals signs</em> (<strong><code>===</code></strong>)
+optionally preceded by the field declaration.</p>
+<p>A field declaration in the title can declare or override any field including
+adapter, link, or variable. The field definition in title can only contain
+ancestor reference, <a href="../objects/samples.html#ascendants_expression">ascendants</a>,
+or type parameters. It should not contain any other expressions, because an
+actual field definition is the rest of the file.</p>
+<p>Here is an example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>::Sum :=&gt; integer
+=================
+~~~
+Declares a protected prototype, calculating the sum of two integers.
+~~~
+
+Left operand :=&lt; `integer      ~~ It&#39;s not necessary to declare simple fields
+Right operand :=&lt; `integer     ~~ in separate files, so declare them here.
+
+= Left operand + right operand ~~ Calculate the sum.
+</pre></div>
+</td></tr></table>
+
+<p>The module file can also have a title. In this case the field declaration
+statement should declare a public pseudo-field with the same name as module
+(i.e. the same name as file). This field should be an object (not link or
+variable), should not be a prototype or abstract field and can't be an adapter.</p>
+<h2 id="header">Header</h2>
+<p>The title may refer an objects from another modules. To make it possible, the
+source file may contain a header section with a necessary import directives.
+These directives work globally for the whole file.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>Use namespace &#39;Test&#39; ~~ Import the `test` module name space.
+
+My test := test
+===============
+~~~
+`My test` inherits the `test` object from `test` module.
+~~~
+
+~~ `Assert` is also declared in &#39;test&#39; module and is imported by the header.
+Assert [my condition] &quot;My condition failed&quot;
+</pre></div>
+</td></tr></table>
+
+<p>The header can only contain directives not producing any declarations, values or
+executable logic. This could be a <code>Use namespace</code> and <code>Use object</code> directives
+for example.</p>
+<h2 id="type_definition">Type Definition</h2>
+<p>The title can not contain an ordinal
+<a href="../core/type_parameters.html#type%20definition">type definition</a>. Instead, a type
+definition can be specified right after the title, and separated from the rest
+of the object definition with line consisting of three or more hash signs
+(<strong><code>###</code></strong>):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre>Map :=&gt; void
+============
+~~~
+A key/value map interface.
+~~~
+Key type := void   ~~ Key type parameter.
+Value type := void ~~ Value type parameter.
+############
+Get :=&gt; link (`#value type) (
+  ~~~
+  Returns a value by its key.
+  ~~~
+  Key :=&lt; link (`#key type)  ~~ A key of the value to find.
+)
+</pre></div>
+</td></tr></table>
+  </div>
+  <div class="span3 well">
+    <ul class="nav nav-list">
+  <li class=" nav-header">
+      <a href="../intro/index.html">Introduction</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../syntax/index.html">Basic Syntax</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../objects/index.html">Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../expressions/index.html">Expressions</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sentences/index.html">Sentences</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../phrases/index.html">Phrases</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../core/index.html">Core Objects</a>
+  </li>
+  
+  <li class=" nav-header">
+      <a href="../sources/index.html">Source Files</a>
+  </li>
+  <li>
+      <ul class="nav nav-list">
+  <li class="active">
+      <a href="../sources/file.html">File Structure</a>
+  </li>
+  
+  <li class="">
+      <a href="../sources/naming.html">Naming Conventions</a>
+  </li>
+  
+  <li class="">
+      <a href="../sources/inclusion.html">File Inclusion</a>
+  </li>
+  
+  <li class="">
+      <a href="../sources/o42ac.html">o42ac: an o42a Compiler</a>
+  </li>
+  
+  </ul>
+    </li>
+  </ul>
+  </div>
+</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <p>
+        Powered by <a href="http://markdoc.org/">Markdoc</a>
+      </p>
+      <ul class="footer-links">
+        <li>
+          <a href="../../imprint.html">Imprint</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script type="application/javascript" src="../../media/js/jquery.js"></script>
+  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+  
+</body>
+</html>
