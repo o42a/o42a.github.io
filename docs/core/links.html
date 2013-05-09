@@ -7,7 +7,7 @@
   <title>o42a » Links</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -116,44 +114,40 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>The link allows to use another object as value. An object the link is linked to
-is called a <em>link target</em>.</p>
-<p>The link can be declared as an <a href="../objects/fields.html">object field</a> with
-special syntax:</p>
+<p>A link is an object, which value is reference to another object. An object the
+link is linked to is called a <em>link target</em>.</p>
+<p>The simplest way to create a link is by using a link unary operator:</p>
 <blockquote>
-<p><code>&lt;field&gt; [':'] '=' ['&lt;'] [&lt;prefix&gt;] &lt;target&gt;</code></p>
+<p><code>'`' &lt;target&gt;</code></p>
+</blockquote>
+<p>The more advanced syntax utilizes the <a href="type_parameters.html#type_arguments">type arguments</a>:</p>
+<blockquote>
+<p><code>&lt;interface&gt; '`' 'link' '[=' &lt;target&gt; ']'</code></p>
+</blockquote>
+<p>or, when declaring a link field:</p>
+<blockquote>
+<p><code>&lt;field&gt; [':'] {'='|'=&gt;'|'=&lt;'|'=&lt;&gt;'} &lt;interface&gt; '`' 'link' '=' &lt;target&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;field&gt;</code> is a left part of either
   <a href="../objects/fields.html#field_declaration">field</a>
   or <a href="../objects/adapters.html#adapter_declaration">adapter</a> declaration;</li>
-<li><code>&lt;target&gt;</code> is a link target expression, which can be either reference to an
-  object, or any other expression evaluating to an object;</li>
-<li>
-<p><code>&lt;prefix&gt;</code> has the following syntax:</p>
-<blockquote>
-<p><code>{'`' | '(' '`' &lt;type&gt; ')'}</code></p>
-</blockquote>
-<p>where <code>&lt;type&gt;</code> is a <a href="#link_interface">link interface</a> reference. <code>&lt;prefix&gt;</code>
-is mandatory when declaring a new link. It can be omitted when overriding a
-link field.</p>
-</li>
+<li><code>&lt;target&gt;</code> is a <a href="#link_target">link target</a> expression;</li>
+<li><code>&lt;interface&gt;</code> is a <a href="#link_interface">link interface</a> reference.</li>
 </ul>
-<p>Note that the link can not be declared as prototype this way. So, the <strong><code>=&gt;</code></strong>
-and <strong><code>=&lt;&gt;</code></strong> tokens are prohibited here.</p>
 <h2 id="link_interface">Link Interface</h2>
-<p>A link target is not known until the link evaluated, which might only happen at
-run time. So, in general case, the link target is not known to the compiler. But
-compiler knows the basic type of the target, i.e. an object, the link target is
-derived from. This type is called a <em>link interface</em>.</p>
+<p>A link target is not known until the link is evaluated, which might only happen
+at run time. So, in general case, the link target is not known to the compiler.
+But compiler knows the basic type of the target, i.e. an object, the link target
+is derived from. This type is called a <em>link interface</em>.</p>
 <p>The link interface can be specified explicitly:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := (`integer) bar
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := integer` link = bar
 </pre></div>
 </td></tr></table>
 
-<p>In this case the link target should be compatible with interface (i.e. <code>bar</code>
-should be derived from <code>integer</code>).</p>
+<p>In this case the link target should be compatible with its interface (i.e. the
+<code>bar</code> should be derived from <code>integer</code>).</p>
 <p>Also, the link interface can be determined automatically:</p>
 <ul>
 <li>When the link target expression is a reference to an object, the link
@@ -162,55 +156,41 @@ should be derived from <code>integer</code>).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre>Target := &quot;Target value&quot;
-Foo := `target          ~~ Link interface is `target`.
-Bar := (`target) target ~~ The same as above.
+Foo := `target               ~~ Link interface is `target`.
+Bar := target` link = target ~~ The same as above.
 </pre></div>
 </td></tr></table>
 
 <ul>
-<li>When the link target expression is a reference to another link, the link
-  interface is the same as the one of the targeted link:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Target := (`string) &quot;Target value&quot;
-Foo := `target          ~~ Link interface is `string`.
-Bar := (`string) target ~~ The same as above.
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>In all other cases the link interface is an ancestor of the target expression
+<li>Otherwise, the link interface is an ancestor of the target expression
   result:</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Link 1 := `&quot;Target value&quot; ~~ Link interface is `string`.
-Link 2 := `2 + 3          ~~ Link interface is `integer`.
-Link 3 := `foo (          ~~ Link interface is `foo`.
+5</pre></div></td><td class="code"><div class="codehilite"><pre>Link 1 := `&quot;Target value&quot; ~~ Link interface is `string`.
+Link 2 := `foo (          ~~ Link interface is `foo`.
   Bar = 2
 )
-Link 4 := `foo &amp; bar      ~~ Link interface is `foo`.
+Link 3 := `foo &amp; bar      ~~ Link interface is `foo`.
 </pre></div>
 </td></tr></table>
 
-<h2 id="link_usage">Link Usage</h2>
-<p>A link provides transparent access to it's target object. So, the link reference
-refers to the link target in fact. But, because the link target is only known at
-run time, the following limitations apply:</p>
+<h2 id="link_target">Link Target</h2>
+<p>Because the link target is only known at run time, the following limitations
+apply it:</p>
 <ul>
-<li>the link target can not be used as a <a href="../objects/samples.html">sample</a>;</li>
+<li>the link target can not be used as <a href="../objects/samples.html">sample</a>;</li>
 <li>when the link target is used as
   <a href="../objects/creation.html#constructor_expression">ancestor</a>, the
   restrictions applied to the constructed object:<ul>
 <li>the constructed object can not have any
   <a href="../objects/samples.html">samples</a>;</li>
-<li>the nested field's ancestor can not be
+<li>the constructed object's <a href="type_parameters.html">type parameters</a> can not
+  be altered;</li>
+<li>the nested fields` ancestors can not be
   <a href="../objects/propagation.html#ancestor_upgrade">upgraded</a>;</li>
-<li>the nested link interface type can not be altered;</li>
 <li>all of these restrictions apply to the nested fields.</li>
 </ul>
 </li>
@@ -219,8 +199,8 @@ run time, the following limitations apply:</p>
 <a href="../expressions/unary.html#keep_value">keep value</a> operator can be used to
 evaluate it once.</p>
 <h2 id="link_propagation">Link Propagation</h2>
-<p>As any other field, a link is <a href="../objects/propagation.html">propagated</a> to
-the derived object.</p>
+<p>As any other field, a one link is <a href="../objects/propagation.html">propagated</a>
+to the derived object.</p>
 <p>The link's interface and target are expressions, so their evaluation in the
 scope of the derived object may result to a another objects. So, in the
 following code.</p>
@@ -261,7 +241,7 @@ reference is valid and results to a <code>"baz"</code> string.</p>
 11
 12
 13</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
-  Link := (`integer) 1
+  Link := integer` link = 1
 )
 B1 := a (
   Foo := 1
@@ -282,9 +262,9 @@ C := a &amp; b1 &amp; b2 ~~ **Conflict**: `c: link` interface should be derived
 <h2 id="link_override">Link Override</h2>
 <p>A link override provides another target expression to the link. Another link
 interface expression can also be provided (but see the
-<a href="#link_usage">Link Usage</a>).</p>
-<p>A new link target should be compatible with (i.e. derived from) both the new and
-the old link interfaces.</p>
+<a href="#link_target">link target</a> usage limitations).</p>
+<p>A new link target should be compatible with (i.e. derived from) both new and old
+link interfaces.</p>
 <p>A new link interface should be compatible with an old one, i.e. it should be
 derived from it.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -304,7 +284,9 @@ derived from it.</p>
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre>Target := integer (
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre>Target := integer (
   Foo := 1
   = 1
 )
@@ -312,11 +294,13 @@ A := void (
   Link := `target
 )
 B := a (
-  Link = (`integer) target ~~ **Error**: `integer` is not derived from `target`.
+  Link = integer` link = target
+  ~~ **Error**: `integer` is not derived from `target`.
 )
 C := a (
   Foo := target
-  Link = (`target) foo ~~ Interface remains the same, while the target is changed.
+  Link = target` link = foo
+  ~~ Interface remains the same, while the target is changed.
 )
 D := a (
   Foo := target
@@ -325,8 +309,8 @@ D := a (
 </pre></div>
 </td></tr></table>
 
-<p>If the backquote omitted in the link overrider, the link interface remains
-unchanged:</p>
+<p>If the backquote omitted in the link overrider, and a new link interface not
+specified explicitly, the link interface remains unchanged:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -352,22 +336,38 @@ B := a (
 </td></tr></table>
 
 <h2 id="link_object">Link Object</h2>
-<p>Every link is an object inherited from <code>Link</code> and is treated specially by o42a
-compiler. When referring such object, it is automatically dereferenced and it's
-target gets addressed instead of the object itself.</p>
-<p>The link can be created with an
-<a href="../objects/creation.html">object creation expression</a>. The link interface
-can be specified as a type parameter:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Declare the link object.
-~~ Link interface is `integer`.
-Lnk := link (`integer) (
+<p>Every link is an object inherited from the <code>Link</code> prototype, and is treated
+specially by o42a compiler. It allows the transparent access to the link target
+by dereferencing the link when necessary:</p>
+<ul>
+<li>When a link member is referenced, the member is first searched for in the link
+  object itself, and if not found, then it is searched for in the link target.</li>
+<li>When converting a link to another type, an attempt to convert the link object
+  itself is performed (e.g. by searching for appropriate adapter), and if
+  failed - the link target is converted.</li>
+<li>When interpreting the phrase with prefix resolving to a link, the clause
+  corresponding to the first phrase part is first searched for in the link
+  object itself, and if not found - in the link target.</li>
+</ul>
+<p>The link can be created with an object
+<a href="../objects/creation.html#constructor_expression">constructor expression</a>.
+The link interface can be specified as type argument:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre>Lnk := integer` link (
+  ~~~
+  Declare the link object.
+  Link interface is `integer`.
+  ~~~
+
   = 2 ~~ The plain value `2` is converted to the link automatically.
 )
 
@@ -380,78 +380,16 @@ Sum := 40 + lnk ~~ Equals to `42`, as `lnk` is automatically dereferenced
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>Link (`string) &quot;string&quot;
-Link (`string) [&quot;string&quot;] ~~ The same as above
-Link (`string) (          ~~ Canonical form
+4</pre></div></td><td class="code"><div class="codehilite"><pre>String` link [= &quot;string&quot;]
+String` link (            ~~ Canonical form
   = &quot;string&quot;
 )
 </pre></div>
 </td></tr></table>
 
-<h3 id="link_body_reference">Link Body Reference</h3>
-<p>Sometimes it is required to refer the link object itself instead of its target.
-E.g. to inherit it. A body reference syntax can be used for that:</p>
-<blockquote>
-<p><code>&lt;link&gt; '`'</code></p>
-</blockquote>
-<p>This also allows to access the link object's fields:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre>File name :=&gt; link (`string) (
-  Name :=&lt; `string
-  Suffix :=&lt; `string
-  = name + &quot;.&quot; + suffix
-)
-
-Shell file := file name` (
-  Name = &quot;run&quot;
-  Suffix = &quot;sh&quot;
-)
-
-Shell file         ~~ &quot;run.sh&quot;
-Shell file` name   ~~ &quot;run&quot;
-Shell file` suffix ~~ &quot;sh&quot;
-</pre></div>
-</td></tr></table>
-
 <h3 id="link_dereferencing">Link Dereferencing</h3>
-<p>As mentioned above, the link is automatically dereferenced whenever accessed,
-unless a <a href="#link_body_reference">link body reference</a> used. There are exceptions
-though. The link won't be automatically dereferenced in the following cases:</p>
-<ul>
-<li>a <a href="#link_object">type parameter</a> specified after the link reference;</li>
-<li>the link reference is used as a type parameter - only an object known at
-  compile time can be used as a type, so this can't be a link target, which is
-  known at run time only;</li>
-<li>the link reference is used as a sample in
-  <a href="../objects/samples.html#ascendants_expression">scendants expression</a> -
-  by the same reason;</li>
-<li>the link reference is used as an
-  <a href="../objects/adapters.html">adapter identifier</a> - by the same reason;</li>
-<li>the link reference is used as a 
-  <a href="variables.html#variable_assignment">variable assignment</a> target - body
-  reference is just redundant here;</li>
-<li>when the link's <a href="macros.html#macro_field_expansion">macro field expanded</a>;</li>
-<li>when the phrase prefix is a link body reference (either
-  <a href="#link_body_reference">explicitly</a>, or by one of the reasons above), then the
-  phrase won't be automatically dereferenced - otherwise the link field
-  declarations would be impossible without a
-  <a href="#link_body_reference">link body reference</a> at the end.</li>
-</ul>
-<p>If the link target is still required in the above situations, an explicit link
-dereference expression can be used:</p>
+<p>As mentioned above, the link is automatically dereferenced when required. But
+this can be done explicitly, with a link dereference expression:</p>
 <blockquote>
 <p><code>&lt;link&gt; '-&gt;'</code></p>
 </blockquote>
@@ -465,66 +403,58 @@ dereference expression can be used:</p>
  7
  8
  9
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Array of links
-Link array := array (`link (`string)) [[
-  link (`string) &quot;a&quot;
-  link (`string) &quot;b&quot;
-  link (`string) &quot;c&quot;
+10</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Array of links
+Link array := string` link` array [[
+  string` link [= &quot;a&quot;]
+  string` link [= &quot;b&quot;]
+  string` link [= &quot;c&quot;]
 ]]
-Link array [1]    ~~ Refers to the second element&#39;s body.
-Link array [1] -&gt; ~~ Refers to the second element&#39;s target string `&quot;b&quot;`.
-
-~~ Custom link implementation
-File name :=&gt; link (`string) (
-  Name :=&lt; `string
-  Suffix :=&lt; `string
-  = name + &quot;.&quot; + suffix
-)
-
-File name` (Name = &quot;run&quot;; suffix = &quot;sh&quot;) -&gt; name ~~ Explicit dereferencing
-                                                 ~~ is required here.
+Link array [1]     ~~ Refers the second element.
+Link array [1]-&gt;   ~~ Refers the second element&#39;s link.
+Link array [1]-&gt;-&gt; ~~ Refers the target string of the second element&#39;s link
+                   ~~ (`&quot;b&quot;`).
 </pre></div>
 </td></tr></table>
 
 <h2 id="adapter_links">Adapter Links</h2>
 <p>Any <a href="../objects/adapters.html">adapter</a> can be declared as link. In contrast
-to a plain adapter objects, the adapter link objects does not derive the
+to plain adapter object, the adapter link object does not derive the
 adapter's identifier. Instead, it is required that the link interface to be
 derived from the adapter's interface. The link target will be used as an adapter
 instead of a link object itself.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; void (
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; void (
   Value :=&lt; `integer
   @String := `value @@string ~~ String representation of `int`.
 )
 
-Forty two := int (Value = 42)                ~~ String representation of `42`.
-Forty two := int (Value = 42) @@string       ~~ The same as above.
-Forty two := (int (Value = 42) @@string)` -&gt; ~~ The fully explicit version.
+Forty two := string (= Int (Value = 42))  ~~ String representation of `42`.
+Forty two := string (
+  = Int (Value = 42) @@string             ~~ Same as above.
+)
+Forty two := string (
+  = (Int (Value = 42) @@string)-&gt;         ~~ Fully explicit version.
+)
 </pre></div>
 </td></tr></table>
 
 <h2 id="links_to_other_links">Links To Other Links</h2>
-<p>A links to other links are supported:</p>
+<p>Links to other links are supported:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre>Integer link := `1
-Link to integer link := `link`
-Link to link to integer link := link (`link (`link (`integer))) (= Link to integer`)
+Link to integer link := `integer link
+Link to link to integer link := integer` link` link` link = Link to integer link
 </pre></div>
 </td></tr></table>
 
@@ -534,29 +464,29 @@ limitations applied.</p>
 <p>The second-level link is never dereferenced automatically. It should be
 dereferenced explicitly. Given the definitions above:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Link to integer   ~~ Results to `integer link` body.
-Link to integer-&gt; ~~ Results to `1`.
+2</pre></div></td><td class="code"><div class="codehilite"><pre>Integer (= Link to integer link)   ~~ Error. Can not dereference a deeper link.
+Integer (= Link to integer link-&gt;) ~~ Results to `1`.
 </pre></div>
 </td></tr></table>
 
 <p>The values can not be automatically converted to the deep links. The
-one-less-depth link can be converted to the deeper link however.</p>
+one-less-depth link can be converted to a deeper link however.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Link (`link (`integer)) (= 1)                     ~~ Error.
-Link (`link (`integer)) (= Link (`integer) (= 1)) ~~ Correct.
+2</pre></div></td><td class="code"><div class="codehilite"><pre>Integer `link` link [= 1]                   ~~ Error.
+Integer `link` link [= integer` link [= 1]] ~~ Correct.
 </pre></div>
 </td></tr></table>
 
 <h2 id="custom_assignment">Custom Assignment</h2>
-<p>A new values can be assigned only to
-<a href="variables.html#variable%20assignment">variables</a>.</p>
-<p>But the value assignment statement can be applied to a link also. Such statement
-is interpreted as a <a href="../phrases/index.html">phrase</a>.</p>
-<p>The value assignment rule can be declared similarly to a
+<p>New values can be assigned only to
+<a href="variables.html#variable%20assignment">variables</a>. But the value assignment
+statement can be applied to a link also. Such statement is interpreted as
+<a href="../phrases/index.html">phrase</a>.</p>
+<p>The value assignment clause can be declared similarly to the
 <a href="../phrases/operators.html#binary_operators">binary operators</a> override. The
 <a href="../phrases/clauses#clause_identifier">clause identifier</a> should be an
 assignment statement (<code>=</code>).</p>
-<p>With a custom assignment rule the link becomes a <a href="http://wikipedia.org/wiki/Property_(programming)">property</a>:</p>
+<p>With custom assignment clause declared the link becomes a <a href="http://wikipedia.org/wiki/Property_(programming)">property</a>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -587,7 +517,7 @@ assignment statement (<code>=</code>).</p>
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre>Property := link (`integer) (
+31</pre></div></td><td class="code"><div class="codehilite"><pre>Property := integer` link (
   Value := ``0 ~~ The property value is kept here. The initial value is `0`.
   = Value
 
@@ -608,15 +538,15 @@ assignment statement (<code>=</code>).</p>
     It assigns a new value with &lt;set&gt; prototype.
     ~~~
 
-    &lt;New value = *&gt; New value = ()
+    &lt;New value = *&gt; New value = *
   )
 )
 
 {
-  Property            ~~ Returns `0`
-  Property` value     ~~ The same as above
+  Property-&gt;          ~~ Returns `0`.
+  Property: value-&gt;   ~~ The same as above.
   Property = 2        ~~ Assigns a new value to `property`.
-  Property` value = 2 ~~ That&#39;s what the statement above is actually doing.
+  Property: value = 2 ~~ That&#39;s what the statement above is actually doing.
 }
 </pre></div>
 </td></tr></table>
@@ -695,9 +625,9 @@ assignment statement (<code>=</code>).</p>
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

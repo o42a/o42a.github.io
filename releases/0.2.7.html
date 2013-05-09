@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>o42a » o42a-0.1.1 Release Notes</title>
+  <title>o42a » o42a-0.2.7 Release Notes</title>
 
   <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css" media="screen, projection" />
@@ -99,34 +99,95 @@
   <div class="container-fluid">
      <div class="row-fluid">
   <div class="span9">
-    <h1 id="o42a-011_release_notes">o42a-0.1.1 Release Notes</h1>
-<p>This is a maintenance release of o42a. It seriously improves the compiler
-performance and provides the support for arbitrary source file encodings.</p>
-<h2 id="improvements">Improvements</h2>
-<h3 id="compiler_memory_consumption_decreased">Compiler Memory Consumption Decreased</h3>
-<p>The <code>o42ac</code> in release 0.1.0 was able to compile the test suite with
-<code>--vmargs -Xmx576m</code> (which means the maximum memory allocation pool set to 576
-megabytes) and was unable to compile it with lesser memory limit.</p>
-<p>Now, the same suite can be compiled with <code>--vmargs -Xmx160m</code>, which means that
-<strong>compiler consumes over 70% less memory</strong>.</p>
-<h3 id="compiler_performance_increased">Compiler Performance Increased</h3>
-<p>The test suite compilation time decreased from 8.5 seconds in 0.1.0 to 4.9
-seconds in 0.1.1 on my overclocked Core i7, which means that
-<strong>compiler works more than 40% faster</strong>.</p>
-<h2 id="new_features">New Features</h2>
-<p>New <code>o42ac</code> options:</p>
+    <h1 id="o42a-027_release_notes">o42a-0.2.7 Release Notes</h1>
+<h2 id="type_arguments">Type Arguments</h2>
+<p>The new syntax for passing of type arguments have been implemented. Now,
+arguments should be written before the type:</p>
+<p>Here are some examples:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>integer` link               ~~ Link to integer.
+string` array               ~~ Array of strings.
+string` array` link         ~~ Link to array of strings.
+(string` array)` link       ~~ The same as above.
+(string, integer` row)` map ~~ Map of string keys to integer row values.
+</pre></div>
+</td></tr></table>
+
+<h2 id="initializers">Initializers</h2>
+<p>Initializer phrase parts supported now.</p>
+<p>An initializer phrase part looks similarly to the phrase argument, i.e. it is
+a value specified in square brackets. The difference is a <code>=</code> sign prefixing
+the value itself:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase [= value]
+</pre></div>
+</td></tr></table>
+
+<p>Initializers intended to be used to provide the initial values for objects, in
+contrast to more general purpose arguments.</p>
+<p>An initializer has a special syntax suitable for field initialization:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Field := type = value
+</pre></div>
+</td></tr></table>
+
+<p>, which is a more convenient form of the following declaration:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Field := type [= value]
+</pre></div>
+</td></tr></table>
+
+<h2 id="links_and_variables">Links and Variables</h2>
+<p>The links and variables syntax and behavior changed significantly in this
+release.</p>
+<h3 id="link_construction">Link Construction</h3>
+<p>The special syntax for link and variable field declarations have been removed.</p>
+<p>Links and variables can be constructed with appropriate unary operators now:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>My link := `target
+My variable := ``initial value
+</pre></div>
+</td></tr></table>
+
+<p>or by utilizing the type arguments and initializers syntax:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>My link := string` link = &quot;abc&quot;
+My variable := string` variable = &quot;initial value&quot;
+</pre></div>
+</td></tr></table>
+
+<h3 id="link_dereferencing">Link Dereferencing</h3>
+<p>Links and variables are no longer dereferenced by default. Instead, an automatic
+link dereferencing is performed when needed, allowing transparent access to the
+link target in several situations:</p>
 <ul>
-<li><code>-encoding</code>, <code>-E</code> - source files encoding (UTF-8 by default);</li>
-<li><code>-F</code> - a shorthand for <code>-format</code> option.</li>
+<li>When a link member is referenced, the member is first searched for in the link
+  object itself, and if not found, then it is searched for in the link target.</li>
+<li>When converting a link to another type, an attempt to convert the link object
+  itself is performed (e.g. by searching for appropriate adapter), and if
+  failed - the link target is converted.</li>
+<li>When interpreting the phrase with prefix resolving to a link, the clause
+  corresponding to the first phrase part is first searched for in the link
+  object itself, and if not found - in the link target.</li>
 </ul>
-<h2 id="bug_fixes">Bug Fixes</h2>
-<p>Proper support for supplementary code points in source files.</p>
+<p>In other cases the link should be dereferenced explicitly, with <code>-&gt;</code> construct.</p>
+<p>The link body reference syntax is removed. It is no longer needed, as links
+and variable can be referred to as any other objects.</p>
+<h2 id="macro_expansion">Macro Expansion</h2>
+<p>The macro expansion expression is no longer an unary operator. Now, the scope
+reference <code>#</code> can be used to expand the referred macro. This is done to unify
+the <code>#</code> symbol usage, as in all other cases it is treated as reference.</p>
+<p>This change also allows to use a macro expansion as type argument without
+enclosing it into parentheses:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>#t` link ~~ Link to object of type `t`
+</pre></div>
+</td></tr></table>
   </div>
   <div class="span3 well">
     
 
 <ul class="nav nav-list">
-  <li >
+  <li class="active">
       <a href="0.2.7.html">Release 0.2.7</a>
   </li>
   <li class="nav-header">
@@ -182,7 +243,7 @@ seconds in 0.1.1 on my overclocked Core i7, which means that
       <li >
       <a href="0.1.2.html">Release 0.1.2</a>
   </li>
-      <li class="active">
+      <li >
       <a href="0.1.1.html">Release 0.1.1</a>
   </li>
       <li >

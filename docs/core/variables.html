@@ -7,7 +7,7 @@
   <title>o42a » Variables</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -116,66 +114,67 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>The variable is a link, which target can be re-assigned at run time.</p>
-<p>The variable declaration syntax is similar to the <a href="links.html">link</a>'s one:</p>
+<p>A variable is a link, which target can be re-assigned at run time.</p>
+<p>The variable can be constructed with a variable unary operator:</p>
 <blockquote>
-<p><code>&lt;field&gt; [':'] '=' ['&lt;'] &lt;prefix&gt; &lt;initializer&gt;</code></p>
+<p><code>'``' &lt;initializer&gt;</code></p>
+</blockquote>
+<p>, by utilizing <a href="type_parameters.html#type_arguments">type arguments</a>:</p>
+<blockquote>
+<p><code>&lt;interface&gt; '`' 'variable' '[=' &lt;initializer&gt; ']'</code></p>
+</blockquote>
+<p>or, when declaring a variable field:</p>
+<blockquote>
+<p><code>&lt;field&gt; [':'] {'='|'=&gt;'|'=&lt;'|'=&lt;&gt;'} &lt;interface&gt; '`' 'variable' '=' &lt;initializer&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;field&gt;</code> is a left part of either
   <a href="../objects/fields.html#field_declaration">field</a> or
   <a href="../objects/adapters.html#adapter_declaration">adapter</a> declaration;</li>
-<li><code>&lt;initializer&gt;</code> is an initial variable value, which will be assigned to
-  variable at first access, unless a new target <a href="#variable_assignment">assigned</a>
+<li><code>&lt;initializer&gt;</code> is initial variable value, which will be assigned to
+  variable at first access, unless new target <a href="#variable_assignment">assigned</a>
   first;</li>
-<li>
-<p><code>&lt;prefix&gt;</code> has the following syntax:</p>
-<blockquote>
-<p><code>{'``' | '(' '``' &lt;type&gt; ')'}</code></p>
-</blockquote>
-<p>and declares a variable interface similarly to the link one; note the two
-<code>``</code> signs instead of a single one used in the link declaration.</p>
-</li>
+<li><code>&lt;interface&gt;</code> is a variable interface reference, similarly to the
+  <a href="links.html#link_interface">link interface</a>.</li>
 </ul>
-<p>Variable can be used the same way as links.</p>
+<p>Variables are used mostly the same way as links.</p>
 <h2 id="variable_assignment">Variable Assignment</h2>
 <p>The variable target can be re-assigned inside
-an <a href="../sentences/imperatives.html">imperative block</a> with an assignment
-statement:</p>
+an <a href="../sentences/imperatives.html">imperative block</a> with assignment statement:</p>
 <blockquote>
 <p><code>&lt;target&gt; '=' &lt;value&gt;</code></p>
 </blockquote>
-<p>where <code>&lt;target&gt;</code> is a variable reference, or just an assignment target, and
+<p>where <code>&lt;target&gt;</code> is variable reference (or arbitrary assignment target), and
 <code>&lt;value&gt;</code> is a value to assign to the <code>&lt;target&gt;</code>.</p>
 <p>Note that unlike initial variable target, the <code>&lt;value&gt;</code> will be resolved and
 assigned immediately at assignment statement execution.</p>
 <blockquote>
-<p>Also note that the assignment statement syntax is similar to the field
+<p>Also note that assignment statement syntax is similar to the field
 override one. That's because the field override is impossible inside
 imperative blocks.</p>
 </blockquote>
-<p>Variable assignment is also possible inside declarative code. But it requires a
-special syntax, as otherwise it conflicts with a field override syntax.</p>
+<p>Variable assignment is also possible inside a declarative code. But it requires
+a special syntax, as otherwise it conflicts with a field override syntax.</p>
 <p>The variable assignment syntax acceptable for both imperative and declarative
 code is based on a <a href="../sentences/locals.html#local_scope">local scope</a>
 declaration syntax:</p>
 <blockquote>
 <p><code>&lt;target&gt; '$' [&lt;local name&gt;] '=' &lt;value&gt;</code></p>
 </blockquote>
-<p>where <code>&lt;local name&gt;</code> is an optional name for declared local, which value is the
+<p>where <code>&lt;local name&gt;</code> is an optional name for declared local, which value is an
 assignment target.</p>
 <p>As for any local scope declaration, the local name can be omitted.</p>
 <p>Note that such syntax allows to use the declared local inside a value
 expression. This makes it possible to implement things like increment without
-re-evaluating of target variable:</p>
+re-evaluating the target variable:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Array [n] $= $ + 1 ~~ Increment the Nth element of array.
 </pre></div>
 </td></tr></table>
 
 <h2 id="variable_object">Variable Object</h2>
-<p>Every variable is an object inherited from <code>Variable</code> and can be used similarly
-to the <a href="links.html#link_object">link object</a>.</p>
+<p>Every variable is an object inherited from the <code>Variable</code> prototype and can be
+used similarly to the <a href="links.html#link_object">link one</a>.</p>
   </div>
   <div class="span3 well">
     <ul class="nav nav-list">
@@ -251,9 +250,9 @@ to the <a href="links.html#link_object">link object</a>.</p>
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

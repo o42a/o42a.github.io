@@ -7,7 +7,7 @@
   <title>o42a » Type Parameters</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -124,12 +122,12 @@ which has a type parameter.</p>
 <p>For example, a <a href="links.html">link</a> object has a type parameter called <code>interface</code>
 representing a <a href="links.html#link_interface">link interface</a>. It can be specified
 like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Integer link :=&gt; link (`integer)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Integer link :=&gt; integer` link
 </pre></div>
 </td></tr></table>
 
 <h2 id="type_definition">Type Definition</h2>
-<p>Type parameters can be declared inside a special type definition section of
+<p>Type parameters can be declared inside a special type definition block of
 phrase or object construction expression. The syntax is:</p>
 <blockquote>
 <p><code>&lt;prefix&gt; '#' '(' &lt;type definition&gt; ')' &lt;phrase parts&gt;</code></p>
@@ -148,7 +146,7 @@ declarations in the form similar to
 <li><code>&lt;type&gt;</code> is a reference to an object, used as initial value; can be a
   <a href="macros.html#macro_expansion">macro expansion</a>.</li>
 </ul>
-<p>Each such declaration declares a new type parameter, or overrides an existing
+<p>Each of such declarations declares a new type parameter or overrides an existing
 one, and provides the initial value for it.</p>
 <p><strong>The order of type parameters declaration is significant.</strong></p>
 <blockquote>
@@ -164,15 +162,56 @@ There are differences though:</p>
 <li>The type parameter may refer to other type parameter of the object, or other
   object, but can not refer the object it is defined in, or the fields of this
   object.</li>
-<li>The type parameter can not be overridden outside the type definition.</li>
-<li>Type parameters can be passed to a newly constructed object with a type
-  parameters expression, in the their declaration order within a type definition.
-  If the number of parameters passed is less than a number of parameters
-  declared, the rest of parameter values don't change.</li>
-<li>Type parameters can be specified either with an expression, or inside the
-  type definition, but not both.</li>
+<li>The type parameter can not be overridden outside of the type definition.</li>
+<li>Type parameters can be passed to the newly constructed object with a 
+  [type arguments][#type_arguments] expression.</li>
+<li>Type parameters can be specified either as type arguments, or inside a type
+  definition, but not both.</li>
 </ul>
-<p>Here is an example, illustrating the type parameters usage with a map interface:</p>
+<h3 id="type_arguments">Type Arguments</h3>
+<p>Type arguments is a shorter way to specify the type parameters. The syntax is:</p>
+<blockquote>
+<p><code>&lt;argument&gt; '`' [ &lt;argument&gt; '`' ... ] &lt;type&gt;</code></p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li><code>&lt;argument&gt;</code> is one of:<ul>
+<li>type <a href="../expressions/references.html">reference</a>, including <a href="macros.html#macro_expansion">macro expansion</a></li>
+<li>static type reference (<code>'&amp;' &lt;reference&gt;</code>),</li>
+<li>parentheses, containing one or more comma-separated:<ul>
+<li>type <a href="../expressions/references.html">references</a>,</li>
+<li>static type references,</li>
+<li>type arguments,</li>
+<li><a href="macros.html#macro_expansion">macro expanding expressions</a>,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>&lt;type&gt;</code> is one of:<ul>
+<li><a href="../expressions/references.html">reference</a>,</li>
+<li><a href="../objects/samples.html#ascendants_expression">ascendants expression</a>.</li>
+</ul>
+</li>
+</ul>
+<p>Type arguments are substituted as type parameter values in the order of
+parameters declaration within a type definition. If the number of arguments
+passed is less than the number of parameters declared, the rest of parameter
+values won't change.</p>
+<p>Here are some examples:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>integer` link               ~~ Link to integer.
+string` array               ~~ Array of strings.
+string` array` link         ~~ Link to array of strings.
+(string` array)` link       ~~ The same as above.
+(string, integer` row)` map ~~ Map of string keys to integer row values.
+</pre></div>
+</td></tr></table>
+
+<h2 id="_1"></h2>
+<p>Here is an example illustrating the type parameters usage with map interface:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -196,28 +235,30 @@ There are differences though:</p>
 21
 22
 23
-24</pre></div></td><td class="code"><div class="codehilite"><pre>Map :=&gt; void # ( 
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre>Map :=&gt; void #( 
   ~~~
   A key/value map interface.
   ~~~
   Key type := void   ~~ Key type parameter.
   Value type := void ~~ Value type parameter.
 ) (
-  Get :=&gt; link (`#value type) (
+  Get :=&gt; #value type` link (
     ~~~
     Returns a value by its key.
     ~~~
-    Key :=&lt; link (`#key type)  ~~ A key of the value to find.
+    Key :=&lt; #key type` link  ~~ A key of the value to find.
   )
 )
 
 Hash map :=&gt; map (
   ~~~
-  Hash map implementation here
+  Hash map implementation here.
   ~~~
 )
 
-Integers by strings := hash map (`string, integer) ~~ A hash map with string keys and integer values.
+Integers by strings := (string, integer)` hash map
+~~ A hash map with string keys and integer values.
 
 Integers by strings: get (Key = &quot;one&quot;)
 </pre></div>
@@ -297,9 +338,9 @@ Integers by strings: get (Key = &quot;one&quot;)
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

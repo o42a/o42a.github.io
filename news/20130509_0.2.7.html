@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>o42a » o42a-0.1.1 Release Notes</title>
+  <title>o42a » Release 0.2.7</title>
 
   <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css" media="screen, projection" />
@@ -89,7 +89,7 @@
               <span class="divider">/</span>
             </li>
             <li>
-              <a href="./index.html">Releases</a>
+              <a href="./index.html">News</a>
               <span class="divider">/</span>
             </li>
       </ul>
@@ -97,102 +97,13 @@
   
 
   <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="o42a-011_release_notes">o42a-0.1.1 Release Notes</h1>
-<p>This is a maintenance release of o42a. It seriously improves the compiler
-performance and provides the support for arbitrary source file encodings.</p>
-<h2 id="improvements">Improvements</h2>
-<h3 id="compiler_memory_consumption_decreased">Compiler Memory Consumption Decreased</h3>
-<p>The <code>o42ac</code> in release 0.1.0 was able to compile the test suite with
-<code>--vmargs -Xmx576m</code> (which means the maximum memory allocation pool set to 576
-megabytes) and was unable to compile it with lesser memory limit.</p>
-<p>Now, the same suite can be compiled with <code>--vmargs -Xmx160m</code>, which means that
-<strong>compiler consumes over 70% less memory</strong>.</p>
-<h3 id="compiler_performance_increased">Compiler Performance Increased</h3>
-<p>The test suite compilation time decreased from 8.5 seconds in 0.1.0 to 4.9
-seconds in 0.1.1 on my overclocked Core i7, which means that
-<strong>compiler works more than 40% faster</strong>.</p>
-<h2 id="new_features">New Features</h2>
-<p>New <code>o42ac</code> options:</p>
-<ul>
-<li><code>-encoding</code>, <code>-E</code> - source files encoding (UTF-8 by default);</li>
-<li><code>-F</code> - a shorthand for <code>-format</code> option.</li>
-</ul>
-<h2 id="bug_fixes">Bug Fixes</h2>
-<p>Proper support for supplementary code points in source files.</p>
-  </div>
-  <div class="span3 well">
-    
-
-<ul class="nav nav-list">
-  <li >
-      <a href="0.2.7.html">Release 0.2.7</a>
-  </li>
-  <li class="nav-header">
-    Older releases
-  </li>
-  <li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.2.6.html">Release 0.2.6</a>
-  </li>
-      <li >
-      <a href="0.2.5.html">Release 0.2.5</a>
-  </li>
-      <li >
-      <a href="0.2.4.html">Release 0.2.4</a>
-  </li>
-      <li >
-      <a href="0.2.3.html">Release 0.2.3</a>
-  </li>
-      <li >
-      <a href="0.2.2.html">Release 0.2.2</a>
-  </li>
-      <li >
-      <a href="0.2.1.html">Release 0.2.1</a>
-  </li>
-      <li >
-      <a href="0.2.0.html">Release 0.2.0</a>
-  </li>
-    </ul>
-  </li>
-  <li class="nav-header">
-     0.1.x releases
-  </li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.1.8.html">Release 0.1.8</a>
-  </li>
-      <li >
-      <a href="0.1.7.html">Release 0.1.7</a>
-  </li>
-      <li >
-      <a href="0.1.6.html">Release 0.1.6</a>
-  </li>
-      <li >
-      <a href="0.1.5.html">Release 0.1.5</a>
-  </li>
-      <li >
-      <a href="0.1.4.html">Release 0.1.4</a>
-  </li>
-      <li >
-      <a href="0.1.3.html">Release 0.1.3</a>
-  </li>
-      <li >
-      <a href="0.1.2.html">Release 0.1.2</a>
-  </li>
-      <li class="active">
-      <a href="0.1.1.html">Release 0.1.1</a>
-  </li>
-      <li >
-      <a href="0.1.0.html">Release 0.1.0</a>
-  </li>
-    </ul>
-  </li>
-</ul>
-  </div>
-</div>
+     <div id="news-article"><h1 id="release_027">Release 0.2.7</h1>
+<p>o42a-0.2.7 released.</p>
+<p>The type arguments syntax have been fully reworked.</p>
+<p>The link dereferencing behavior have been changed significantly.</p>
+<p>A new initializers syntax have been implemented.</p>
+<p><a href="../releases/0.2.7.html">Release notes</a><br />
+<a href="../downloads.html">Download</a></p></div>
   </div>
 
   <footer class="footer">

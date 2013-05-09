@@ -7,7 +7,7 @@
   <title>o42a » Arrays</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -139,7 +137,7 @@ object, which <a href="../objects/value.html">value</a> contains that references
 </table>
 <p>Note that array length can not be altered despite the array mutability.</p>
 <p>Both of these objects inherited from <code>Indexed</code> prototype, which declares an
-interface for all indexed elements.</p>
+interface for all objects containing indexed elements.</p>
 <h2 id="array_constructor">Array Constructor</h2>
 <p>An array can be constructed and initialized with a special expression with the
 following syntax:</p>
@@ -152,7 +150,7 @@ initial value; the number of items defines an array length.</p>
 <p>The type of elements will be determined automatically.</p>
 <h2 id="array_object">Array Object</h2>
 <p>Every array is an object and can be constructed by the
-<a href="../objects/creation.html">object creation expression</a>. The type of array
+object <a href="../objects/creation.html#constructor_expression">constructor expression</a>. The type of array
 elements can be specified as a type parameters:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -160,34 +158,34 @@ elements can be specified as a type parameters:</p>
 4
 5
 6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre>Foo :=&gt; void (Int :=&lt; integer)
+7</pre></div></td><td class="code"><div class="codehilite"><pre>Foo :=&gt; void (Int :=&lt; integer)
 Bar :=&gt; foo (Str :=&lt; string)
 
-~~ Array elements type is `foo`:
-Foo array := [foo (Int = 1), foo (Int = 2)]
+Foo row := [foo (Int = 1), foo (Int = 2)] ~~ Elements type is `foo`.
 
-~~ Inherit the `foo array` and upgrade the elements type to `bar`:
-Bar array := foo array (`bar) (= [bar (Int = 1, Str = &quot;One&quot;)]) 
+Bar row := bar` foo row (= [bar (Int = 1, Str = &quot;One&quot;)]) 
+~~ Inherit the `foo row` and upgrade elements type to `bar`.
 </pre></div>
 </td></tr></table>
 
-<p>Also <code>Row</code> and <code>Array</code> objects declare phrases, which can be used to construct
-arrays:</p>
+<p>Also the <code>Row</code> and <code>Array</code> objects declare phrases, which can be used to
+ construct arrays:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Construct a new row of integers:
-Row (`integer) [[1, 2, 3]]
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre>Integer` row [[1, 2, 3]] ~~ Row of integers
 
-~~ Construct a new array of strings:
-Array (`string) [[&quot;first&quot;, &quot;second&quot;, &quot;last&quot;]]
+String` array [[&quot;first&quot;, &quot;second&quot;, &quot;last&quot;]] ~~ Array of strings:
+
+Array of strings := string` array = [&quot;first&quot;, &quot;second&quot;, &quot;last&quot;]
+~~ Field initializer syntax
 </pre></div>
 </td></tr></table>
 
 <h2 id="array_element_access">Array Element Access</h2>
-<p>An array element can be accessed with the following expression:</p>
+<p>An array element can be accessed with the following phrase:</p>
 <blockquote>
 <p><code>&lt;array&gt; '[' &lt;index&gt; ']'</code></p>
 </blockquote>
@@ -215,7 +213,7 @@ My array [1]            ~~ Returns `2`.
 My array [10]           ~~ False value, as element index is invalid.
 
 ~~ The array of two strings.
-Var-array := array (`string) [[&quot;one&quot;, &quot;sec&quot; + &quot;ond&quot;]]
+Var-array := string` array [[&quot;one&quot;, &quot;sec&quot; + &quot;ond&quot;]]
 Var-array [1]           ~~ `&quot;second&quot;` initially, until modified.
 {
   Var-array [1] = &quot;two&quot; ~~ Assign `&quot;two&quot;` to second element.
@@ -231,7 +229,7 @@ Var-array [1]           ~~ `&quot;second&quot;` initially, until modified.
 but they can be converted from one to another:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Var-array := array (`integer) ( ~~ Declare the (mutable) array of integers.
+3</pre></div></td><td class="code"><div class="codehilite"><pre>Var-array := integer` array ( ~~ Declare the (mutable) array of integers.
   = [1, 2, 3]                   ~~ Initialize it with (immutable) row.
 )
 </pre></div>
@@ -315,9 +313,9 @@ array, or array <a href="variables.html">variable</a> to pass arrays by referenc
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

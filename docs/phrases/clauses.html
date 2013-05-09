@@ -7,7 +7,7 @@
   <title>o42a » Clauses</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -393,6 +391,43 @@ the bounds. There is no way to specify a name for such clause.</p>
 
 <p>Note that the clause above just returns the original string object. It is
 unlikely that something else would be required, though it is possible.</p>
+<h2 id="initializer">Initializer</h2>
+<p>When an <a href="index.html#ininitializer">initializer</a> is present in the phrase, the
+corresponding clause is identified by initializer (<strong><code>[= *]</code></strong>) identifier.</p>
+<p>The clause declaration would look like this:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[= *]&gt; ~~ Clause content. ~~
+</pre></div>
+</td></tr></table>
+
+<p>Also, a name can be specified for the clause (e.g. for clause
+<a href="reuse.html">reuse</a>):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[= label]&gt;
+</pre></div>
+</td></tr></table>
+
+<p>Here is a usage example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; integer (
+  &lt;[= *]&gt; (~~ Argument value will be inserted here. ~~)
+)
+
+Int [= 42] ~~ Substitute an initial value.
+Int (= 42) ~~ This is a canonical form of the above expression.
+
+Int field 1 := int = 42    ~~ A special form useful for field declarations.
+Int field 2 := int [= 42]  ~~ The same as above.
+Int field 3 := int (= 42)  ~~ Canonical form.
+</pre></div>
+</td></tr></table>
+
 <h2 id="imperative_block">Imperative Block</h2>
 <p>When an <a href="../sentences/imperatives.html">imperative block</a> is present in the
 phrase, the corresponding clause is identified by curly braces (<strong><code>{}</code></strong>)
@@ -498,9 +533,9 @@ is just a form of phrase.</p>
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

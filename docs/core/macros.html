@@ -7,7 +7,7 @@
   <title>o42a » Macros</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -146,30 +144,30 @@ and <strong><code>=&lt;&gt;</code></strong> tokens are prohibited here.</p>
 <p>The macro field can be overridden just like any other field. But note, that
 disregarding the presence of <strong><code>#</code></strong> prefix, the field definition will be
 treated as a macro value, unless it is a macro expression.</p>
-<h1 id="macro_expansion">Macro Expansion</h1>
-<p>The macros are intended for their expansion, i.e. for placing their values
+<h2 id="macro_expansion">Macro Expansion</h2>
+<p>Macros are intended for their expansion, i.e. for placing their values
 (which are expressions) to other parts of the program.</p>
-<p>The macro expansion is performed by an unary operator <strong><code>#</code></strong>. This operator may
-be used in places where ordinary expressions not allowed. For example, it can be
-used as a <a href="links.html#link_interface">link interface</a> or as a type parameter:</p>
+<p>The macro expansion is performed when the macro reference starts with a <strong><code>#</code></strong>
+sign. Such reference may be used in places where ordinary expressions not
+allowed. For example, it can be used as type argument:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre>#T := integer
-Link to integer := (`#t) 123
-Integer link :=&gt; link (`#t)
+Link to integer := #t` link = 123
+Integer link :=&gt; #t` link
 </pre></div>
 </td></tr></table>
 
 <p>The macro expansion can be used in the following situations:</p>
 <ul>
-<li>as a type parameter;</li>
+<li>as type parameter or argument;</li>
 <li>as statement;</li>
-<li>as a value of a self-assignment statement;</li>
-<li>as a field definition, or</li>
-<li>as a phrase argument.</li>
+<li>as a value of self-assignment statement;</li>
+<li>as field definition, or</li>
+<li>as phrase argument.</li>
 </ul>
-<p>The macro expansion always happens at <strong>compile time</strong>. So, the macro value have
-to be evaluable at compile time.</p>
+<p>Macros are always expanded at <strong>compile time</strong>. So, the macro value have to be
+evaluable at compile time.</p>
 <p>Whenever the macro is overridden, it will be re-expanded in the affected scope.
 This can be used to create <a href="http://wikipedia.org/wiki/Generic_programming">generics</a> for example:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -181,21 +179,28 @@ This can be used to create <a href="http://wikipedia.org/wiki/Generic_programmin
 7
 8</pre></div></td><td class="code"><div class="codehilite"><pre>Generic :=&gt; void (
   #Type :=&lt; void ~~ Type parameter.
-  Link :=&lt; (`#type) void
+  Link :=&lt; #type` link
 )
 Integer generic := generic (
   Type = integer ~~ Override the type parameter.
-  Link = 123     ~~ `Integer` will be substituted as a new link interface.
+  Link = 123     ~~ `Integer` is substituted as new link interface.
 )
 </pre></div>
 </td></tr></table>
 
+<p>The macro expansion expression doesn't mean an immediate macro expansion when
+used as phrase prefix. Instead, a phrase will be constructed as usual and the
+result will be expanded:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>#Macro (Arg = value) ~~ The phrase is expanded, not the `macro` object.
+</pre></div>
+</td></tr></table>
+
 <blockquote>
-<p>Note that when overriding the macro, the new value of the macro is an
+<p>Note that when overriding a macro, the new value of the macro is an
 arbitrary expression, which is unrelated to an old one. So, when the new value
 is substituted instead of an old one, this may result to incompatibility
 errors.</p>
-<p>Not any expression can be used as as a link interface, for example.
+<p>Not any expression can be used as link interface for example.
 So, the macro expansion may result to an error in this case too.</p>
 <p>So, despite the macro value is an arbitrary expression, the macro expansions
 apply limitations to it.</p>
@@ -209,43 +214,58 @@ with a special syntax:</p>
 </pre></div>
 </td></tr></table>
 
-<p>Note, that the macro field expansion implies the link body access. So, if the
-<code>foo</code> from the above example is a link, then the following expressions mean the
-same:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Foo #macro
-#Foo` macro
-</pre></div>
-</td></tr></table>
-
-<p>Also, the macro field expansion expression doesn't mean an immediate macro
-expansion when used as a phrase prefix. Instead, a phrase will be constructed as
-usual and the result will be expanded:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Foo #macro (Arg = value)  ~~ The phrase is expanded, not the `macro` field.
-#Foo: macro (Arg = value) ~~ The same as above.
-</pre></div>
-</td></tr></table>
-
 <h3 id="standard_macro_expansion">Standard Macro Expansion</h3>
 <p>The o42a standard library contains a <code>Macros</code> module. This module contains
 standard macros, which may be very helpful. To access and expand standard macro
 a special <a href="../expressions/references.html#scope_references">scope reference</a>
 (<strong><code>##</code></strong>) can be used. The rules of
-<a href="#macro_field_expansion">macro field expansion</a> works for standard macro
-expansion too:</p>
+<a href="#macro_expansion">macro expansion</a> works for standard macro expansion too:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Lnk := `123
-Lnk 2 := (`##Interface [lnk] ~~`Lnk` link interface is `integer`~~) 456
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>Comparison :=&gt; void (
+  What :=&lt; void` link
+  With :=&lt; void` link
+  = What ##eq [with]
+)
 </pre></div>
 </td></tr></table>
 
 <p>The code above is a shorter form of the following:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Use object &#39;Interface&#39; from &#39;Macros&#39;
-Lnk := `123
-Lnk 2 := (`#Interface ~~Imported from `Macros`~~ [lnk]) 456
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre>Use object &#39;EQ&#39; from &#39;Macros&#39;
+Comparison :=&gt; void (
+  What :=&lt; void` link
+  With :=&lt; void` link
+  = What ~#eq [with]  ~~ `eq` is imported from `Macros`
+)
+</pre></div>
+</td></tr></table>
+
+<h3 id="macro_expansion_inside_prototypes">Macro Expansion Inside Prototypes</h3>
+<p>When the macro is expanded inside a prototype, the macro expansion failure does
+not necessarily mean a compile time error. This allows to use macros to build
+expressions on incomplete types.</p>
+<p>For example, a code above uses an <code>##eq</code> standard macro. This macro does the
+same as a <code>==</code> operator. But the <code>==</code> operator is not defined for the <code>void</code>
+object and can't be used here. That's why the <code>##eq</code> macro fails to expand. But
+this is not an error, as the macro is expanded inside prototype. When this
+prototype will be derived, the derived object's field types may change, making
+the macro expansion possible:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>Int comparison := comparison (
+  What := `1
+  With := `2
+) ~~ The `==` operator is defined for integers, so the macro expansion succeeds,
+  ~~ and this code compiles successfully.
 </pre></div>
 </td></tr></table>
   </div>
@@ -323,9 +343,9 @@ Lnk 2 := (`#Interface ~~Imported from `Macros`~~ [lnk]) 456
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

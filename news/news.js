@@ -2,8 +2,6 @@ news_articles.sort(function (a, b) {
   return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0)
 });
 
-var news_articles_data=[];
-
 LinkReplacer = function(content) {
   this.content = content;
 }
@@ -24,10 +22,8 @@ LinkReplacer.prototype.replaceLink = function(text) {
   link.remove();
 }
 
-function build_news_article(index, data) {
-  var article = news_articles_data[index];
+function build_news_article(article, element, data) {
   var loaded = $('#news-article', data);
-  var element = $('#news-article-' + index);
 
   var header = $('h1', loaded);
   header.detach();
@@ -113,16 +109,16 @@ function load_news_feed(feed, first) {
     last = news_articles.length;
   }
   for (var i = first; i < last; ++i) {
-    var index = news_articles_data.length;
-    feed.append(
-      $('<article class="news-article" id="news-article-'
-      + index
-      + '"></article>'));
     var article = news_articles[i];
-    news_articles_data[index] = article;
-    var handler = new Function(
-      "data",
-      "build_news_article(" + index + ", $(data))");
+    var element =
+      $('<article class="news-article"></article>').appendTo(feed);
+    var handler = (function(article, element) {
+      return $.proxy(
+        function(data) {
+          build_news_article(article, element, data)
+        },
+        {article: article, element: element})
+    })(article, element);
     $.get(
       root_path + 'news/' + article.file,
       handler,

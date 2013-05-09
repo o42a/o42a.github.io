@@ -7,7 +7,7 @@
   <title>o42a » File Structure</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -129,8 +127,9 @@ optionally preceded by the field declaration.</p>
 <p>A field declaration in the title can declare or override any field including
 adapter, link, or variable. The field definition in title can only contain
 ancestor reference, <a href="../objects/samples.html#ascendants_expression">ascendants</a>,
-or type parameters. It should not contain any other expressions, because an
-actual field definition is the rest of the file.</p>
+or <a href="../core/type_parameters.html#type_arguments">type arguments</a>. It should not
+contain any other expressions, because an actual field definition is the rest of
+the file.</p>
 <p>Here is an example:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -214,11 +213,11 @@ A key/value map interface.
 Key type := void   ~~ Key type parameter.
 Value type := void ~~ Value type parameter.
 ############
-Get :=&gt; link (`#value type) (
+Get :=&gt; #value type` link (
   ~~~
   Returns a value by its key.
   ~~~
-  Key :=&lt; link (`#key type)  ~~ A key of the value to find.
+  Key :=&lt; #key type` link  ~~ A key of the value to find.
 )
 </pre></div>
 </td></tr></table>
@@ -293,9 +292,9 @@ Get :=&gt; link (`#value type) (
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

@@ -7,7 +7,7 @@
   <title>o42a » Phrase Outcome</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -140,9 +138,9 @@ clause is used.</p>
 12
 13
 14</pre></div></td><td class="code"><div class="codehilite"><pre>Diff :=&gt; void (
-  Value :=&lt; link (`integer)
-  Subtrahend :=&lt; link (`integer)
-  Result := (`integer) value - subtrahend
+  Value :=&lt; integer` link
+  Subtrahend :=&lt; integer` link
+  Result := integer` link = value - subtrahend
 
   &lt;[] | minus...&gt; Value = ()
   &lt;Minus = result...&gt; (   ~~ `Diff: result` will be an outcome.
@@ -238,9 +236,9 @@ Diff (Value = 4. Subtrahend = 2): result ~~ Canonical form of the above.
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

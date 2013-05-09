@@ -7,7 +7,7 @@
   <title>o42a » References</title>
 
   <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
 
   
@@ -15,8 +15,6 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_setDomainName', 'o42a.org']);
-    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -123,7 +121,6 @@ Free Documentation License".
 <li>a <a href="#member_by_name">member by name</a>,</li>
 <li>a <a href="#parent_member">parent member</a> by name,</li>
 <li>a <a href="#member_reference">member</a> of another object,</li>
-<li>a <a href="../core/links.html#link_body_reference">link body</a>,</li>
 <li>a <a href="../core/links.html#link_dereferencing">link target</a>, or</li>
 <li>an <a href="../core/macros.html#macro_field_expansion">macro field expansion</a>.</li>
 </ul>
@@ -163,6 +160,11 @@ Free Documentation License".
 <td>Implied object</td>
 <td><code>*</code></td>
 <td>Indicates that the referenced object can be determined automatically. Depends on the context it appears in. For example, can be used in <a href="../objects/propagation.html#implied_scope_usage">field override</a> or in <a href="../objects/samples.html#implied_scope_usage">ascendants expression</a>.</td>
+</tr>
+<tr>
+<td><a href="../core/macros.html#macro_expansion">Macro expansion</a></td>
+<td><code>#</code></td>
+<td>Expands the addressed macro.</td>
 </tr>
 <tr>
 <td><a href="../core/macros.html#standard_macro_expansion">Standard macro expansion</a></td>
@@ -392,9 +394,9 @@ $$field of anonymous local
       </ul>
     </div>
   </footer>
-  
-  <script type="application/javascript" src="../../media/js/jquery.js"></script>
-  <script type="application/javascript" src="../../media/js/bootstrap.js"></script>
+
+  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
   
 </body>
 </html>

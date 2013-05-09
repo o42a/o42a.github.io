@@ -9,6 +9,7 @@ var news_articles = [
   {file: "20120701_0.2.0.html", date: "2012-07-01"},
   {file: "20120219_0.1.4.html", date: "2012-02-19"},
   {file: "20120229_bitbucket.html", date: "2012-02-29"},
+  {file: "20130509_0.2.7.html", date: "2013-05-09"},
   {file: "20101216_hello.html", date: "2010-12-16"},
   {file: "20120203_0.1.3.html", date: "2012-02-03"},
   {file: "20111105_0.1.0.html", date: "2011-11-05"},
