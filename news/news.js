@@ -113,11 +113,9 @@ function load_news_feed(feed, first) {
     var element =
       $('<article class="news-article"></article>').appendTo(feed);
     var handler = (function(article, element) {
-      return $.proxy(
-        function(data) {
-          build_news_article(article, element, data)
-        },
-        {article: article, element: element})
+      return function(data) {
+        build_news_article(article, element, data)
+      };
     })(article, element);
     $.get(
       root_path + 'news/' + article.file,
