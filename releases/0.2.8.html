@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>o42a » Releases</title>
+  <title>o42a » o42a-0.2.8 Release Notes</title>
 
   <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
   <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css" media="screen, projection" />
@@ -88,21 +88,60 @@
               <a href="../index.html">o42a</a>
               <span class="divider">/</span>
             </li>
-            <li class="active">
-              Releases
-              
+            <li>
+              <a href="./index.html">Releases</a>
+              <span class="divider">/</span>
             </li>
       </ul>
     </div>
   
 
   <div class="container-fluid">
-     <h1 id="releases">Releases</h1>
-<div class="well">
-  
+     <div class="row-fluid">
+  <div class="span9">
+    <h1 id="o42a-028_release_notes">o42a-0.2.8 Release Notes</h1>
+<h2 id="stateful_objects">Stateful Objects</h2>
+<p>Objects are stateful by default. This means that object value is evaluated on
+each request. The exceptions are variables and arrays.</p>
+<p>Now, any object can be made stateful. For that a <em>keep value</em> (<code>\\</code>) operator
+can be used. The value of stateful object is evaluated at most once. The
+evaluated value is cached inside the object and returned on subsequent value
+requests.</p>
+<p>The object statefulness is inherited. So, any object derived from the stateful
+object is stateful too.</p>
+<h2 id="assignment_statements">Assignment Statements</h2>
+<p>A <em>binding</em> statement (<code>&lt;-</code>) is used now to assign new values to variables or
+for custom assignments. It does exactly what former <em>variable assignment</em> (<code>=</code>)
+statement did before.</p>
+<p>The equal sign is used for <em>value assignment</em> statement now, which is an
+enhanced version of assignment. It does the following:</p>
+<ul>
+<li>makes the value object stateful (just like a <em>keep value</em> operator),</li>
+<li>evaluates its value, and</li>
+<li>assigns it to the target (just like a <em>binding</em> statement).</li>
+</ul>
+<p>This makes the assignment to behave more traditionally for imperative
+programming languages.</p>
+<p>The <em>combined assignment</em> statements (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>) known from C have
+been added to o42a to reduce the boilerplate. Now, a loop can be written like
+this:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre>``0 $ i {
+  I += 1
+  Print [i] &#39;/10&#39; nl ~~ `1/10` ... `10/10`
+  I &lt; 10?...
+}
+</pre></div>
+</td></tr></table>
+  </div>
+  <div class="span3 well">
+    
 
 <ul class="nav nav-list">
-  <li >
+  <li class="active">
       <a href="0.2.8.html">Release 0.2.8</a>
   </li>
   <li class="nav-header">
@@ -170,6 +209,7 @@
     </ul>
   </li>
 </ul>
+  </div>
 </div>
   </div>
 

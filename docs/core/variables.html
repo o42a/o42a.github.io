@@ -139,28 +139,31 @@ Free Documentation License".
   <a href="links.html#link_interface">link interface</a>.</li>
 </ul>
 <p>Variables are used mostly the same way as links.</p>
-<h2 id="variable_assignment">Variable Assignment</h2>
+<h2 id="assignment">Assignment</h2>
 <p>The variable target can be re-assigned inside
-an <a href="../sentences/imperatives.html">imperative block</a> with assignment statement:</p>
-<blockquote>
-<p><code>&lt;target&gt; '=' &lt;value&gt;</code></p>
-</blockquote>
-<p>where <code>&lt;target&gt;</code> is variable reference (or arbitrary assignment target), and
-<code>&lt;value&gt;</code> is a value to assign to the <code>&lt;target&gt;</code>.</p>
+an <a href="../sentences/imperatives.html">imperative block</a> with assignment statement.</p>
+<p>There are two kinds of assignment statements supported:</p>
+<ul>
+<li>binding: <code>&lt;target&gt; '&lt;-' &lt;value&gt;</code></li>
+<li>value assignment: <code>&lt;target&gt; '=' &lt;value&gt;</code></li>
+</ul>
+<p>where <code>&lt;target&gt;</code> is an assignment target (e.g. variable), and <code>&lt;value&gt;</code> is a
+value to assign to the <code>&lt;target&gt;</code>.</p>
 <p>Note that unlike initial variable target, the <code>&lt;value&gt;</code> will be resolved and
 assigned immediately at assignment statement execution.</p>
 <blockquote>
-<p>Also note that assignment statement syntax is similar to the field
+<p>Also note that the value assignment statement syntax is similar to the field
 override one. That's because the field override is impossible inside
 imperative blocks.</p>
 </blockquote>
-<p>Variable assignment is also possible inside a declarative code. But it requires
-a special syntax, as otherwise it conflicts with a field override syntax.</p>
-<p>The variable assignment syntax acceptable for both imperative and declarative
-code is based on a <a href="../sentences/locals.html#local_scope">local scope</a>
-declaration syntax:</p>
+<p>The assignments are also possible inside a declarative code. But the value
+assignment requires a special syntax, as otherwise it conflicts with a field
+override syntax.</p>
+<p>The assignment syntax acceptable for both imperative and declarative code is
+based on a <a href="../sentences/locals.html#local_scope">local scope</a> declaration
+syntax:</p>
 <blockquote>
-<p><code>&lt;target&gt; '$' [&lt;local name&gt;] '=' &lt;value&gt;</code></p>
+<p><code>&lt;target&gt; '$' [&lt;local name&gt;] {'=' | '&lt;-'} &lt;value&gt;</code></p>
 </blockquote>
 <p>where <code>&lt;local name&gt;</code> is an optional name for declared local, which value is an
 assignment target.</p>
@@ -172,6 +175,56 @@ re-evaluating the target variable:</p>
 </pre></div>
 </td></tr></table>
 
+<h3 id="binding">Binding</h3>
+<p>The binding statement just assigns a new value to the target.</p>
+<p>In the binding target is variable, then it stores an object the value is
+evaluated to, in the variable and does nothing else.</p>
+<h3 id="value_assignment">Value Assignment</h3>
+<p>The value assignment statement is a combination of actions making it behave more
+like a traditional imperative assignments.</p>
+<p>The value assignment does the following:</p>
+<ul>
+<li>Makes the value stateful (exactly like a <a href="../expressions/unary.html#keep_value">keep value</a> operator).</li>
+<li>Evaluates its value.</li>
+<li>Assigns the value to the target just like binding.</li>
+</ul>
+<p>A good example of why this is needed is loops. Lets look at the following loop:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>``3 $ i {
+  I &lt;- i - 1
+  I &gt; 0?...
+}
+</pre></div>
+</td></tr></table>
+
+<p>It does what expected: loops three times and exits. But how this happens? In
+fact the binding operator each time constructs a new object <code>i - 1</code> and stores
+it in variable <code>i</code>. For the first time this will be a <code>3 - 1</code>, for the second
+time this will be <code>(3 - 1) - 1</code>, for the last time this will be
+<code>((3 - 1) - 1) - 1</code>. See? Each time the value of object stored in <code>i</code> requested,
+its value will be re-evaluated. What if the loop is much longer?</p>
+<p>The solution is to <a href="../expressions/unary.html#keep_value">keep its value</a>. Then the value will be
+evaluated at most once. But the value will be evaluated only when requested.
+The value assignment evaluates it explicitly, making it behave just like in
+traditional imperative programming languages. If the explicit value evaluation
+fails, then the binding won't happen and the assignment target remain unchanged.</p>
+<p>So, if replace the binding (<code>&lt;-</code>) in the code above with the value assignment
+(<code>=</code>), the loop will work as expected, without additional overhead and without
+boilerplate.</p>
+<h3 id="combined_assignment">Combined Assignment</h3>
+<p>A combined assignment statement combines an arithmetic operation with value
+assignment. The following statements supported:</p>
+<ul>
+<li><code>&lt;target&gt; '+=' &lt;value&gt;</code> - add and assign;</li>
+<li><code>&lt;target&gt; '-=' &lt;value&gt;</code> - subtract and assign;</li>
+<li><code>&lt;target&gt; '*=' &lt;value&gt;</code> - multiply and assign;</li>
+<li><code>&lt;target&gt; '/=' &lt;value&gt;</code> - divide and assign.</li>
+</ul>
+<p>The statement like this: <code>a += b</code> is the same as <code>a = a + b</code>, given the <code>a</code> is
+evaluated only once. So, the more correct code would be
+<code>a $ tmp (tmp = tmp + b)</code>. Combined assignments avoid this boilerplate.</p>
 <h2 id="variable_object">Variable Object</h2>
 <p>Every variable is an object inherited from the <code>Variable</code> prototype and can be
 used similarly to the <a href="links.html#link_object">link one</a>.</p>

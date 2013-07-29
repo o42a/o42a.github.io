@@ -257,10 +257,22 @@ following code:</p>
 </pre></div>
 </td></tr></table>
 
-<p>evaluates each of them twice. This may cause a significant decrease in case of
-heavy operand value evaluation. Also, this may lead to incorrect results in case
-the operand value evaluation has side effects or may change on subsequent
-evaluations (e.g. is random).</p>
+<p>evaluates each of them twice. This may cause a significant decrease in
+performance in case of heavy operand value evaluation. Also, this may lead to
+incorrect results in case the operand value evaluation has side effects or may
+change on subsequent evaluations (e.g. is random).</p>
+<p>The keep value operator constructs a stateful object. This object's value will
+be evaluated at most once, and then kept for subsequent requests. The object
+statefulness is inherited. So, if any ob the object's ascendants is stateful,
+then the object will be stateful too. There is no way to change this.</p>
+<p>The keep value operator applies to its operand as following:</p>
+<ul>
+<li>If the operand is a reference, then it constructs a new, stateful object
+  inherited from operand.</li>
+<li>If the operand is an expression constructing a new object, then the object
+  constructed will be stateful and will be used as a result of keep value
+  operator.</li>
+</ul>
 <blockquote>
 <p>Note that any statements can be executed both in the scope of the declaring
 object and in the scopes of its descendants, and any field used by these

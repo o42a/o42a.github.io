@@ -478,14 +478,13 @@ Integer `link` link [= integer` link [= 1]] ~~ Correct.
 </td></tr></table>
 
 <h2 id="custom_assignment">Custom Assignment</h2>
-<p>New values can be assigned only to
-<a href="variables.html#variable%20assignment">variables</a>. But the value assignment
-statement can be applied to a link also. Such statement is interpreted as
-<a href="../phrases/index.html">phrase</a>.</p>
-<p>The value assignment clause can be declared similarly to the
+<p>New values can be assigned only to <a href="variables.html#assignment">variables</a>.
+But the assignment statement can be applied to a link also. Such statements
+interpreted as <a href="../phrases/index.html">phrases</a>.</p>
+<p>The assignment clause can be declared similarly to the
 <a href="../phrases/operators.html#binary_operators">binary operators</a> override. The
-<a href="../phrases/clauses#clause_identifier">clause identifier</a> should be an
-assignment statement (<code>=</code>).</p>
+<a href="../phrases/clauses#clause_identifier">clause identifier</a> should be a
+binding statement (<code>&lt;-</code>).</p>
 <p>With custom assignment clause declared the link becomes a <a href="http://wikipedia.org/wiki/Property_(programming)">property</a>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -533,23 +532,27 @@ assignment statement (<code>=</code>).</p>
 
   &lt;*Set&gt; Set (
     ~~~
-    Value assignment clause.
+    Assignment clause.
 
     It assigns a new value with &lt;set&gt; prototype.
     ~~~
 
-    &lt;New value = *&gt; New value = *
+    &lt;New value &lt;- *&gt; New value = *
   )
 )
 
 {
-  Property-&gt;          ~~ Returns `0`.
-  Property: value-&gt;   ~~ The same as above.
-  Property = 2        ~~ Assigns a new value to `property`.
-  Property: value = 2 ~~ That&#39;s what the statement above is actually doing.
+  Property-&gt;           ~~ Returns `0`.
+  Property: value-&gt;    ~~ The same as above.
+  Property &lt;- 2        ~~ Assigns a new value to `property`.
+  Property: value &lt;- 2 ~~ That&#39;s what the statement above is actually doing.
 }
 </pre></div>
 </td></tr></table>
+
+<p>The <a href="variables.html#value_assignment">value assignment</a> and
+<a href="variables.html#combined_assignment">combined assignment</a> statements can also be
+used.</p>
   </div>
   <div class="span3 well">
     <ul class="nav nav-list">
