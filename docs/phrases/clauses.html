@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Clauses</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Clauses</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Phrases</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="clauses">Clauses</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Phrases</a></li>
+          <li class="active">Clauses</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="clauses">Clauses</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -115,148 +51,99 @@ Free Documentation License".
 -->
 
 <p>A clause is a building block of phrase syntax definition. Each part of the
-phrase interpreted accordingly to corresponding clause.</p>
-<p>Clause declaration syntax is:</p>
+phrase interpreted accordingly to corresponding&nbsp;clause.</p>
+<p>Clause declaration syntax&nbsp;is:</p>
 <blockquote>
-<p><code>'&lt;' &lt;id&gt; ['=' &lt;outcome&gt;] {['!'] | ['|' &lt;reused&gt; ['*'] ...] ['...']} '&gt;' [ &lt;content&gt; ]</code></p>
+<p><code>&#39;&lt;&#39; &lt;id&gt; {[&#39;!&#39;] | [&#39;|&#39; &lt;reused&gt; [&#39;*&#39;] ...] [&#39;...&#39;]} &#39;&gt;&#39; [ &lt;content&gt; ]</code></p>
 </blockquote>
 <p>where</p>
 <ul>
-<li><code>&lt;id&gt;</code> is a <a href="#clause_identifier">clause identifier</a>;</li>
-<li><code>&lt;outcome&gt;</code> is a <a href="../expressions/references.html">reference</a> to 
-  <a href="outcome.html">phrase outcome</a>;</li>
+<li><code>&lt;id&gt;</code> is a <a href="#clause-identifier">clause identifier</a>;</li>
 <li><code>&lt;reused&gt;</code> is a <a href="../expressions/references.html">reference</a> to another
-  clause declared in the same object, which definition is <a href="reuse.html">reused</a>
-  by this one;</li>
+clause declared in the same object, which definition is <a href="reuse.html">reused</a>
+by this&nbsp;one;</li>
 <li><code>&lt;content&gt;</code> is an optional statement forming a
-  <a href="clause_content.html">clause content</a>.</li>
+<a href="clause_content.html">clause content</a>.</li>
 </ul>
-<h2 id="clause_identifier">Clause Identifier</h2>
+<h2 id="clause-identifier">Clause&nbsp;Identifier</h2>
 <p>A clause identifier is used to find a clause corresponding to the phrase part
 when interpreting the phrase. So, the chosen identifier is essential to the
-phrase correctness.</p>
+phrase&nbsp;correctness.</p>
 <p>A clause identifier syntax is similar to corresponding phrase part. It can be a
 name, or e.g. square brackets. In addition, any clause may have a name. Clauses
-may have the same names as fields: the naming conflict won't happen, because
-clauses are defined in separate name space.</p>
+may have the same names as fields: the naming conflict won’t happen, because
+clauses are defined in separate name&nbsp;space.</p>
 <h2 id="argument">Argument</h2>
 <p>When an argument is present in phrase, the corresponding clause is identified by
-square brackets (<strong><code>[]</code></strong>) identifier.</p>
-<p>The clause declaration would look like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[]&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
+square brackets (<strong><code>[]</code></strong>)&nbsp;identifier.</p>
+<p>The clause declaration would look like&nbsp;this:</p>
+<pre><code class="lang-o42a">&lt;[]&gt; ~~ Clause content. ~~
+</code></pre>
 <p>Also, a name can be specified for the clause (e.g. for clause
 <a href="reuse.html">reuse</a>):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[label]&gt;
-</pre></div>
-</td></tr></table>
-
-<p>Here is a usage example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; integer (
+<pre><code class="lang-o42a">&lt;[label]&gt;
+</code></pre>
+<p>Here is a usage&nbsp;example:</p>
+<pre><code class="lang-o42a">Int :=&gt; integer (
   &lt;[]&gt; (~~ Argument value will be inserted here. ~~)
 )
 
 Int [42]   ~~ Substitute an argument value.
 Int (= 42) ~~ This is a canonical form of the above expression.
 Int _42    ~~ This is also correct.
-</pre></div>
-</td></tr></table>
-
-<h3 id="multiple_arguments">Multiple Arguments</h3>
+</code></pre>
+<h3 id="multiple-arguments">Multiple&nbsp;Arguments</h3>
 <p>Multiple comma-separated values within a single set of square brackets are
 recognized the same way as multiple arguments with a single value each. So, the
-following are the same:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase [foo, bar, baz]
+following are the&nbsp;same:</p>
+<pre><code class="lang-o42a">Phrase [foo, bar, baz]
 Phrase [foo] [bar, baz]
 Phrase [foo, bar] [baz]
 Phrase [foo] [bar] [baz]
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <h3 id="string">String</h3>
-<p>A string in the phrase is interpreted as argument. So, the following are the
-same:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase [&quot;string&quot;]
+<p>A string in the phrase is interpreted as argument. So, the following are the&nbsp;same:</p>
+<pre><code class="lang-o42a">Phrase [&quot;string&quot;]
 Phrase &quot;string&quot;  ~~ Brackets are optional when argument value is a string.
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <blockquote>
 <p>Note that multiple strings are concatenated automatically and recognized as a
-single string. So, the following:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase &quot;abc&quot; &quot;def&quot;
-</pre></div>
-</td></tr></table>
-
-<p>would be the same as one of:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase &quot;abcdef&quot;
+single string. So, the&nbsp;following:</p>
+<pre><code>:::o42a
+Phrase &quot;abc&quot; &quot;def&quot;
+</code></pre><p>would be the same as one&nbsp;of:</p>
+<pre><code>:::o42a
+Phrase &quot;abcdef&quot;
 Phrase [&quot;abc&quot; &quot;def&quot;]
 Phrase [&quot;abcdef&quot;]
-</pre></div>
-</td></tr></table>
-
-<p>but different from</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase [&quot;abc&quot;] [&quot;def&quot;]
-</pre></div>
-</td></tr></table>
-
-</blockquote>
-<h2 id="single-quoted_string">Single-Quoted String</h2>
+</code></pre><p>but different&nbsp;from</p>
+<pre><code>:::o42a
+Phrase [&quot;abc&quot;] [&quot;def&quot;]
+</code></pre></blockquote>
+<h2 id="single-quoted-string">Single-Quoted&nbsp;String</h2>
 <p>In contrast to a string, a clause corresponding to the
-<a href="index.html#single-quoted_string">single-quoted string</a> is interpreted
-independently and recognized by single quotes (<strong><code>''</code></strong>) identifier.</p>
-<p>So, the clause declaration would look like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;&#39;&#39;&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
-<p>A clause name can also be specified:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;&#39;label&#39;&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
+<a href="index.html#single-quoted-string">single-quoted string</a> is interpreted
+independently and recognized by single quotes (<strong><code>&#39;&#39;</code></strong>)&nbsp;identifier.</p>
+<p>So, the clause declaration would look like&nbsp;this:</p>
+<pre><code class="lang-o42a">&lt;&#39;&#39;&gt; ~~ Clause content. ~~
+</code></pre>
+<p>A clause name can also be&nbsp;specified:</p>
+<pre><code class="lang-o42a">&lt;&#39;label&#39;&gt; ~~ Clause content. ~~
+</code></pre>
 <p>A single-quoted string can be written with optional brackets around it. So, the
-following are the same:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase &#39;string&#39;  
+following are the&nbsp;same:</p>
+<pre><code class="lang-o42a">Phrase &#39;string&#39;  
 Phrase [&#39;string&#39;] ~~ This is NOT an argument. Brackets are just a decoration.
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <blockquote>
 <p>See the tip about <a href="#string">string</a> concatenation. The same takes place for
-single-quoted strings.</p>
+single-quoted&nbsp;strings.</p>
 </blockquote>
 <h2 id="name">Name</h2>
 <p>When a name is present in the phrase, the corresponding clause is selected by
-this name.</p>
-<p>Remember to place an underscore between the phrase prefix and the first name
-part:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase :=&lt; void (
+this&nbsp;name.</p>
+<p>Remember to place an underscore between the phrase prefix and the first name&nbsp;part:</p>
+<pre><code class="lang-o42a">Phrase :=&lt; void (
   Foo :=&lt; integer
   &lt;Clause&gt; foo = *
 )
@@ -267,24 +154,9 @@ Phrase _clause (= 2)
 Phrase (
   Foo = 2
 )
-</pre></div>
-</td></tr></table>
-
-<p>No need in underscore in the following case:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase :=&gt; string (
+</code></pre>
+<p>No need in underscore in the following&nbsp;case:</p>
+<pre><code class="lang-o42a">Phrase :=&gt; string (
   Foo :=&lt; integer
   &lt;[]&gt; (
     &lt;Clause&gt; foo = *
@@ -298,124 +170,82 @@ Phrase (
   = &quot;value&quot;
   Foo = 2
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="array_constructor">Array Constructor</h2>
-<p>When an <a href="../core/arrays.html#array_constructor">array constructor</a> is present in
+</code></pre>
+<h2 id="array-constructor">Array&nbsp;Constructor</h2>
+<p>When an <a href="../core/arrays.html#array-constructor">array constructor</a> is present in
 the phrase, the corresponding clause is identified by array constructor
-(<strong><code>[[]]</code></strong>) identifier.</p>
-<p>The clause declaration would look like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[[]]&gt;  ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
-<p>Also, a clause name can be specified:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[[label]]&gt;  ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
-<p>Here are the usage examples:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Row [[1, 2]]
+(<strong><code>[[]]</code></strong>)&nbsp;identifier.</p>
+<p>The clause declaration would look like&nbsp;this:</p>
+<pre><code class="lang-o42a">&lt;[[]]&gt;  ~~ Clause content. ~~
+</code></pre>
+<p>Also, a clause name can be&nbsp;specified:</p>
+<pre><code class="lang-o42a">&lt;[[label]]&gt;  ~~ Clause content. ~~
+</code></pre>
+<p>Here are the usage&nbsp;examples:</p>
+<pre><code class="lang-o42a">Row [[1, 2]]
 [1, 2]           ~~ The same as above.
 Row (= [1, 2])   ~~ Canonical form of the above.
 
 Array [[1, 2]]
 Array (= [1, 2]) ~~ Canonical form of the above.
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <blockquote>
-<p>Note that <a href="../core/arrays.html#array_constructor">array constructor</a>
+<p>Note that <a href="../core/arrays.html#array-constructor">array constructor</a>
 expression should be placed inside an extra pair of square brackets. Otherwise
 it will be treated as one or more <a href="#argument">arguments</a>.</p>
 </blockquote>
 <h2 id="interval">Interval</h2>
 <p>Every kind of intervals is interpreted independently. I.e. an interval like
-<code>[a..b)</code> requires its own set of clauses to be declared, which won't work for
+<code>[a..b)</code> requires its own set of clauses to be declared, which won’t work for
 intervals like <code>[a..)</code>, <code>(a..b)</code>, or <code>[a..b]</code>.</p>
-<h3 id="fully_bounded_interval">Fully Bounded Interval</h3>
+<h3 id="fully-bounded-interval">Fully Bounded&nbsp;Interval</h3>
 <p>A fully bounded interval, i.e. the one with both bounds specified, requires two
 clauses to be declared: one for the left bound, and another for the right one.
-The second clause should be either <a href="compound.html#nested_clauses">nested</a>, or
+The second clause should be either <a href="compound.html#nested-clauses">nested</a>, or
 should be <a href="reuse.html">reused</a> by the first one. Identifiers of these clauses
 correspond to the clause open/closed kind. An asterisk or clause name should be
-placed to corresponding bound. The other bound should be omitted.</p>
-<p>Here is an example of a fully-bounded right-open substring clause declaration:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;*Substring&gt; Substring (
+placed to corresponding bound. The other bound should be&nbsp;omitted.</p>
+<p>Here is an example of a fully-bounded right-open substring clause&nbsp;declaration:</p>
+<pre><code class="lang-o42a">&lt;*Substring&gt; Substring (
   &lt;[From...) | to&gt; From = ()
   &lt;[...To)!&gt; To = ()
 )
-</pre></div>
-</td></tr></table>
-
-<h3 id="half-bounded_interval">Half-Bounded Interval</h3>
+</code></pre>
+<h3 id="half-bounded-interval">Half-Bounded&nbsp;Interval</h3>
 <p>A half-bounded interval requires only one clause declaration. An asterisk or
 clause name should be placed to corresponding bound. The other bound should
 contain either <code>-</code> or <code>∞</code> (U+221E) sign. Note that just omitting the open bound
-won't work, because such identifiers are reserved for fully-bounded intervals.</p>
-<p>Here are examples of half-bounded (leading and trailing) substring clause
-declarations:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;*Leading substring&gt; Substring (
+won’t work, because such identifiers are reserved for fully-bounded&nbsp;intervals.</p>
+<p>Here are examples of half-bounded (leading and trailing) substring clause&nbsp;declarations:</p>
+<pre><code class="lang-o42a">&lt;*Leading substring&gt; Substring (
   &lt;(-...To)!&gt; To = ()
 )
 
 &lt;*Trailing substring&gt; Substring (
   &lt;[From...-)!&gt; From = ()
 )
-</pre></div>
-</td></tr></table>
-
-<h3 id="unbounded_interval">Unbounded Interval</h3>
+</code></pre>
+<h3 id="unbounded-interval">Unbounded&nbsp;Interval</h3>
 <p>An unbounded interval does not expect any value. A corresponding clause
 identifier may contain <code>-</code> or <code>∞</code> symbols in place of bounds, or completely omit
-the bounds. There is no way to specify a name for such clause.</p>
-<p>Here is an example of full substring clause declaration:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;(...)!&gt;
-</pre></div>
-</td></tr></table>
-
+the bounds. There is no way to specify a name for such&nbsp;clause.</p>
+<p>Here is an example of full substring clause&nbsp;declaration:</p>
+<pre><code class="lang-o42a">&lt;(...)!&gt;
+</code></pre>
 <p>Note that the clause above just returns the original string object. It is
-unlikely that something else would be required, though it is possible.</p>
+unlikely that something else would be required, though it is&nbsp;possible.</p>
 <h2 id="initializer">Initializer</h2>
 <p>When an <a href="index.html#ininitializer">initializer</a> is present in the phrase, the
-corresponding clause is identified by initializer (<strong><code>[= *]</code></strong>) identifier.</p>
-<p>The clause declaration would look like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[= *]&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
+corresponding clause is identified by initializer (<strong><code>[= *]</code></strong>)&nbsp;identifier.</p>
+<p>The clause declaration would look like&nbsp;this:</p>
+<pre><code class="lang-o42a">&lt;[= *]&gt; ~~ Clause content. ~~
+</code></pre>
 <p>Also, a name can be specified for the clause (e.g. for clause
 <a href="reuse.html">reuse</a>):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;[= label]&gt;
-</pre></div>
-</td></tr></table>
-
-<p>Here is a usage example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; integer (
+<pre><code class="lang-o42a">&lt;[= label]&gt;
+</code></pre>
+<p>Here is a usage&nbsp;example:</p>
+<pre><code class="lang-o42a">Int :=&gt; integer (
   &lt;[= *]&gt; (~~ Argument value will be inserted here. ~~)
 )
 
@@ -425,117 +255,61 @@ Int (= 42) ~~ This is a canonical form of the above expression.
 Int field 1 := int = 42    ~~ A special form useful for field declarations.
 Int field 2 := int [= 42]  ~~ The same as above.
 Int field 3 := int (= 42)  ~~ Canonical form.
-</pre></div>
-</td></tr></table>
-
-<h2 id="imperative_block">Imperative Block</h2>
+</code></pre>
+<h2 id="imperative-block">Imperative&nbsp;Block</h2>
 <p>When an <a href="../sentences/imperatives.html">imperative block</a> is present in the
-phrase, the corresponding clause is identified by curly braces (<strong><code>{}</code></strong>)
-identifier.</p>
-<p>So, the clause declaration would look like:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;{}&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
-<p>A clause name can also be specified:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&lt;{label}&gt; ~~ Clause content. ~~
-</pre></div>
-</td></tr></table>
-
-<h2 id="declarative_block">Declarative Block</h2>
-<p>The <a href="../sentences/statements.html#declarative_block">declarative block</a> can
+phrase, the corresponding clause is identified by curly braces (<strong><code>{}</code></strong>)&nbsp;identifier.</p>
+<p>So, the clause declaration would look&nbsp;like:</p>
+<pre><code class="lang-o42a">&lt;{}&gt; ~~ Clause content. ~~
+</code></pre>
+<p>A clause name can also be&nbsp;specified:</p>
+<pre><code class="lang-o42a">&lt;{label}&gt; ~~ Clause content. ~~
+</code></pre>
+<h2 id="declarative-block">Declarative&nbsp;Block</h2>
+<p>The <a href="../sentences/statements.html#declarative-block">declarative block</a> can
 present anywhere in the phrase. It is always recognized internally and does not
 require a clause for it to be declared. The contents of the declarative block
-are just appended to the same context as a preceding phrase part.</p>
+are just appended to the same context as a preceding phrase&nbsp;part.</p>
 <p>So, the
-<a href="../objects/creation.html#constructor_expression">constructor expression</a>
-is just a form of phrase.</p>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="active">
-      <a href="../phrases/clauses.html">Clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/clause_content.html">Clause Content</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/compound.html">Compound Phrase</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/reuse.html">Reusing clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/continuations.html">Phrase Completeness</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/outcome.html">Phrase Outcome</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/operators.html">Operators Override</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+<a href="../objects/creation.html#constructor-expression">constructor expression</a>
+is just a form of&nbsp;phrase.</p>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="index.html">Phrases</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li class="active"><a href="">Clauses</a></li>
+                  <li><a href="clause_content.html">Clause Content</a></li>
+                  <li><a href="compound.html">Compound Phrase</a></li>
+                  <li><a href="reuse.html">Reusing Clauses</a></li>
+                  <li><a href="continuations.html">Phrase Completeness</a></li>
+                  <li><a href="operators.html">Operators Override</a></li>
+                </ul>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » References</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » References</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Expressions</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="references">References</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Expressions</a></li>
+          <li class="active">References</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="references">References</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -114,19 +50,19 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>A reference is a syntactic construct which addresses something.</p>
-<p>The reference may address:</p>
+<p>A reference is a syntactic construct which addresses&nbsp;something.</p>
+<p>The reference may&nbsp;address:</p>
 <ul>
-<li>some <a href="#scope_reference">scope</a>,</li>
-<li>a <a href="#member_by_name">member by name</a>,</li>
-<li>a <a href="#parent_member">parent member</a> by name,</li>
-<li>a <a href="#member_reference">member</a> of another object,</li>
-<li>a <a href="../core/links.html#link_dereferencing">link target</a>, or</li>
-<li>an <a href="../core/macros.html#macro_field_expansion">macro field expansion</a>.</li>
+<li>some <a href="#scope-reference">scope</a>,</li>
+<li>a <a href="#member-by-name">member by name</a>,</li>
+<li>a <a href="#parent-member">parent member</a> by&nbsp;name,</li>
+<li>a <a href="#member-reference">member</a> of another&nbsp;object,</li>
+<li>a <a href="../core/links.html#link-dereferencing">link target</a>,&nbsp;or</li>
+<li>an <a href="../core/macros.html#macro-field-expansion">macro field expansion</a>.</li>
 </ul>
-<h2 id="scope_reference">Scope Reference</h2>
-<p>The following objects can be addressed by scope references:</p>
-<hr />
+<h2 id="scope-reference">Scope&nbsp;Reference</h2>
+<p>The following objects can be addressed by scope&nbsp;references:</p>
+<hr>
 <table>
 <thead>
 <tr>
@@ -159,244 +95,207 @@ Free Documentation License".
 <tr>
 <td>Implied object</td>
 <td><code>*</code></td>
-<td>Indicates that the referenced object can be determined automatically. Depends on the context it appears in. For example, can be used in <a href="../objects/propagation.html#implied_scope_usage">field override</a> or in <a href="../objects/samples.html#implied_scope_usage">ascendants expression</a>.</td>
+<td>Indicates that the referenced object can be determined automatically. Depends on the context it appears in. For example, can be used in <a href="../objects/propagation.html#implied-scope-usage">field override</a> or in <a href="../objects/samples.html#implied-scope-usage">ascendants expression</a>.</td>
 </tr>
 <tr>
-<td><a href="../core/macros.html#macro_expansion">Macro expansion</a></td>
+<td><a href="../core/macros.html#macro-expansion">Macro expansion</a></td>
 <td><code>#</code></td>
 <td>Expands the addressed macro.</td>
 </tr>
 <tr>
-<td><a href="../core/macros.html#standard_macro_expansion">Standard macro expansion</a></td>
+<td><a href="../core/macros.html#standard-macro-expansion">Standard macro expansion</a></td>
 <td><code>##</code></td>
-<td>Addresses a macro from standard <code>Macros</code> module and causes it's expansion.</td>
+<td>Addresses a macro from standard <code>Macros</code> module and causes it’s expansion.</td>
 </tr>
 <tr>
-<td><a href="../sentences/locals.html#accessing_locals">Local</a></td>
+<td><a href="../sentences/locals.html#accessing-locals">Local</a></td>
 <td><code>$</code></td>
 <td>Local reference.</td>
 </tr>
 <tr>
-<td><a href="../sentences/locals.html#anonymous_local">Anonymous local</a></td>
+<td><a href="../sentences/locals.html#anonymous-local">Anonymous local</a></td>
 <td><code>$$</code></td>
 <td>Anonymous local reference.</td>
 </tr>
 </tbody>
 </table>
-<hr />
+<hr>
 <p>Example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := //~~Root~~ void ~~This can be written without `//` prefix.~~ (
-  Value :=&lt; //~~Root~~ integer ~~This can be written without &#39;//&#39; prefix.~~
-  Sum :=&gt; :: ~~Parent field, i.e. `foo`.~~ (
-    Arg :=&lt; / ~~Refers the module object.~~ foo ~~Refers module field `foo`~~
-    Value = foo: value + :~~Parent object, i.e. `sum&#39;.~~ arg: value
+<pre><code class="lang-o42a">Foo := //~~Root~~ void ~~This can be written without `//` prefix.~~ (
+  Value :=&lt; //~~Root~~ integer ~~This can be written without `//` prefix~~
+  Sum :=&gt; :: ~~Parent field, i.e. `foo`~~ (
+    Arg :=&lt; / ~~Refers the module object~~ foo ~~Refers module field `foo`~~
+    Value = foo: value + :~~Parent object, i.e. `sum`~~ arg: value
   )
 )
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <blockquote>
 <p>Notice the difference between the self (<code>:</code>) and parent member (<code>::</code>)
-references. They mean the same in the following piece of code:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := void (
+references. They mean the same in the following piece of&nbsp;code:</p>
+<pre><code class="lang-o42a">Foo := void (
   Bar :=&gt; :  ~~ Refers the `foo` field.
   Baz :=&gt; :: ~~ Also refers the `foo` field.
 )
-</pre></div>
-</td></tr></table>
-
-<p>But have a different meaning here:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := void (
+</code></pre>
+<p>But have different meanings&nbsp;here:</p>
+<pre><code class="lang-o42a">Foo := void (
   Bar (
     F :=&gt; :  ~~ Refers the enclosing object inherited from `bar`.
     G :=&gt; :: ~~ Refers the `foo` field.
   )
 )
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 </blockquote>
-<h2 id="member_by_name">Member by Name</h2>
-<p>The name can be written standalone or with an ascendant qualifier:</p>
+<h2 id="member-by-name">Member by&nbsp;Name</h2>
+<p>The name can be written standalone or with an ascendant&nbsp;qualifier:</p>
 <blockquote>
-<p><code>&lt;name&gt; [ '@' ['('] &lt;ascendant&gt; [')'] ]</code></p>
+<p><code>&lt;name&gt; [ &#39;@&#39; [&#39;(&#39;] &lt;ascendant&gt; [&#39;)&#39;] ]</code></p>
 </blockquote>
-<p>where <code>&lt;ascendant&gt;</code> is a reference to the object, the named field belongs to.</p>
+<p>where <code>&lt;ascendant&gt;</code> is a reference to the object, the named field belongs&nbsp;to.</p>
 <p>If an <code>&lt;ascendant&gt;</code> not specified, the member is searched by name. Otherwise,
-the member is searched by name / ascendant pair with the following algorithm:</p>
+the member is searched by name / ascendant pair with the following&nbsp;algorithm:</p>
 <ul>
 <li>if container object derived from ascendant, the field present in this
-  ascendant is searched in the given object;</li>
+ascendant is searched in the given&nbsp;object;</li>
 <li>otherwise, if container object has an adapter to the given ascendant, the
-  field is searched in this adapter.</li>
+field is searched in this&nbsp;adapter.</li>
 </ul>
-<p>The member search sequence:</p>
+<p>The member search&nbsp;sequence:</p>
 <ul>
-<li>search in enclosing object;</li>
-<li>if not found, then check whether enclosing object has a given name;</li>
+<li>search in enclosing&nbsp;object;</li>
+<li>if not found, then check whether enclosing object has a given&nbsp;name;</li>
 <li>if not found, then search in enclosing object of enclosed object in the same
-  source file;</li>
-<li>... and so on, until the topmost object of the source file reached;</li>
+source&nbsp;file;</li>
+<li>… and so on, until the topmost object of the source file&nbsp;reached;</li>
 <li>if not found, then search among objects imported by <code>Use object</code>
-  <a href="../core/index.html#directives">directive</a>;</li>
+<a href="../core/index.html#directives">directive</a>;</li>
 <li>if not found, then search among members of namespace objects imported by
-  <code>Use namespace</code> <a href="../core/index.html#directives">directive</a>;</li>
+<code>Use namespace</code> <a href="../core/index.html#directives">directive</a>;</li>
 <li>if not found, then search in enclosing object (possibly in another source
-  file, which includes this one); note, that imported symbols not consulted
-  any more;</li>
-<li>... and so on, until the module file reached;</li>
-<li>if not found in module, then check whether the module has a given name;</li>
-<li>if not found and <code>&lt;name&gt;</code> is '<code>void</code>', return <a href="../core/index.html#void">void</a>;</li>
-<li>if not found and <code>&lt;name&gt;</code> is '<code>false</code>', return <a href="../core/index.html#false">false</a>;</li>
+file, which includes this one); note, that imported symbols not consulted
+any&nbsp;more;</li>
+<li>… and so on, until the module file&nbsp;reached;</li>
+<li>if not found in module, then check whether the module has a given&nbsp;name;</li>
+<li>if not found and <code>&lt;name&gt;</code> is ‘<code>void</code>‘, return <a href="../core/index.html#void">void</a>;</li>
+<li>if not found and <code>&lt;name&gt;</code> is ‘<code>false</code>‘, return <a href="../core/index.html#false">false</a>;</li>
 <li>if not found, then search in <a href="../core/index.html#root">root</a>.</li>
 </ul>
-<p>Some examples:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Integer :=&gt; //integer  ~~ New field with the same name.
+<p>Some&nbsp;examples:</p>
+<pre><code class="lang-o42a">Integer :=&gt; //integer  ~~ New field with the same name.
 Value := integer (= 2) ~~ Refers to the new `integer`,
                        ~~ not to the `integer` field of the root.
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Use object &#39;foo&#39; from &#39;module&#39;
+</code></pre>
+<pre><code class="lang-o42a">Use object &#39;foo&#39; from &#39;module&#39;
 Bar := foo             ~~ Refers the imported object `foo`.
-</pre></div>
-</td></tr></table>
-
-<h2 id="parent_member">Parent Member</h2>
-<p>The syntax is:</p>
+</code></pre>
+<h2 id="parent-member">Parent&nbsp;Member</h2>
+<p>The syntax&nbsp;is:</p>
 <blockquote>
-<p><code>&lt;name&gt; '::'</code></p>
+<p><code>&lt;name&gt; &#39;::&#39;</code></p>
 </blockquote>
-<p>where <code>&lt;name&gt;</code> is an enclosing member's name.</p>
+<p>where <code>&lt;name&gt;</code> is an enclosing member’s&nbsp;name.</p>
 <p>This reference will search for a member with the given name only among members,
 the reference appears inside of. First, the parent (enclosing) member checked,
-then - the parent of the parent and so on, until the module object reached.</p>
-<p>The usage example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := string (
+then - the parent of the parent and so on, until the module object&nbsp;reached.</p>
+<p>The usage&nbsp;example:</p>
+<pre><code class="lang-o42a">Foo := string (
   = &quot;value&quot;
   Foo := 2      ~~ Field with the same name as parent one.
   Bar := foo    ~~ Equals to `2`, because refers the `foo: foo`.
   Baz :=&gt; foo:: ~~ Equals to `&quot;value&quot;`, because refers the parent `foo`.
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="member_reference">Member Reference</h2>
+</code></pre>
+<h2 id="member-reference">Member&nbsp;Reference</h2>
 <p>An object member (field, adapter or clause) can be referred to by
-<a href="../objects/fields.html#field_access">field access</a>,
-<a href="../objects/adapters.html#adapter_access">adapter access</a>,
-or <a href="../objects/adapters.html#access_to_the_field_of_adapter">access to field of adapter</a>
-references.</p>
+<a href="../objects/fields.html#field-access">field access</a>,
+<a href="../objects/adapters.html#adapter-access">adapter access</a>,
+or <a href="../objects/adapters.html#access-to-the-field-of-adapter">access to field of adapter</a>&nbsp;references.</p>
 <p>Note that when accessing the named member of an object addressed by the scope
 or parent member references, the colon sign (<code>:</code>) is omitted. So these are
-correct expressions:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>//integer
+correct&nbsp;expressions:</p>
+<pre><code class="lang-o42a">//integer
 /foo
 :foo
 ::foo
 foo:: bar
 $local
 $$field of anonymous local
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="active">
-      <a href="../expressions/references.html">References</a>
-  </li>
-  
-  <li class="">
-      <a href="../expressions/unary.html">Unary Operators</a>
-  </li>
-  
-  <li class="">
-      <a href="../expressions/binary.html">Binary Operators</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+</code></pre>
+<h2 id="eager-reference">Eager&nbsp;Reference</h2>
+<p>The syntax&nbsp;is:</p>
+<blockquote>
+<p><code>&lt;expression&gt; &#39;&gt;&gt;&#39;</code></p>
+</blockquote>
+<p>Normally, an object value is (re-)evaluated on each request. This not always a
+required behaviour, as the result of evaluations may differ, or could be very
+excessive in terms of performance and resources&nbsp;usage.</p>
+<p>Also, an object value is evaluated when requested. I.e. it won’t be evaluated
+immediately when object (e.g. field or local)&nbsp;constructed.</p>
+<p>To evaluate the object value immediately and to preserve it for later use, an
+eager reference could be used. Eager reference evaluates the value of
+<code>&lt;expression&gt;</code>, constructs a new object inherited from <code>&lt;expression&gt;</code> and
+returns it. The value of the resulting object is constant, and equal to
+previously evaluated value of <code>&lt;expression&gt;</code>.</p>
+<p>Note, that any object inherited from eager reference inherits its value too,
+unless the value definition is overridden in inherited&nbsp;object.</p>
+<h2 id="other">Other</h2>
+<p>These references are also supported, but discussed&nbsp;later:</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;expression&gt; &#39;-&gt;&#39;</code></td>
+<td><a href="../core/links.html#link-dereference">Link dereference</a></td>
+</tr>
+<tr>
+<td><code>&lt;expression&gt; &#39;#&#39; &lt;field&gt;</code></td>
+<td><a href="../core/macros.html#macro-field-expansion">Macro field expansion</a></td>
+</tr>
+<tr>
+<td><code>&lt;expression&gt; &#39;##&#39; &lt;field&gt;</code></td>
+<td><a href="../core/macros.html#standard-macro-expansion">Standard macro expansion</a></td>
+</tr>
+</tbody>
+</table>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="index.html">Expressions</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li class="active"><a href="">References</a></li>
+                  <li><a href="unary.html">Unary Operators</a></li>
+                  <li><a href="binary.html">Binary Operators</a></li>
+                </ul>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

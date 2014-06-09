@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Arrays</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Arrays</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Core Objects</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="arrays">Arrays</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Core Objects</a></li>
+          <li class="active">Arrays</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="arrays">Arrays</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -115,8 +51,8 @@ Free Documentation License".
 -->
 
 <p>An array is a fixed-length sequence of object references. Each array is an
-object, which <a href="../objects/value.html">value</a> contains that references.</p>
-<p>The array object inherits one of the two base objects:</p>
+object, which <a href="../objects/value.html">value</a> contains that&nbsp;references.</p>
+<p>The array object inherits one of the two base&nbsp;objects:</p>
 <table>
 <thead>
 <tr>
@@ -135,79 +71,53 @@ object, which <a href="../objects/value.html">value</a> contains that references
 </tr>
 </tbody>
 </table>
-<p>Note that array length can not be altered despite the array mutability.</p>
+<p>Note that array length can not be altered despite the array&nbsp;mutability.</p>
 <p>Both of these objects inherited from <code>Indexed</code> prototype, which declares an
-interface for all objects containing indexed elements.</p>
-<h2 id="array_constructor">Array Constructor</h2>
+interface for all objects containing indexed&nbsp;elements.</p>
+<h2 id="array-constructor">Array&nbsp;Constructor</h2>
 <p>An array can be constructed and initialized with a special expression with the
-following syntax:</p>
+following&nbsp;syntax:</p>
 <blockquote>
-<p><code>'[' [&lt;item&gt; [',' &lt;item&gt;] ...] ']'</code></p>
+<p><code>&#39;[&#39; [&lt;item&gt; [&#39;,&#39; &lt;item&gt;] ...] &#39;]&#39;</code></p>
 </blockquote>
-<p>where <code>&lt;item&gt;</code> is an expression resolving to the corresponding array element's
-initial value; the number of items defines an array length.</p>
+<p>where <code>&lt;item&gt;</code> is an expression resolving to the corresponding array element’s
+initial value; the number of items defines an array&nbsp;length.</p>
 <p>The constructed array will inherit a <code>Row</code> object.</p>
-<p>The type of elements will be determined automatically.</p>
-<h2 id="array_object">Array Object</h2>
+<p>The type of elements will be determined&nbsp;automatically.</p>
+<h2 id="array-object">Array&nbsp;Object</h2>
 <p>Every array is an object and can be constructed by the
-object <a href="../objects/creation.html#constructor_expression">constructor expression</a>. The type of array
-elements can be specified as a type parameters:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>Foo :=&gt; void (Int :=&lt; integer)
+object <a href="../objects/creation.html#constructor-expression">constructor expression</a>. The type of array
+elements can be specified as a type&nbsp;parameters:</p>
+<pre><code class="lang-o42a">Foo :=&gt; void (Int :=&lt; integer)
 Bar :=&gt; foo (Str :=&lt; string)
 
 Foo row := [foo (Int = 1), foo (Int = 2)] ~~ Elements type is `foo`.
 
 Bar row := bar` foo row (= [bar (Int = 1, Str = &quot;One&quot;)]) 
 ~~ Inherit the `foo row` and upgrade elements type to `bar`.
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>Also the <code>Row</code> and <code>Array</code> objects declare phrases, which can be used to
- construct arrays:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Integer` row [[1, 2, 3]] ~~ Row of integers
+ construct&nbsp;arrays:</p>
+<pre><code class="lang-o42a">Integer` row [[1, 2, 3]] ~~ Row of integers
 
 String` array [[&quot;first&quot;, &quot;second&quot;, &quot;last&quot;]] ~~ Array of strings:
 
 Array of strings := string` array = [&quot;first&quot;, &quot;second&quot;, &quot;last&quot;]
 ~~ Field initializer syntax
-</pre></div>
-</td></tr></table>
-
-<h2 id="array_element_access">Array Element Access</h2>
-<p>An array element can be accessed with the following phrase:</p>
+</code></pre>
+<h2 id="array-element-access">Array Element&nbsp;Access</h2>
+<p>An array element can be accessed with the following&nbsp;phrase:</p>
 <blockquote>
-<p><code>&lt;array&gt; '[' &lt;index&gt; ']'</code></p>
+<p><code>&lt;array&gt; &#39;[&#39; &lt;index&gt; &#39;]&#39;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
-<li><code>&lt;array&gt;</code> is an expression resolving to target array;</li>
+<li><code>&lt;array&gt;</code> is an expression resolving to target&nbsp;array;</li>
 <li><code>&lt;index&gt;</code> is an expression resolving to integer value, designating the
-  requested element's index (zero-based).</li>
+requested element’s index&nbsp;(zero-based).</li>
 </ul>
 <p>Examples:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre>~~ The row of three integers.
+<pre><code class="lang-o42a">~~ The row of three integers.
 My array := [1, 2, 3]
 My array [1]            ~~ Returns `2`.
 My array [10]           ~~ False value, as element index is invalid.
@@ -215,107 +125,58 @@ My array [10]           ~~ False value, as element index is invalid.
 ~~ The array of two strings.
 Var-array := string` array [[&quot;one&quot;, &quot;sec&quot; + &quot;ond&quot;]]
 Var-array [1]           ~~ `&quot;second&quot;` initially, until modified.
-{
-  Var-array [1] = &quot;two&quot; ~~ Assign `&quot;two&quot;` to second element.
-  Var-array [1]         ~~ Now it&#39;s `&quot;two&quot;`.
-}
-</pre></div>
-</td></tr></table>
-
-<h2 id="array_value_definition">Array Value Definition</h2>
-<p>Array object's value can be defined just as any other one, with a
-<a href="../objects/definition.html#self-assignment">self-assignment</a> statement.</p>
-<p><code>Row</code> and <code>Array</code> has different <a href="../objects/value.html#value_type">value types</a>,
-but they can be converted from one to another:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Var-array := integer` array ( ~~ Declare the (mutable) array of integers.
+Var-array [1] &lt;- &quot;two&quot;  ~~ Assign `&quot;two&quot;` to second element.
+Var-array [1]           ~~ Now it&#39;s `&quot;two&quot;`.
+</code></pre>
+<h2 id="array-value-definition">Array Value&nbsp;Definition</h2>
+<p>Array object’s value can be defined just as any other one, e.g. with a
+<a href="../objects/definition.html#return">return</a>
+or <a href="../objects/definition.html#yield">yield</a>&nbsp;statement.</p>
+<p><code>Row</code> and <code>Array</code> has different <a href="../objects/value.html#value-type">value types</a>,
+but they can be converted from one to&nbsp;another:</p>
+<pre><code class="lang-o42a">Var-array := integer` array ( ~~ Declare the (mutable) array of integers.
   = [1, 2, 3]                   ~~ Initialize it with (immutable) row.
 )
-</pre></div>
-</td></tr></table>
+</code></pre>
+<p>Note however, that return and yield statements copy an array content (unless
+a row returned from row object). It is possible to create a <a href="links.html">link</a>
+to array, or array <a href="variables.html">variable</a> to pass arrays by&nbsp;reference.</p>
 
-<p>Note however, that self-assignment statement copies an array content (unless
-a row assigned to the row). It is possible to create a <a href="links.html">link</a> to
-array, or array <a href="variables.html">variable</a> to pass arrays by reference.</p>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../core/links.html">Links</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/variables.html">Variables</a>
-  </li>
-  
-  <li class="active">
-      <a href="../core/arrays.html">Arrays</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/macros.html">Macros</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/type_parameters.html">Type Parameters</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
-
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="index.html">Core Objects</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="links.html">Links</a></li>
+                  <li><a href="variables.html">Variables</a></li>
+                  <li class="active"><a href="">Arrays</a></li>
+                  <li><a href="macros.html">Macros</a></li>
+                  <li><a href="type_parameters.html">Type Parameters</a></li>
+                </ul>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

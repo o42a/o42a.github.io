@@ -1,111 +1,46 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Sentences</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Sentences</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li class="active">
-              Sentences
-              
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="sentences">Sentences</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li class="active">Sentences</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="sentences">Sentences</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -115,133 +50,114 @@ Free Documentation License".
 -->
 
 <p>A sentence combines <a href="statements.html">statements</a> with respect to their logical
-meaning. Sentences make it possible to write a complex logic in a simpler
-manner, which may be called truly intuitive, because it is close to the natural
-text.</p>
+meaning. Sentences make it possible to write complex logic in a simpler
+manner, which may be called truly intuitive, because it is close to the natural&nbsp;text.</p>
 <p>Sentences form an object definition within a
-<a href="../objects/creation.html#constructor_expression">constructor expression</a>, or
-within parentheses in phrase.</p>
-<p>The sentence is a sequence of zero or more statements, delimited by
+<a href="../objects/creation.html#constructor-expression">constructor expression</a>, or
+within blocks of the&nbsp;phrase.</p>
+<p>The sentence is a sequence of zero or more statements delimited by
 <em>commas</em> (<code>,</code>) or <em>semicolons</em> (<code>;</code>) and optionally terminated with
-<em>period</em> (<code>.</code>), <em>exclamation mark</em> (<code>!</code>) or <em>question mark</em> (<code>?</code>).</p>
-<p>The sentence has one of the three possible kinds depending on its termination
-mark:</p>
-<table>
-<thead>
-<tr>
-<th>Termination Mark</th>
-<th>Sentence Kind</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.</code></td>
-<td><a href="proposition.html">Proposition</a></td>
-</tr>
-<tr>
-<td><code>!</code></td>
-<td><a href="claim.html">Claim</a></td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td><a href="issue.html">Issue</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sentence_termination">Sentence Termination</h2>
-<p>The termination mark can be omitted for the last sentence of block. It can also
-be omitted at the end of a line, unless a statement separator (colon or
-semicolon) present after the last statement of the sentence.</p>
-<p>If the termination mark is omitted, the sentence is considered a
-<a href="proposition.html">proposition</a>.</p>
+<em>period</em> (<code>.</code>), <em>question mark</em> (<code>?</code>), <em>exclamation mark</em> (<code>!</code>),
+or their combinations (<code>?..</code> or <code>!..</code>).</p>
+<p>The declarative code may only contain <a href="#declarative-sentence">declarative</a>
+sentences terminating with <em>periods</em> (<code>.</code>),
+and <a href="#interrogative-sentence">interrogative</a> sentences terminating with
+<em>question marks</em> (<code>?</code>).</p>
+<p>The <a href="imperatives.html">imperative</a> code may contain any kinds of&nbsp;sentences.</p>
+<h2 id="sentence-termination">Sentence&nbsp;Termination</h2>
+<p>The termination mark can be omitted for the last sentence of the block.
+It can also be omitted at the end of the&nbsp;line.</p>
+<p>If the termination mark is omitted, and no separator (colon or semicolon)
+present after the last statement, the sentence is automatically terminated
+with period (<code>.</code>).</p>
 <p>An <a href="../syntax/underscore.html">underscore</a> should be used to continue a
-statement to the next line.</p>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class="active nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../sentences/statements.html">Statements</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/proposition.html">Proposition</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/claim.html">Claim</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/issue.html">Issue</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/definition.html">Understanding The Value Definition</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/imperatives.html">Imperative Blocks</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/locals.html">Locals</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+statement to the next&nbsp;line.</p>
+<h2 id="declarative-sentence">Declarative&nbsp;Sentence</h2>
+<p>A declarative sentence is the default sentence kind. It is a regular way of
+building object&nbsp;definitions.</p>
+<p>The following sentence defines a value for an&nbsp;object:</p>
+<pre><code class="lang-o42a">= 2
+</code></pre>
+<p>While the following defines only a logical&nbsp;value:</p>
+<pre><code class="lang-o42a">a &gt; 0
+</code></pre>
+<h3 id="evaluation">Evaluation</h3>
+<p><a href="statements.html">Statements</a> within declarative sentence are evaluated in their
+order. The sentence evaluation result may be one of the&nbsp;following:</p>
+<ul>
+<li>If the sentence is empty, it is ignored and evaluation continues to the next&nbsp;sentence.</li>
+<li>If a <a href="../objects/definition.html#return">return</a> or <a href="../objects/definition.html#yield">yield</a> statement successfully executed, a value is
+returned and the sentence evaluation&nbsp;finishes.</li>
+<li>If statements evaluated to false (i.e. the last <a href="statements.html#alternatives">alternative</a> failed),
+a <code>false</code> value is returned and evaluation&nbsp;finishes.</li>
+<li>Otherwise, (i.e. when some <a href="statements.html#alternatives">alternative</a> succeed and did not contain a
+<a href="../objects/definition.html#return">return</a> or <a href="../objects/definition.html#yield">yield</a> statement) the evaluation continues to the next&nbsp;sentence.</li>
+</ul>
+<p>The following sentence states that the <code>value</code> should be&nbsp;positive:</p>
+<pre><code class="lang-o42a">Value &gt; 0
+</code></pre>
+<p>So, an object declaration can look like&nbsp;this:</p>
+<pre><code class="lang-o42a">Object := void (
+  Value := 1 ~~ This is a definition of `value`.
+  Value &gt; 0  ~~ `Value` should be positive in order the evaluation to continue
+             ~~ and result to inherited `void` value.
+             ~~ Otherwise, an object value will be false.
+)
+</code></pre>
+<h2 id="interrogative-sentence">Interrogative&nbsp;Sentence</h2>
+<p>An interrogative sentence is terminated with a <em>question mark</em> (<code>?</code>).</p>
+<p>The sentence following an interrogative one will be evaluated only when
+interrogative sentence succeed. Otherwise, the sentence following the next
+non-interrogative sentence will be&nbsp;evaluated.</p>
+<p>Some&nbsp;examples:</p>
+<pre><code class="lang-o42a">Arg &gt; 0? = 1  ~~ If `arg` is positive, return `1`.
+Arg &lt; 0? = -1 ~~ Otherwise, if `arg` is negative, return `-1`.
+= 0           ~~ Otherwise, return `0`.
+</code></pre>
+<p>An interrogative sentence may follow another interrogative sentence.
+In this case statements of theses sentences are combined with logical <span class="caps">AND</span>.
+So, the following definitions are&nbsp;equal:</p>
+<pre><code class="lang-o42a">Age &gt;= 10? Age &lt;= 19? = &quot;teen&quot; 
+Age &gt;= 10, age &lt;= 10? = &quot;teen&quot;
+</code></pre>
+<p>An interrogative sentence alone (e.g. as a last sentence of declarative block)
+is treated as preceding an empty&nbsp;sentence.</p>
+<p>An interrogative sentence may not contain any member declarations,
+<a href="../objects/definition.html#return">return</a> or <a href="../objects/definition.html#yield">yield</a> statements, or <a href="imperatives.html">imperative blocks</a>.</p>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li class="active"><a href="">Sentences</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="statements.html">Statements</a></li>
+                  <li><a href="imperatives.html">Imperative Blocks</a></li>
+                  <li><a href="locals.html">Locals</a></li>
+                </ul>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

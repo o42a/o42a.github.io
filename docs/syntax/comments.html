@@ -1,109 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Comments</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Comments</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Basic Syntax</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="comments">Comments</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Basic Syntax</a></li>
+          <li class="active">Comments</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="comments">Comments</h1>
 <!--
 Copyright (C) 2010-2013 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
@@ -114,100 +50,65 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>Comments are used to place a free-form textual remarks anywhere in the code.</p>
-<p>o42a has it own, unique syntax for comments. There are two forms of comments
-supported:</p>
+<p>Comments are used to place a free-form textual remarks anywhere in the&nbsp;code.</p>
+<p>o42a has it own, unique syntax for comments. There are two forms of comments&nbsp;supported:</p>
 <ul>
-<li>inline comment can be placed on any line, and</li>
-<li>block comments, which fully occupy several lines of source code.</li>
+<li>inline comment can be placed on any line,&nbsp;and</li>
+<li>block comments, which fully occupy several lines of source&nbsp;code.</li>
 </ul>
-<h3 id="inline_comments">Inline Comments</h3>
+<h3 id="inline-comments">Inline&nbsp;Comments</h3>
 <p>Inline comment starts with two (or more) tildes (<strong><code>~~</code></strong>). Any text can be
 placed after them. Inline comment either ends with two or more tildes (<strong><code>~~</code></strong>)
-or occupies the rest of the line otherwise:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>~~ This comment occupies the whole line.
+or occupies the rest of the line&nbsp;otherwise:</p>
+<pre><code class="lang-o42a">~~ This comment occupies the whole line.
 Foo := bar ~~ This one occupies the rest of the line.
 ++ ~~~ Between unary operator an operand ~~~ operand.
 Foo ~~~~~ Comment 1 ~~ : ~~ Comment 2 ~~~~~ bar
-</pre></div>
-</td></tr></table>
-
-<h3 id="block_comments">Block comments</h3>
+</code></pre>
+<h3 id="block-comments">Block&nbsp;comments</h3>
 <p>In contrast to inline comments, the block comment fully occupies several lines
-of source code.</p>
+of source&nbsp;code.</p>
 <p>A block comment starts and ends with lines containing three or more tildes
 (<strong><code>~~~</code></strong>). <strong>Nothing except spaces may appear on the same line</strong>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>~~~~~~~~
+<pre><code class="lang-o42a">~~~~~~~~
 Block
 comment.
 ~~~~~~~~
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <div class="tip">
 Note that the tildes are used as both inline and block comment separators. But
 it is unlikely to mistype and start a block comment instead of inline one. The
-block comment separator requires at least three tildes, which __should be placed
-on a separate line__, while the inline comment requires one less tilde, and is
+block comment separator requires at least three tildes, which <strong>should be placed
+on a separate line</strong>, while the inline comment requires one less tilde, and is
 either placed after the code or contains a text right after separator.
 </div>
 
-<h2 id="comments_placement">Comments Placement</h2>
-<p>Comments may appear anywhere in the program code, except:</p>
-<ul>
-<li>Inside names. This is wrong:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Hello ~~ Phrase instead of the name ~~ World
-</pre></div>
-</td></tr></table>
 
+<h2 id="comments-placement">Comments&nbsp;Placement</h2>
+<p>Comments may appear anywhere in the program code,&nbsp;except:</p>
 <ul>
-<li>Inside strings. This is not recognized as a comment:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;Hello, ~~ Not a comment ~~ World!&quot;
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>They can't break numbers. This is wrong:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>123~~ (Incorrect) phrase instead of a number ~~45
-</pre></div>
-</td></tr></table>
-
-<ul>
+<li>Inside names. This is wrong:<pre><code class="lang-o42a">Hello ~~ Phrase instead of the name ~~ World
+</code></pre>
+</li>
+<li>Inside strings. This is not recognized as a comment:<pre><code class="lang-o42a">&quot;Hello, ~~ Not a comment ~~ World!&quot;
+</code></pre>
+</li>
+<li>They can’t break numbers. This is wrong:<pre><code class="lang-o42a">123~~ (Incorrect) phrase instead of a number ~~45
+</code></pre>
+</li>
 <li>They should not break operators and other monolithic constructs.
-  This is wrong:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>+~~Two arithmetic pluses instead of `is true` operator~~+ plus
+This is wrong:<pre><code class="lang-o42a">+~~Two arithmetic pluses instead of `is true` operator~~+ plus
 Foo :~~ Syntax error ~~= bar
-</pre></div>
-</td></tr></table>
-
-<h2 id="documentation_comments">Documentation Comments</h2>
+</code></pre>
+</li>
+</ul>
+<h2 id="documentation-comments">Documentation&nbsp;Comments</h2>
 <p>Despite a comment may contain arbitrary text, the preferred text format is
 <a href="http://daringfireball.net/projects/markdown/syntax/">Markdown</a>. This can be
-used in the future, e.g. by documentation generation tools.</p>
+used in the future, e.g. by documentation generation&nbsp;tools.</p>
 <p>Also, it is preferred to place the block comment describing a
-<a href="../objects/fields.html">field</a> <strong>after the field declaration</strong>, not before
-it:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre>Sign :=&gt; integer (
+<a href="../objects/fields.html">field</a> <strong>after the field declaration</strong>, not before&nbsp;it:</p>
+<pre><code class="lang-o42a">Sign :=&gt; integer (
 ~~~
 Returns an arithmetic sign of `argument`.
 ~~~
@@ -217,22 +118,10 @@ Returns an arithmetic sign of `argument`.
   Argument &gt; 0? = 1
   = 0
 )
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>Also, it is good to place a documentation comment right after a source file
 <a href="../sources/file.html#title">title</a>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>Use namespace &#39;Console&#39;
+<pre><code class="lang-o42a">Use namespace &#39;Console&#39;
 
 Hello World := main
 ===================
@@ -243,86 +132,43 @@ It prints a string `&quot;Hello, World!&quot;` to standard output.
 ~~~
 
 Print &quot;Hello, World!&quot; nl
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="active">
-      <a href="../syntax/comments.html">Comments</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/names.html">Names</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/numbers.html">Numbers</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/strings.html">Strings</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/underscore.html">Underscore</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+</code></pre>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="index.html">Basic Syntax</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li class="active"><a href="">Comments</a></li>
+                  <li><a href="names.html">Names</a></li>
+                  <li><a href="numbers.html">Numbers</a></li>
+                  <li><a href="strings.html">Strings</a></li>
+                  <li><a href="underscore.html">Underscore</a></li>
+                </ul>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

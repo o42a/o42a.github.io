@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Locals</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Locals</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Sentences</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="locals">Locals</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Sentences</a></li>
+          <li class="active">Locals</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="locals">Locals</h1>
 <!--
-Copyright (C) 2013 Ruslan Lopatin.
+Copyright (C) 2013,2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -114,284 +50,170 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>Locals are named expressions existing during the value evaluation only.</p>
-<p>A local can be declared similarly to a field:</p>
+<p>Locals are named expressions existing during the object value evaluation&nbsp;only.</p>
+<p>A local can be declared similarly to a&nbsp;field:</p>
 <blockquote>
-<p><code>'$' &lt;name&gt; ':=' &lt;definition&gt;</code></p>
+<p><code>&#39;$&#39; &lt;name&gt; {&#39;:=&#39;|&#39;=&#39;} &lt;definition&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
-<li><code>&lt;name&gt;</code> is a local name;</li>
-<li><code>&lt;definition&gt;</code> is an arbitrary expression, <a href="../core/links.html">link</a>, or
-<a href="../core/variables.html">variable</a> declaration.</li>
+<li><code>&lt;name&gt;</code> is a local&nbsp;name;</li>
+<li><code>&lt;definition&gt;</code> is an arbitrary&nbsp;expression.</li>
 </ul>
-<p>The <strong><code>$</code></strong> prefix can be omitted when the local is declared inside an
-<a href="imperatives.html">imperative block</a>. This won't lead to confusion with field
-declarations, as imperative blocks may not declare fields.</p>
+<p>The <code>:=</code> and <code>=</code> signs can be used interchangeably and mean the&nbsp;same.</p>
 <p>Unlike fields, the locals can be declared anywhere in the sentence. Even inside
-<a href="issue.html">issues</a>.</p>
+<a href="index.html#interrogative-sentence">interrogative sentences</a>.</p>
 <p>A local declaration is a statement, which may fail. If this happens, the value
-evaluation aborts and results to false.</p>
-<p>A local declaration is executed once. The local then stores an expression
-evaluation result. This result can be used many times without expression
-re-evaluation.</p>
-<h2 id="accessing_locals">Accessing Locals</h2>
+evaluation aborts and results to&nbsp;false.</p>
+<p>A local declaration is executed once. The local then stores the expression
+evaluation result. This result can be used multiple times without expression&nbsp;re-evaluation.</p>
+<h2 id="accessing-locals">Accessing&nbsp;Locals</h2>
 <p>A local can be accessed by name, just like any field. However, the local may
 have the same name as some field. To avoid confusion a local scope reference
-(<strong><code>$</code></strong>) may be used to require a local access explicitly:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>$Local := 1
+(<strong><code>$</code></strong>) can be used to require a local access&nbsp;explicitly:</p>
+<pre><code class="lang-o42a">$Local = 1
 = $Local + local ~~ Both operands access the same local.
-                 ~~ But the right one does it explicitly.
-</pre></div>
-</td></tr></table>
-
+                 ~~ But the left one does it explicitly.
+</code></pre>
 <p>Because locals exist only during the object value evaluation, they can not be
-accessed by object fields.</p>
-<p>Also, the local can be accessed only after its declaration. The following rules
-apply to the local visibility:</p>
+accessed by object&nbsp;fields.</p>
+<p>Also, a local can be accessed only after its declaration. The following rules
+apply to the locals&nbsp;visibility:</p>
 <ul>
-<li>The local is not visible outside the block it is declared in:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>($Local := 1)
+<li>A local is not visible outside the block it is declared in:<pre><code class="lang-o42a">($Local = 1)
 = $Local + 1 ~~ Error. The local is not visible outside the block.
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>The local is declared as a <a href="statements.html#requirements">requirement</a> is
-  visible by dependent statements:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>$Local = 1, = $local + 1
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>The local declared inside an <a href="statements.html#alternatives">alternative</a>
-  is not visible outside this alternative, unless this alternative is the only
-  one of the sentence:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>$Local := 1;
+</code></pre>
+</li>
+<li>A local declared as a <a href="statements.html#requirements">requirement</a> is
+visible by dependent statements:<pre><code class="lang-o42a">$Local = 1, = $local + 1
+</code></pre>
+</li>
+<li>A local declared inside an <a href="statements.html#alternatives">alternative</a> is not visible outside this
+alternative, unless this alternative is the only one of the sentence:<pre><code class="lang-o42a">$Local = 1;
 $Local + 1 ~~ Error. The local is not visible in another alternative.
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>The local declared inside a <a href="proposition.html">proposition</a> or
-  <a href="claim.html">claim</a> with only one <a href="statements.html#alternatives">alternative</a>
-  is visible in subsequent sentences:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>$Local = 1, $local &gt; 0.
+</code></pre>
+</li>
+<li>A local declared in a non-interrogative sentence with only one
+<a href="statements.html#alternatives">alternative</a> is visible in subsequent sentences:<pre><code class="lang-o42a">$Local = 1, $local &gt; 0.
 = $Local - 1 ~~ Correct.
-</pre></div>
-</td></tr></table>
-
-<ul>
-<li>The local declared inside an <a href="issue.html">issue</a> with only one
-  <a href="statements.html#alternatives">alternative</a> is visible in the following
-  sentence, but not in the one next to it:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>$Local := 1, $local &gt; 0? = $Local - 1 ~~ Correct.
+</code></pre>
+</li>
+<li>A local declared in an <a href="intex.html#interrogative-sentence">interrogative</a>
+sentence with only one <a href="statements.html#alternatives">alternative</a> is visible in the next
+non-interrogative sentence, but not in the one next to it:<pre><code class="lang-o42a">$Local = 1, $local &gt; 0? = $Local - 1 ~~ Correct.
 = $Local                              ~~ Error.
-</pre></div>
-</td></tr></table>
-
-<p>Note that in contrast to enclosing object's fields, the objects created during
-the value evaluation has full access to locals:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>$Left := 1
-$Right := 2
+</code></pre>
+</li>
+</ul>
+<p>Note that in contrast to enclosing object’s fields, the objects created during
+the value evaluation has full access to&nbsp;locals:</p>
+<pre><code class="lang-o42a">$Left = 1
+$Right = 2
 = Integers: add (
   ~~ The same as `$Left + $right`.
   Left operand = $left
   Right operand = $right
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="local_scope">Local Scope</h2>
+</code></pre>
+<h2 id="local-scope">Local&nbsp;Scope</h2>
 <p>There is an alternative syntax for local declaration, which declares a local
 along with its visibility scope. It is called <em>local scope</em>:</p>
 <blockquote>
-<p><code>&lt;definition&gt; '$' [&lt;name&gt;] ':' &lt;content&gt;</code></p>
+<p><code>&lt;definition&gt; &#39;$&#39; [&lt;name&gt;] &#39;:&#39; &lt;content&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;definition&gt;</code> is an arbitrary expression, <a href="../core/links.html">link</a>, or
-  <a href="../core/variables.html">variable</a> declaration;</li>
-<li><code>&lt;name&gt;</code> is a local name;</li>
-<li><code>&lt;content&gt;</code> is a local scope content, which can use the declared local.</li>
+<a href="../core/variables.html">variable</a>&nbsp;declaration;</li>
+<li><code>&lt;name&gt;</code> is a local&nbsp;name;</li>
+<li><code>&lt;content&gt;</code> is a local scope content, which can use the declared&nbsp;local.</li>
 </ul>
 <p>Unlike the traditional, field-like local declaration, the local declared this
 way is only visible inside its scope. I.e. only the local scope content can use
-the local.</p>
-<p>The local scope content is a statement, and can be one of:</p>
+the&nbsp;local.</p>
+<p>The local scope content is a statement, and can be one&nbsp;of:</p>
 <ul>
-<li><a href="statements.html#declarative_block">declarative block</a>,</li>
+<li><a href="statements.html#declarative-block">declarative block</a>,</li>
 <li><a href="imperatives.html">imperative block</a>,</li>
-<li><a href="imperatives.html#named_blocks">named block</a>,</li>
+<li><a href="imperatives.html#named-blocks">named block</a>,</li>
 <li><a href="../core/variables.html#assignment">assignment</a>,</li>
-<li><a href="../expressions/index.html">expression</a>, or</li>
-<li>another local scope declaration.</li>
+<li><a href="../expressions/index.html">expression</a>,&nbsp;or</li>
+<li>another local scope&nbsp;declaration.</li>
 </ul>
-<p>Here is an example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>1 $ local: $local &gt; 0
-</pre></div>
-</td></tr></table>
-
-<p>The colon can be omitted when the local scope content is unnamed block.</p>
-<p>The local scope content can be placed on a new line after the colon.</p>
+<p>Here is an&nbsp;example:</p>
+<pre><code class="lang-o42a">1 $ local: $local &gt; 0
+</code></pre>
+<p>The colon can be omitted when the local scope content is unnamed&nbsp;block.</p>
+<p>The local scope content can be placed on a new line after the&nbsp;colon.</p>
 <p>Note that not any statement allowed as a local scope content. Such statements
-can be enclosed into the block though:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>1 $ left:
+can be enclosed into a block&nbsp;though:</p>
+<pre><code class="lang-o42a">1 $ left:
 2 $ right (
-  = $Left + $right ~~ Self-assignment is not a valid scope content.
-                   ~~ But it can be used inside parentheses.
+  = $Left + $right ~~ Return is not a valid scope content,
+                   ~~ but it can be used inside parentheses.
 )
-</pre></div>
-</td></tr></table>
-
-<p>When the local scope content is unnamed imperative block, then this block's name
-becomes the same as the local's name. Here is an example of a local scope loop:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>``3 $ i { ~~ `I` is a variable loop counter,
+</code></pre>
+<p>When the local scope content is unnamed imperative block, then this block’s name
+becomes the same as the local’s name. Here is an example of a local scope&nbsp;loop:</p>
+<pre><code class="lang-o42a">``3 $ i { ~~ `I` is a variable loop counter,
           ~~ and a block name.
   Print [i] &#39;/3&#39; nl
-  $I &gt; 1? I = i - 1 ... i ~~ Decrease and repeat `i` while it is more than one. 
+  I &gt; 1? I -&lt;&lt; 1... i ~~ Decrease and repeat `i` while it is more than one. 
 }
-</pre></div>
-</td></tr></table>
-
-<h3 id="anonymous_local">Anonymous Local</h3>
+</code></pre>
+<h3 id="anonymous-local">Anonymous&nbsp;Local</h3>
 <p>The name can be omitted from local scope declaration. In this case the local is
 called <em>anonymous</em> and can be accessed using a special syntax: <code>$</code> or <code>$$</code>. The
-loop above can be shortened:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>``3 $ { ~~ Anonymous loop counter,
+loop above can be&nbsp;shortened:</p>
+<pre><code class="lang-o42a">``3 $ { ~~ Anonymous loop counter,
   Print [$] &#39;/3&#39; nl
-  $ &gt; 1? $ = $ - 1 ... ~~ Decrease and repeat `$` while it is more than one. 
+  $ &gt; 1? $ -&lt;&lt; 1... ~~ Decrease and repeat `$` while it is more than one. 
 }
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p><code>$</code> and <code>$$</code> mean the same when used alone. But when used in a member reference
-they are treated differently:</p>
+they are treated&nbsp;differently:</p>
 <ul>
-<li><code>$foo</code> accesses a local with name <code>foo</code>, while</li>
-<li><code>$$foo</code> accesses a field <code>foo</code> of anonymous local.</li>
+<li><code>$foo</code> accesses a local with name <code>foo</code>,&nbsp;while</li>
+<li><code>$$foo</code> accesses a field <code>foo</code> of anonymous&nbsp;local.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;abc&quot; $:           ~~ Declare anonymous string.
+<pre><code class="lang-o42a">&quot;abc&quot; $:           ~~ Declare anonymous string.
 $$length $ length: ~~ Declare `length` equal to string length.
-print &quot;`Length` local: &quot; [$length] &quot; == string length&quot; [$$length] nl
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../sentences/statements.html">Statements</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/proposition.html">Proposition</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/claim.html">Claim</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/issue.html">Issue</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/definition.html">Understanding The Value Definition</a>
-  </li>
-  
-  <li class="">
-      <a href="../sentences/imperatives.html">Imperative Blocks</a>
-  </li>
-  
-  <li class="active">
-      <a href="../sentences/locals.html">Locals</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+print &quot;`Length` local: &quot; [$length] &quot; == string length &quot; [$$length] nl
+</code></pre>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="index.html">Sentences</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="statements.html">Statements</a></li>
+                  <li><a href="imperatives.html">Imperative Blocks</a></li>
+                  <li class="active"><a href="">Locals</a></li>
+                </ul>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

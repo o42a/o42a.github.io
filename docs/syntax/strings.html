@@ -1,109 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Strings</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Strings</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Basic Syntax</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="strings">Strings</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Basic Syntax</a></li>
+          <li class="active">Strings</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="strings">Strings</h1>
 <!--
 Copyright (C) 2010-2013 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
@@ -114,19 +50,19 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<p>There are two forms of string literals:</p>
+<p>There are two forms of string&nbsp;literals:</p>
 <ul>
-<li>a string literals with escape sequences support, and</li>
-<li>a text blocks.</li>
+<li>a string literals with escape sequences support,&nbsp;and</li>
+<li>a text&nbsp;blocks.</li>
 </ul>
-<h2 id="string_literals">String Literals</h2>
-<p>A simple string literal starts with a <em>quotation mark</em> (<code>"</code>) followed by string
+<h2 id="string-literals">String&nbsp;Literals</h2>
+<p>A simple string literal starts with a <em>quotation mark</em> (<code>&quot;</code>) followed by string
 content and ends with a closing <em>quotation mark</em>.</p>
 <p>A string content may include arbitrary characters excluding <em>new lines</em>.</p>
-<h3 id="escape_sequences">Escape sequences</h3>
+<h3 id="escape-sequences">Escape&nbsp;sequences</h3>
 <p>To place an arbitrary character, including quotation mark, special characters,
 and characters from another character set to the string, an escape sequences may
-be used. The following escape sequences recognized within a string:</p>
+be used. The following escape sequences recognized within a&nbsp;string:</p>
 <table>
 <thead>
 <tr>
@@ -140,37 +76,37 @@ be used. The following escape sequences recognized within a string:</p>
 <tr>
 <td><code>\t</code></td>
 <td>U+0009</td>
-<td>CHARACTER TABULATION</td>
+<td><span class="caps">CHARACTER</span> TABULATION</td>
 <td>Tabulation</td>
 </tr>
 <tr>
 <td><code>\n</code></td>
 <td>U+000A</td>
-<td>LINE FEED</td>
+<td><span class="caps">LINE</span> FEED</td>
 <td>New line control character</td>
 </tr>
 <tr>
 <td><code>\r</code></td>
 <td>U+000D</td>
-<td>CARRIAGE RETURN</td>
-<td>CR control character</td>
+<td><span class="caps">CARRIAGE</span> RETURN</td>
+<td><span class="caps">CR</span> control character</td>
 </tr>
 <tr>
-<td><code>\"</code></td>
+<td><code>\&quot;</code></td>
 <td>U+0022</td>
-<td>QUOTATION MARK</td>
-<td><code>"</code> (double quote)</td>
+<td><span class="caps">QUOTATION</span> MARK</td>
+<td><code>&quot;</code> (double quote)</td>
 </tr>
 <tr>
-<td><code>\'</code></td>
+<td><code>\&#39;</code></td>
 <td>U+0027</td>
-<td>APOSTROPHE</td>
-<td><code>'</code> (single quote)</td>
+<td><span class="caps">APOSTROPHE</span></td>
+<td><code>&#39;</code> (single quote)</td>
 </tr>
 <tr>
 <td><code>\\</code></td>
 <td>U+005C</td>
-<td>REVERSE SOLIDUS</td>
+<td><span class="caps">REVERSE</span> SOLIDUS</td>
 <td><code>\</code> (backslash)</td>
 </tr>
 <tr>
@@ -181,178 +117,98 @@ be used. The following escape sequences recognized within a string:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="text_blocks">Text Blocks</h2>
+<h2 id="text-blocks">Text&nbsp;Blocks</h2>
 <p>A text block fully occupies several lines of source code. It starts an ends with
-lines containing three or more quotes (<strong><code>"""</code></strong>).
+lines containing three or more quotes (<strong><code>&quot;&quot;&quot;</code></strong>).
 <strong>Nothing except spaces may appear at the same line</strong>. </p>
 <p>A text block content may contain new lines and quotation marks and does not
-recognize any escape sequences.</p>
+recognize any escape&nbsp;sequences.</p>
 <p>A trailing spaces of each line are stripped, but the <em>new line</em> character itself
-is not, except for the very last line.</p>
-<p>The following are the same:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;&quot;&quot;
+is not, except for the very last&nbsp;line.</p>
+<p>The following are the&nbsp;same:</p>
+<pre><code class="lang-o42a">&quot;&quot;&quot;
 line 1
 line 2
 &quot;&quot;&quot;
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;line 1\nline 2&quot;
-</pre></div>
-</td></tr></table>
-
+</code></pre>
+<pre><code class="lang-o42a">&quot;line 1\nline 2&quot;
+</code></pre>
 <p>To place a <em>new line</em> character after the last line an additional empty line is
-required. So, something like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;&quot;&quot;
+required. So, something like&nbsp;this:</p>
+<pre><code class="lang-o42a">&quot;&quot;&quot;
 first line
 last line
 
 &quot;&quot;&quot;
-</pre></div>
-</td></tr></table>
-
-<p>will be the same as</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;first line\nlast line\n&quot;
-</pre></div>
-</td></tr></table>
-
-<h2 id="line_continuation">Line Continuation</h2>
+</code></pre>
+<p>will be the same&nbsp;as</p>
+<pre><code class="lang-o42a">&quot;first line\nlast line\n&quot;
+</code></pre>
+<h2 id="line-continuation">Line&nbsp;Continuation</h2>
 <p>Unlike all other types of expressions, a string is always considered a
-continuation of the preceding expression. So the following code snippets are
-equivalent:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Print &quot;Hello, World!&quot; nl
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Print
+continuation of the preceding expression. So the following code snippets are&nbsp;equivalent:</p>
+<pre><code class="lang-o42a">Print &quot;Hello, World!&quot; nl
+</code></pre>
+<pre><code class="lang-o42a">Print
 &quot;Hello, World!&quot; nl
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Print
+</code></pre>
+<pre><code class="lang-o42a">Print
 _&quot;Hello, World!&quot; nl
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>Print
+</code></pre>
+<pre><code class="lang-o42a">Print
 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
 Hello, World!
 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
 _nl
-</pre></div>
-</td></tr></table>
-
-<h2 id="string_concatenation">String Concatenation</h2>
+</code></pre>
+<h2 id="string-concatenation">String&nbsp;Concatenation</h2>
 <p>When two or more string literals follow each other they are automatically
-joined. The following expressions are identical:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;Hello, World!&quot;
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;Hello, &quot; &quot;World!&quot;
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;&quot;&quot;
+joined. The following expressions are&nbsp;identical:</p>
+<pre><code class="lang-o42a">&quot;Hello, World!&quot;
+</code></pre>
+<pre><code class="lang-o42a">&quot;Hello, &quot; &quot;World!&quot;
+</code></pre>
+<pre><code class="lang-o42a">&quot;&quot;&quot;
 Hello,
 &quot;&quot;&quot;
 &quot; World!&quot;
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../syntax/comments.html">Comments</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/names.html">Names</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/numbers.html">Numbers</a>
-  </li>
-  
-  <li class="active">
-      <a href="../syntax/strings.html">Strings</a>
-  </li>
-  
-  <li class="">
-      <a href="../syntax/underscore.html">Underscore</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+</code></pre>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="index.html">Basic Syntax</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="comments.html">Comments</a></li>
+                  <li><a href="names.html">Names</a></li>
+                  <li><a href="numbers.html">Numbers</a></li>
+                  <li class="active"><a href="">Strings</a></li>
+                  <li><a href="underscore.html">Underscore</a></li>
+                </ul>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

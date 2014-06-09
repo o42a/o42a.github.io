@@ -1,123 +1,49 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » o42a-0.2.5 Release Notes</title>
-
-  <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../docs/intro/features.html">
-                Features
-              </a>
-            </li>
-            <li >
-              <a href="../docs/index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » 0.2.5 Release Notes</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../docs/intro/features.html">Features</a></li>
+          <li><a href="../docs/index.html">Documentation</a></li>
+          <li><a href="../devel/index.html">Development</a></li>
+          <li><a href="../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Releases</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="o42a-025_release_notes">o42a-0.2.5 Release Notes</h1>
-<h2 id="type_parameters">Type Parameters</h2>
-<p>Type parameters can be declared for any object now.</p>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../index.html">o42a</a></li>
+          <li><a href="index.html">Releases</a></li>
+          <li class="active">0.2.5 Release Notes</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="o42a-0-2-5-release-notes">o42a-0.2.5 Release&nbsp;Notes</h1>
+<h2 id="type-parameters">Type&nbsp;Parameters</h2>
+<p>Type parameters can be declared for any object&nbsp;now.</p>
 <p>They can be declared inside a type definition and used as macros, i.e. they can
-be expanded:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre>Map :=&gt; void #( 
+be&nbsp;expanded:</p>
+<pre><code>Map :=&gt; void #( 
   ~~~
   A key/value map interface.
   ~~~
@@ -131,166 +57,93 @@ be expanded:</p>
     Key :=&lt; link (`#key type)  ~~ A key of the value to find.
   )
 )
-</pre></div>
-</td></tr></table>
-
-<p>Type parameters can be passed to constructed object with type parameters syntax:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Map (`string, integer)
-</pre></div>
-</td></tr></table>
-
-<p>Unlike ordinal fields, type parameters are accessible even when declared for
+</code></pre><p>Type parameters can be passed to constructed object with type parameters&nbsp;syntax:</p>
+<pre><code>Map (`string, integer)
+</code></pre><p>Unlike ordinal fields, type parameters are accessible even when declared for
 prototype. They can refer each other, but can not refer the object they declared
-for, or its fields.</p>
-<h2 id="syntax_improvements">Syntax Improvements</h2>
+for, or its&nbsp;fields.</p>
+<h2 id="syntax-improvements">Syntax&nbsp;Improvements</h2>
 <h3 id="numbers">Numbers</h3>
-<p>Hexadecimal, binary, and floating point number literals are supported now.</p>
-<p>The <code>+</code> or <code>-</code> sign preceding the number is considered its part: it's not an
-operator any more.</p>
-<h3 id="compare_operator">Compare Operator</h3>
+<p>Hexadecimal, binary, and floating point number literals are supported&nbsp;now.</p>
+<p>The <code>+</code> or <code>-</code> sign preceding the number is considered its part: it’s not an
+operator any&nbsp;more.</p>
+<h3 id="compare-operator">Compare&nbsp;Operator</h3>
 <p>New <em>compare</em> (<strong><code>&lt;=&gt;</code></strong>) binary operator has been added. It is a more generic
 form of object comparison. It is overridable and can resolve to any expression,
 but in order the other comparison operators to work it have to resolve to an
-integer expression.</p>
-<h3 id="suffix_operator">Suffix Operator</h3>
+integer&nbsp;expression.</p>
+<h3 id="suffix-operator">Suffix&nbsp;Operator</h3>
 <p>A new overridable <em>suffix</em> (<strong><code>~</code></strong>) operator has been added. It is called so
 because it reverses the order its operands interpreted: the right operand is
 used as a constructed phrase prefix, and the left one - as its first argument.
-This makes it suitable for implementing things like quantities:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>3~minutes
-</pre></div>
-</td></tr></table>
-
-<h3 id="grouping_expression">Grouping Expression</h3>
+This makes it suitable for implementing things like&nbsp;quantities:</p>
+<pre><code>3~minutes
+</code></pre><h3 id="grouping-expression">Grouping&nbsp;Expression</h3>
 <p>A special grouping expression can be used instead of the parentheses at the very
-beginning of any expression. So, the following expression:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>(&quot;Some string&quot;: substring _from [5]) [1]
-</pre></div>
-</td></tr></table>
-
-<p>can be written without any parentheses:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;Some string&quot;: substring _from [5]\ [1]
-</pre></div>
-</td></tr></table>
-
-<h3 id="simple_clause_identifiers">Simple Clause Identifiers</h3>
+beginning of any expression. So, the following&nbsp;expression:</p>
+<pre><code>(&quot;Some string&quot;: substring _from [5]) [1]
+</code></pre><p>can be written without any&nbsp;parentheses:</p>
+<pre><code>&quot;Some string&quot;: substring _from [5]\ [1]
+</code></pre><h3 id="simple-clause-identifiers">Simple Clause&nbsp;Identifiers</h3>
 <p>Clause identifiers have syntax similar to corresponding phrase parts, without
-any syntax overhead:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; integer (
+any syntax&nbsp;overhead:</p>
+<pre><code>Int :=&gt; integer (
   &lt;[]&gt;  ~~ The declaration.
 )
 
 Int [5] ~~ The usage.
-</pre></div>
-</td></tr></table>
-
-<h2 id="fixes_fixes_fixes">Fixes, Fixes, Fixes...</h2>
+</code></pre><h2 id="fixes-fixes-fixes-">Fixes, Fixes,&nbsp;Fixes…</h2>
 <p>The o42a code base was never carefully tested. So, any new non-trivial piece of
-code written in o42a reveals a bunch of new bugs.</p>
+code written in o42a reveals a bunch of new&nbsp;bugs.</p>
 <p>The work on collections module have been started during this release cycle. This
-caused a lot of debugging and bug fixing. Hope the code is much more stable now.</p>
-<h2 id="runtime_license_change">Runtime License Change</h2>
-<p>The language runtime license have been changed to the MPL-2.0. The LGPL is not
-suitable, because it only works for dynamic linking, which is impossible with
-o42a.</p>
-<h2 id="llvm_upgrade">LLVM Upgrade</h2>
-<p>o42a requires LLVM version 3.2 now.</p>
-  </div>
-  <div class="span3 well">
-    
+caused a lot of debugging and bug fixing. Hope the code is much more stable&nbsp;now.</p>
+<h2 id="runtime-license-change">Runtime License&nbsp;Change</h2>
+<p>The language runtime license have been changed to the <span class="caps">MPL</span>-2.0. The LGPL is not
+suitable, because it only works for dynamic linking, which is impossible with&nbsp;o42a.</p>
+<h2 id="llvm-upgrade"><span class="caps">LLVM</span>&nbsp;Upgrade</h2>
+<p>o42a requires <span class="caps">LLVM</span> version 3.2&nbsp;now.</p>
 
-<ul class="nav nav-list">
-  <li >
-      <a href="0.2.8.html">Release 0.2.8</a>
-  </li>
-  <li class="nav-header">
-    Older releases
-  </li>
-  <li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.2.7.html">Release 0.2.7</a>
-  </li>
-      <li >
-      <a href="0.2.6.html">Release 0.2.6</a>
-  </li>
-      <li class="active">
-      <a href="0.2.5.html">Release 0.2.5</a>
-  </li>
-      <li >
-      <a href="0.2.4.html">Release 0.2.4</a>
-  </li>
-      <li >
-      <a href="0.2.3.html">Release 0.2.3</a>
-  </li>
-      <li >
-      <a href="0.2.2.html">Release 0.2.2</a>
-  </li>
-      <li >
-      <a href="0.2.1.html">Release 0.2.1</a>
-  </li>
-      <li >
-      <a href="0.2.0.html">Release 0.2.0</a>
-  </li>
-    </ul>
-  </li>
-  <li class="nav-header">
-     0.1.x releases
-  </li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.1.8.html">Release 0.1.8</a>
-  </li>
-      <li >
-      <a href="0.1.7.html">Release 0.1.7</a>
-  </li>
-      <li >
-      <a href="0.1.6.html">Release 0.1.6</a>
-  </li>
-      <li >
-      <a href="0.1.5.html">Release 0.1.5</a>
-  </li>
-      <li >
-      <a href="0.1.4.html">Release 0.1.4</a>
-  </li>
-      <li >
-      <a href="0.1.3.html">Release 0.1.3</a>
-  </li>
-      <li >
-      <a href="0.1.2.html">Release 0.1.2</a>
-  </li>
-      <li >
-      <a href="0.1.1.html">Release 0.1.1</a>
-  </li>
-      <li >
-      <a href="0.1.0.html">Release 0.1.0</a>
-  </li>
-    </ul>
-  </li>
-</ul>
-  </div>
-</div>
-  </div>
-
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked">
+                          <li><a href="0.2.10.html">0.2.10</a></li>
+            </ul>
+            <ul class="nav bav-pills nav-stacked nav-header">
+              <li><a class="text-muted">Older Releases</a></li>
+              <ul class="nav nav-pills nav-stacked nav-nested">
+                            <li><a href="0.2.8.html">0.2.8</a></li>
+                            <li><a href="0.2.7.html">0.2.7</a></li>
+                            <li><a href="0.2.6.html">0.2.6</a></li>
+                            <li class="active"><a href="">0.2.5</a></li>
+                            <li><a href="0.2.4.html">0.2.4</a></li>
+                            <li><a href="0.2.3.html">0.2.3</a></li>
+                            <li><a href="0.2.2.html">0.2.2</a></li>
+                            <li><a href="0.2.1.html">0.2.1</a></li>
+                            <li><a href="0.2.0.html">0.2.0</a></li>
+              </ul>
+            </ul>
+            <ul class="nav bav-pills nav-stacked nav-header">
+              <li><a class="text-muted">0.1.x Releases</a></li>
+              <ul class="nav nav-pills nav-stacked nav-nested">
+                            <li><a href="0.1.8.html">0.1.8</a></li>
+                            <li><a href="0.1.7.html">0.1.7</a></li>
+                            <li><a href="0.1.6.html">0.1.6</a></li>
+                            <li><a href="0.1.5.html">0.1.5</a></li>
+                            <li><a href="0.1.4.html">0.1.4</a></li>
+                            <li><a href="0.1.3.html">0.1.3</a></li>
+                            <li><a href="0.1.2.html">0.1.2</a></li>
+                            <li><a href="0.1.1.html">0.1.1</a></li>
+                            <li><a href="0.1.0.html">0.1.0</a></li>
+              </ul>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

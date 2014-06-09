@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Links</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Links</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Core Objects</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="links">Links</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Core Objects</a></li>
+          <li class="active">Links</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="links">Links</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -116,103 +52,81 @@ Free Documentation License".
 
 <p>A link is an object, which value is reference to another object. An object the
 link is linked to is called a <em>link target</em>.</p>
-<p>The simplest way to create a link is by using a link unary operator:</p>
+<p>The simplest way to create a link is by using a link unary&nbsp;operator:</p>
 <blockquote>
-<p><code>'`' &lt;target&gt;</code></p>
+<p><code>&#39;`&#39; &lt;target&gt;</code></p>
 </blockquote>
-<p>The more advanced syntax utilizes the <a href="type_parameters.html#type_arguments">type arguments</a>:</p>
+<p>The more advanced syntax utilizes the <a href="type_parameters.html#type-arguments">type arguments</a>:</p>
 <blockquote>
-<p><code>&lt;interface&gt; '`' 'link' '[=' &lt;target&gt; ']'</code></p>
+<p><code>&lt;interface&gt; &#39;`&#39; &#39;link&#39; &#39;[=&#39; &lt;target&gt; &#39;]&#39;</code></p>
 </blockquote>
-<p>or, when declaring a link field:</p>
+<p>or, when declaring a link&nbsp;field:</p>
 <blockquote>
-<p><code>&lt;field&gt; [':'] {'='|'=&gt;'|'=&lt;'|'=&lt;&gt;'} &lt;interface&gt; '`' 'link' '=' &lt;target&gt;</code></p>
+<p><code>&lt;field&gt; [&#39;:&#39;] {&#39;=&#39;|&#39;=&gt;&#39;|&#39;=&lt;&#39;|&#39;=&lt;&gt;&#39;} &lt;interface&gt; &#39;`&#39; &#39;link&#39; &#39;=&#39; &lt;target&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;field&gt;</code> is a left part of either
-  <a href="../objects/fields.html#field_declaration">field</a>
-  or <a href="../objects/adapters.html#adapter_declaration">adapter</a> declaration;</li>
-<li><code>&lt;target&gt;</code> is a <a href="#link_target">link target</a> expression;</li>
-<li><code>&lt;interface&gt;</code> is a <a href="#link_interface">link interface</a> reference.</li>
+<a href="../objects/fields.html#field-declaration">field</a>
+or <a href="../objects/adapters.html#adapter-declaration">adapter</a>&nbsp;declaration;</li>
+<li><code>&lt;target&gt;</code> is a <a href="#link-target">link target</a>&nbsp;expression;</li>
+<li><code>&lt;interface&gt;</code> is a <a href="#link-interface">link interface</a>&nbsp;reference.</li>
 </ul>
-<h2 id="link_interface">Link Interface</h2>
+<h2 id="link-interface">Link&nbsp;Interface</h2>
 <p>A link target is not known until the link is evaluated, which might only happen
 at run time. So, in general case, the link target is not known to the compiler.
 But compiler knows the basic type of the target, i.e. an object, the link target
 is derived from. This type is called a <em>link interface</em>.</p>
-<p>The link interface can be specified explicitly:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Foo := integer` link = bar
-</pre></div>
-</td></tr></table>
-
+<p>The link interface can be specified&nbsp;explicitly:</p>
+<pre><code class="lang-o42a">Foo := integer` link = bar
+</code></pre>
 <p>In this case the link target should be compatible with its interface (i.e. the
 <code>bar</code> should be derived from <code>integer</code>).</p>
-<p>Also, the link interface can be determined automatically:</p>
+<p>Also, the link interface can be determined&nbsp;automatically:</p>
 <ul>
 <li>When the link target expression is a reference to an object, the link
-  interface is a target object itself:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Target := &quot;Target value&quot;
+interface is a target object itself:<pre><code class="lang-o42a">Target := &quot;Target value&quot;
 Foo := `target               ~~ Link interface is `target`.
 Bar := target` link = target ~~ The same as above.
-</pre></div>
-</td></tr></table>
-
-<ul>
+</code></pre>
+</li>
 <li>Otherwise, the link interface is an ancestor of the target expression
-  result:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre>Link 1 := `&quot;Target value&quot; ~~ Link interface is `string`.
+result:<pre><code class="lang-o42a">Link 1 := `&quot;Target value&quot; ~~ Link interface is `string`.
 Link 2 := `foo (          ~~ Link interface is `foo`.
-  Bar = 2
+Bar = 2
 )
-Link 3 := `foo &amp; bar      ~~ Link interface is `foo`.
-</pre></div>
-</td></tr></table>
-
-<h2 id="link_target">Link Target</h2>
+Link 3 := `foo <span class="amp">&amp;</span> bar      ~~ Link interface is `foo`.
+</code></pre>
+</li>
+</ul>
+<h2 id="link-target">Link&nbsp;Target</h2>
 <p>Because the link target is only known at run time, the following limitations
-apply it:</p>
+apply&nbsp;it:</p>
 <ul>
 <li>the link target can not be used as <a href="../objects/samples.html">sample</a>;</li>
 <li>when the link target is used as
-  <a href="../objects/creation.html#constructor_expression">ancestor</a>, the
-  restrictions applied to the constructed object:<ul>
+<a href="../objects/creation.html#constructor-expression">ancestor</a>, the
+restrictions applied to the constructed object:<ul>
 <li>the constructed object can not have any
-  <a href="../objects/samples.html">samples</a>;</li>
-<li>the constructed object's <a href="type_parameters.html">type parameters</a> can not
-  be altered;</li>
+<a href="../objects/samples.html">samples</a>;</li>
+<li>the constructed object’s <a href="type_parameters.html">type parameters</a> can not
+be&nbsp;altered;</li>
 <li>the nested fields` ancestors can not be
-  <a href="../objects/propagation.html#ancestor_upgrade">upgraded</a>;</li>
-<li>all of these restrictions apply to the nested fields.</li>
+<a href="../objects/propagation.html#ancestor-upgrade">upgraded</a>;</li>
+<li>all of these restrictions apply to the nested&nbsp;fields.</li>
 </ul>
 </li>
 </ul>
-<p>The link target is evaluated on each access. A
-<a href="../expressions/unary.html#keep_value">keep value</a> operator can be used to
-evaluate it once.</p>
-<h2 id="link_propagation">Link Propagation</h2>
-<p>As any other field, a one link is <a href="../objects/propagation.html">propagated</a>
-to the derived object.</p>
-<p>The link's interface and target are expressions, so their evaluation in the
+<p>The link target is evaluated on each access. An
+<a href="../expressions/references.html#eager-reference">eager evaluation</a> can be used
+to evaluate it only&nbsp;once.</p>
+<h2 id="link-propagation">Link&nbsp;Propagation</h2>
+<p>As any other field, a link one is <a href="../objects/propagation.html">propagated</a>
+to the derived&nbsp;object.</p>
+<p>The link’s interface and target are expressions, so their evaluation in the
 scope of the derived object may result to a another objects. So, in the
-following code.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+following&nbsp;code.</p>
+<pre><code class="lang-o42a">A := void (
   Foo := 1
   Bar := `foo
 )
@@ -221,72 +135,18 @@ B := a (
     Baz := &quot;baz&quot;
   )
 )
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>the <code>b: bar</code> link target and interface are <code>b: foo</code>, so the <code>b: bar: baz</code>
-reference is valid and results to a <code>"baz"</code> string.</p>
-<blockquote>
-<p>A link propagation may lead to a conflict:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
-  Link := integer` link = 1
-)
-B1 := a (
-  Foo := 1
-  Link = `foo
-)
-B2 := a (
-  Bar := 2
-  Link = `bar
-)
-C := a &amp; b1 &amp; b2 ~~ **Conflict**: `c: link` interface should be derived
-                 ~~ from both `foo` and `bar`, which are not compatible.
-</pre></div>
-</td></tr></table>
-
-<p>Such conflicts should be resolved manually, by explicit
-<a href="#link_override">link override</a>.</p>
-</blockquote>
-<h2 id="link_override">Link Override</h2>
+reference is valid and results to a <code>&quot;baz&quot;</code> string.</p>
+<h2 id="link-override">Link&nbsp;Override</h2>
 <p>A link override provides another target expression to the link. Another link
 interface expression can also be provided (but see the
-<a href="#link_target">link target</a> usage limitations).</p>
+<a href="#link-target">link target</a> usage&nbsp;limitations).</p>
 <p>A new link target should be compatible with (i.e. derived from) both new and old
-link interfaces.</p>
+link&nbsp;interfaces.</p>
 <p>A new link interface should be compatible with an old one, i.e. it should be
-derived from it.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="codehilite"><pre>Target := integer (
+derived from&nbsp;it.</p>
+<pre><code class="lang-o42a">Target := integer (
   Foo := 1
   = 1
 )
@@ -306,22 +166,10 @@ D := a (
   Foo := target
   Link = `foo ~~ Both interface and target are changed.
 )
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>If the backquote omitted in the link overrider, and a new link interface not
-specified explicitly, the link interface remains unchanged:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+specified explicitly, the link interface remains&nbsp;unchanged:</p>
+<pre><code class="lang-o42a">A := void (
   Link := `&quot;target&quot; ~~ Link interface is `string`.
 )
 Target := string (
@@ -332,37 +180,25 @@ B := a (
   Link = target ~~ The link target changed  to `target` object,
                 ~~ while the interface remains the same: `string`.
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="link_object">Link Object</h2>
+</code></pre>
+<h2 id="link-object">Link&nbsp;Object</h2>
 <p>Every link is an object inherited from the <code>Link</code> prototype, and is treated
 specially by o42a compiler. It allows the transparent access to the link target
-by dereferencing the link when necessary:</p>
+by dereferencing the link when&nbsp;necessary:</p>
 <ul>
 <li>When a link member is referenced, the member is first searched for in the link
-  object itself, and if not found, then it is searched for in the link target.</li>
+object itself, and if not found, then it is searched for in the link&nbsp;target.</li>
 <li>When converting a link to another type, an attempt to convert the link object
-  itself is performed (e.g. by searching for appropriate adapter), and if
-  failed - the link target is converted.</li>
+itself is performed (e.g. by searching for appropriate adapter), and if
+failed - the link target is&nbsp;converted.</li>
 <li>When interpreting the phrase with prefix resolving to a link, the clause
-  corresponding to the first phrase part is first searched for in the link
-  object itself, and if not found - in the link target.</li>
+corresponding to the first phrase part is first searched for in the link
+object itself, and if not found - in the link&nbsp;target.</li>
 </ul>
-<p>The link can be created with an object
-<a href="../objects/creation.html#constructor_expression">constructor expression</a>.
-The link interface can be specified as type argument:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>Lnk := integer` link (
+<p>A link can be created with an object
+<a href="../objects/creation.html#constructor-expression">constructor expression</a>.
+The link interface can be specified as type&nbsp;argument:</p>
+<pre><code class="lang-o42a">Lnk := integer` link (
   ~~~
   Declare the link object.
   Link interface is `integer`.
@@ -373,37 +209,21 @@ The link interface can be specified as type argument:</p>
 
 Sum := 40 + lnk ~~ Equals to `42`, as `lnk` is automatically dereferenced
                 ~~ to the integer value `2`.
-</pre></div>
-</td></tr></table>
-
-<p>The <code>Link</code> object declares a phrase syntax for link creation:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>String` link [= &quot;string&quot;]
+</code></pre>
+<p>The <code>Link</code> object declares a phrase syntax for link&nbsp;creation:</p>
+<pre><code class="lang-o42a">String` link [= &quot;string&quot;]
 String` link (            ~~ Canonical form
   = &quot;string&quot;
 )
-</pre></div>
-</td></tr></table>
-
-<h3 id="link_dereferencing">Link Dereferencing</h3>
-<p>As mentioned above, the link is automatically dereferenced when required. But
-this can be done explicitly, with a link dereference expression:</p>
+</code></pre>
+<h3 id="link-dereference">Link&nbsp;Dereference</h3>
+<p>As mentioned above, a link is automatically dereferenced when required. But
+this can be done explicitly, with a link dereference&nbsp;expression:</p>
 <blockquote>
-<p><code>&lt;link&gt; '-&gt;'</code></p>
+<p><code>&lt;link&gt; &#39;-&gt;&#39;</code></p>
 </blockquote>
-<p>Usage examples:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre>~~ Array of links
+<p>Usage&nbsp;examples:</p>
+<pre><code class="lang-o42a">~~ Array of links
 Link array := string` link` array [[
   string` link [= &quot;a&quot;]
   string` link [= &quot;b&quot;]
@@ -413,27 +233,14 @@ Link array [1]     ~~ Refers the second element.
 Link array [1]-&gt;   ~~ Refers the second element&#39;s link.
 Link array [1]-&gt;-&gt; ~~ Refers the target string of the second element&#39;s link
                    ~~ (`&quot;b&quot;`).
-</pre></div>
-</td></tr></table>
-
-<h2 id="adapter_links">Adapter Links</h2>
+</code></pre>
+<h2 id="adapter-links">Adapter&nbsp;Links</h2>
 <p>Any <a href="../objects/adapters.html">adapter</a> can be declared as link. In contrast
 to plain adapter object, the adapter link object does not derive the
-adapter's identifier. Instead, it is required that the link interface to be
-derived from the adapter's interface. The link target will be used as an adapter
-instead of a link object itself.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre>Int :=&gt; void (
+adapter’s identifier. Instead, it is required that the link interface to be
+derived from the adapter’s interface. The link target will be used as an adapter
+instead of a link object&nbsp;itself.</p>
+<pre><code class="lang-o42a">Int :=&gt; void (
   Value :=&lt; `integer
   @String := `value @@string ~~ String representation of `int`.
 )
@@ -445,78 +252,36 @@ Forty two := string (
 Forty two := string (
   = (Int (Value = 42) @@string)-&gt;         ~~ Fully explicit version.
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="links_to_other_links">Links To Other Links</h2>
-<p>Links to other links are supported:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre>Integer link := `1
+</code></pre>
+<h2 id="links-to-other-links">Links To Other&nbsp;Links</h2>
+<p>Links to other links are&nbsp;supported:</p>
+<pre><code class="lang-o42a">Integer link := `1
 Link to integer link := `integer link
 Link to link to integer link := integer` link` link` link = Link to integer link
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>This is discouraging however. It is highly recommended to avoid the links to
 another links. To reduce the discourage of the deep links usage the numerous
-limitations applied.</p>
+limitations&nbsp;applied.</p>
 <p>The second-level link is never dereferenced automatically. It should be
-dereferenced explicitly. Given the definitions above:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Integer (= Link to integer link)   ~~ Error. Can not dereference a deeper link.
+dereferenced explicitly. Given the definitions&nbsp;above:</p>
+<pre><code class="lang-o42a">Integer (= Link to integer link)   ~~ Error. Can not dereference a deeper link.
 Integer (= Link to integer link-&gt;) ~~ Results to `1`.
-</pre></div>
-</td></tr></table>
-
+</code></pre>
 <p>The values can not be automatically converted to the deep links. The
-one-less-depth link can be converted to a deeper link however.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Integer `link` link [= 1]                   ~~ Error.
+one-less-depth link can be converted to a deeper link&nbsp;however.</p>
+<pre><code class="lang-o42a">Integer `link` link [= 1]                   ~~ Error.
 Integer `link` link [= integer` link [= 1]] ~~ Correct.
-</pre></div>
-</td></tr></table>
-
-<h2 id="custom_assignment">Custom Assignment</h2>
+</code></pre>
+<h2 id="custom-assignment">Custom&nbsp;Assignment</h2>
 <p>New values can be assigned only to <a href="variables.html#assignment">variables</a>.
-But the assignment statement can be applied to a link also. Such statements
+But assignment statement can be applied to a link also. Such statements
 interpreted as <a href="../phrases/index.html">phrases</a>.</p>
 <p>The assignment clause can be declared similarly to the
-<a href="../phrases/operators.html#binary_operators">binary operators</a> override. The
-<a href="../phrases/clauses#clause_identifier">clause identifier</a> should be a
+<a href="../phrases/operators.html#binary-operators">binary operators</a> override. The
+<a href="../phrases/clauses#clause-identifier">clause identifier</a> should be a
 binding statement (<code>&lt;-</code>).</p>
 <p>With custom assignment clause declared the link becomes a <a href="http://wikipedia.org/wiki/Property_(programming)">property</a>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31</pre></div></td><td class="code"><div class="codehilite"><pre>Property := integer` link (
+<pre><code class="lang-o42a">Property := integer` link (
   Value := ``0 ~~ The property value is kept here. The initial value is `0`.
   = Value
 
@@ -525,9 +290,7 @@ binding statement (<code>&lt;-</code>).</p>
     Value setter.
     ~~~
 
-    {
-      Value = new value
-    }
+    Value &lt;- new value
   )
 
   &lt;*Set&gt; Set (
@@ -547,90 +310,45 @@ binding statement (<code>&lt;-</code>).</p>
   Property &lt;- 2        ~~ Assigns a new value to `property`.
   Property: value &lt;- 2 ~~ That&#39;s what the statement above is actually doing.
 }
-</pre></div>
-</td></tr></table>
+</code></pre>
+<p>The <a href="variables.html#value-assignment">value assignment</a> and
+<a href="variables.html#combined-assignment">combined assignment</a> statements can also be&nbsp;used.</p>
 
-<p>The <a href="variables.html#value_assignment">value assignment</a> and
-<a href="variables.html#combined_assignment">combined assignment</a> statements can also be
-used.</p>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="active">
-      <a href="../core/links.html">Links</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/variables.html">Variables</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/arrays.html">Arrays</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/macros.html">Macros</a>
-  </li>
-  
-  <li class="">
-      <a href="../core/type_parameters.html">Type Parameters</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
-
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="index.html">Core Objects</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li class="active"><a href="">Links</a></li>
+                  <li><a href="variables.html">Variables</a></li>
+                  <li><a href="arrays.html">Arrays</a></li>
+                  <li><a href="macros.html">Macros</a></li>
+                  <li><a href="type_parameters.html">Type Parameters</a></li>
+                </ul>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

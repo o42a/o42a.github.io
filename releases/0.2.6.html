@@ -1,161 +1,74 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » o42a-0.2.6 Release Notes</title>
-
-  <link rel="stylesheet" type="text/css" href="../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../docs/intro/features.html">
-                Features
-              </a>
-            </li>
-            <li >
-              <a href="../docs/index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » 0.2.6 Release Notes</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../docs/intro/features.html">Features</a></li>
+          <li><a href="../docs/index.html">Documentation</a></li>
+          <li><a href="../devel/index.html">Development</a></li>
+          <li><a href="../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Releases</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="o42a-026_release_notes">o42a-0.2.6 Release Notes</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../index.html">o42a</a></li>
+          <li><a href="index.html">Releases</a></li>
+          <li class="active">0.2.6 Release Notes</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="o42a-0-2-6-release-notes">o42a-0.2.6 Release&nbsp;Notes</h1>
 <h2 id="locals">Locals</h2>
-<p>Locals are named expressions existing during the value evaluation only.</p>
-<p>A local can be declared similarly to a field:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>$Local := expression
-</pre></div>
-</td></tr></table>
-
-<p>Such local will be visible in the same code block after its declaration.</p>
-<h3 id="local_scope">Local Scope</h3>
+<p>Locals are named expressions existing during the value evaluation&nbsp;only.</p>
+<p>A local can be declared similarly to a&nbsp;field:</p>
+<pre><code>$Local := expression
+</code></pre><p>Such local will be visible in the same code block after its&nbsp;declaration.</p>
+<h3 id="local-scope">Local&nbsp;Scope</h3>
 <p>There is also a special syntax, which allows to declare the local along with its
 visibility scope. It is called local scope. In this case a local name is
 declared <strong>after</strong> its value and separated from it by <code>$</code> sign. The following
 statement (separated from local declaration by colon) is the only one that can
-access the local declared this way:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Expression $ local: $local + 1
+access the local declared this&nbsp;way:</p>
+<pre><code>Expression $ local: $local + 1
 
 1 $ left:
 2 $ right (
   = $Left + $right
 )
-</pre></div>
-</td></tr></table>
-
-<p>A local name can be omitted. Such local is called <em>anonymous</em> and can be
+</code></pre><p>A local name can be omitted. Such local is called <em>anonymous</em> and can be
 accessed with <code>$</code> or <code>$$</code> references.</p>
 <p>A variant of local scope declaration can be used for variable assignment, and
-is allowed both inside the imperative and declarative code:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>Variable $= value
-</pre></div>
-</td></tr></table>
-
-<p>This syntax can be used to implement things like increment in C-like languages,
-or even more interesting ones:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>Names [n] $= &quot;Sir &quot; + $ ~~ Prefix the Nth element of `Names` array
+is allowed both inside the imperative and declarative&nbsp;code:</p>
+<pre><code>Variable $= value
+</code></pre><p>This syntax can be used to implement things like increment in C-like languages,
+or even more interesting&nbsp;ones:</p>
+<pre><code>Names [n] $= &quot;Sir &quot; + $ ~~ Prefix the Nth element of `Names` array
                         ~~ with &quot;Sir &quot; prefix.
-</pre></div>
-</td></tr></table>
-
-<h2 id="intervals">Intervals</h2>
+</code></pre><h2 id="intervals">Intervals</h2>
 <p>An interval is a special syntactical construct suitable to represent all kinds
-of intervals: opened and closed, bounded and unbounded:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre>[a...b] ~~ Closed interval
+of intervals: opened and closed, bounded and&nbsp;unbounded:</p>
+<pre><code>[a...b] ~~ Closed interval
 (a...b) ~~ Open interval
 [a...b) ~~ Right-open interval
 (a...)  ~~ Left bounded open interval
@@ -164,135 +77,75 @@ of intervals: opened and closed, bounded and unbounded:</p>
 (∞...b] ~~ The same as above.
 (...)   ~~ Fully unbounded interval.
 (∞...∞) ~~ The same as above.
-</pre></div>
-</td></tr></table>
-
-<p>Intervals are only allowed inside phrases. They are used, for example, to
-extract substrings:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>&quot;abcde&quot; [1...4) ~~ &quot;bcd&quot;
+</code></pre><p>Intervals are only allowed inside phrases. They are used, for example, to
+extract&nbsp;substrings:</p>
+<pre><code>&quot;abcde&quot; [1...4) ~~ &quot;bcd&quot;
 &quot;abcde&quot; [1...)  ~~ &quot;bcde&quot;
 &quot;abcde&quot; (...4]  ~~ &quot;abcd&quot;
 &quot;abcde&quot; (...)   ~~ &quot;abcde&quot;
-</pre></div>
-</td></tr></table>
-
-<h2 id="syntax_changes">Syntax Changes</h2>
+</code></pre><h2 id="syntax-changes">Syntax&nbsp;Changes</h2>
 <p>The line is considered a continuation of preceding one only if it starts with an
-underscore. Only spaces can precede the underscore on the same line. No comments
-allowed.</p>
-<p>Some of the scope references syntax changed. New scope references are:</p>
+underscore. Only spaces can precede the underscore on the same line. No comments&nbsp;allowed.</p>
+<p>Some of the scope references syntax changed. New scope references&nbsp;are:</p>
 <ul>
-<li><code>//</code> - root object reference,</li>
-<li><code>/</code> - module reference,</li>
-<li><code>$</code> - local reference,</li>
-<li><code>$$</code> - anonymous local reference.</li>
+<li><code>//</code> - root object&nbsp;reference,</li>
+<li><code>/</code> - module&nbsp;reference,</li>
+<li><code>$</code> - local&nbsp;reference,</li>
+<li><code>$$</code> - anonymous local&nbsp;reference.</li>
 </ul>
-<p>Unary operators:</p>
+<p>Unary&nbsp;operators:</p>
 <ul>
-<li><code>\</code> - value of,</li>
-<li><code>\\</code> - keep value.</li>
+<li><code>\</code> - value&nbsp;of,</li>
+<li><code>\\</code> - keep&nbsp;value.</li>
 </ul>
 <p>Both unary and binary operators accept Unicode symbols now. For example, a
 <em>not equal</em> operator can be written as <code>≠</code>, <em>division</em> one - as <code>÷</code>,
-<em>less than or equal</em> - as <code>≤</code>, <em>not</em> operator - as <code>¬</code>, and so on.</p>
+<em>less than or equal</em> - as <code>≤</code>, <em>not</em> operator - as <code>¬</code>, and so&nbsp;on.</p>
 <p>Intrinsic reference (<code>$object$</code> and <code>$prefix$</code>) are no longer supported.
 Corresponding local references can be used instead inside clause content
 (<code>$object</code> and <code>$prefix</code> respectively).</p>
-  </div>
-  <div class="span3 well">
-    
 
-<ul class="nav nav-list">
-  <li >
-      <a href="0.2.8.html">Release 0.2.8</a>
-  </li>
-  <li class="nav-header">
-    Older releases
-  </li>
-  <li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.2.7.html">Release 0.2.7</a>
-  </li>
-      <li class="active">
-      <a href="0.2.6.html">Release 0.2.6</a>
-  </li>
-      <li >
-      <a href="0.2.5.html">Release 0.2.5</a>
-  </li>
-      <li >
-      <a href="0.2.4.html">Release 0.2.4</a>
-  </li>
-      <li >
-      <a href="0.2.3.html">Release 0.2.3</a>
-  </li>
-      <li >
-      <a href="0.2.2.html">Release 0.2.2</a>
-  </li>
-      <li >
-      <a href="0.2.1.html">Release 0.2.1</a>
-  </li>
-      <li >
-      <a href="0.2.0.html">Release 0.2.0</a>
-  </li>
-    </ul>
-  </li>
-  <li class="nav-header">
-     0.1.x releases
-  </li>
-    <ul class="nav nav-list">
-      <li >
-      <a href="0.1.8.html">Release 0.1.8</a>
-  </li>
-      <li >
-      <a href="0.1.7.html">Release 0.1.7</a>
-  </li>
-      <li >
-      <a href="0.1.6.html">Release 0.1.6</a>
-  </li>
-      <li >
-      <a href="0.1.5.html">Release 0.1.5</a>
-  </li>
-      <li >
-      <a href="0.1.4.html">Release 0.1.4</a>
-  </li>
-      <li >
-      <a href="0.1.3.html">Release 0.1.3</a>
-  </li>
-      <li >
-      <a href="0.1.2.html">Release 0.1.2</a>
-  </li>
-      <li >
-      <a href="0.1.1.html">Release 0.1.1</a>
-  </li>
-      <li >
-      <a href="0.1.0.html">Release 0.1.0</a>
-  </li>
-    </ul>
-  </li>
-</ul>
-  </div>
-</div>
-  </div>
-
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked">
+                          <li><a href="0.2.10.html">0.2.10</a></li>
+            </ul>
+            <ul class="nav bav-pills nav-stacked nav-header">
+              <li><a class="text-muted">Older Releases</a></li>
+              <ul class="nav nav-pills nav-stacked nav-nested">
+                            <li><a href="0.2.8.html">0.2.8</a></li>
+                            <li><a href="0.2.7.html">0.2.7</a></li>
+                            <li class="active"><a href="">0.2.6</a></li>
+                            <li><a href="0.2.5.html">0.2.5</a></li>
+                            <li><a href="0.2.4.html">0.2.4</a></li>
+                            <li><a href="0.2.3.html">0.2.3</a></li>
+                            <li><a href="0.2.2.html">0.2.2</a></li>
+                            <li><a href="0.2.1.html">0.2.1</a></li>
+                            <li><a href="0.2.0.html">0.2.0</a></li>
+              </ul>
+            </ul>
+            <ul class="nav bav-pills nav-stacked nav-header">
+              <li><a class="text-muted">0.1.x Releases</a></li>
+              <ul class="nav nav-pills nav-stacked nav-nested">
+                            <li><a href="0.1.8.html">0.1.8</a></li>
+                            <li><a href="0.1.7.html">0.1.7</a></li>
+                            <li><a href="0.1.6.html">0.1.6</a></li>
+                            <li><a href="0.1.5.html">0.1.5</a></li>
+                            <li><a href="0.1.4.html">0.1.4</a></li>
+                            <li><a href="0.1.3.html">0.1.3</a></li>
+                            <li><a href="0.1.2.html">0.1.2</a></li>
+                            <li><a href="0.1.1.html">0.1.1</a></li>
+                            <li><a href="0.1.0.html">0.1.0</a></li>
+              </ul>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

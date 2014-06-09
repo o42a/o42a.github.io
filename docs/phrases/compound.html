@@ -1,109 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Compound Phrase</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Compound Phrase</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Phrases</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="compound_phrase">Compound Phrase</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Phrases</a></li>
+          <li class="active">Compound Phrase</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="compound-phrase">Compound&nbsp;Phrase</h1>
 <!--
 Copyright (C) 2010-2013 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
@@ -115,30 +51,18 @@ Free Documentation License".
 -->
 
 <p>A phrase may be compound, i.e. it may contain more than one part. To declare the
-syntactic rules of compound phrase, a nested clauses can be used.</p>
-<h2 id="nested_clauses">Nested Clauses</h2>
+syntactic rules of compound phrase, a nested clauses can be&nbsp;used.</p>
+<h2 id="nested-clauses">Nested&nbsp;Clauses</h2>
 <p>The clause content may contain a block, either
 <a href="../sentences/imperatives.html">imperative</a> or
-<a href="../sentences/statements.html#declarative_block">declarative</a>. They can be
+<a href="../sentences/statements.html#declarative-block">declarative</a>. They can be
 stand-alone, or parts of
-<a href="../objects/creation.html#constructor_expression">constructor expression</a>.
+<a href="../objects/creation.html#constructor-expression">constructor expression</a>.
 Such block may contain a nested clause declarations. These clauses are used when
 interpreting subsequent phrase parts. For example, the following code declares
 an <a href="clauses.html#argument">argument</a> can follow the
-<a href="clauses.html#single-quoted_string">single-quoted string</a>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase :=&gt; string (
+<a href="clauses.html#single-quoted-string">single-quoted string</a>:</p>
+<pre><code class="lang-o42a">Phrase :=&gt; string (
   Foo :=&lt; integer
   &lt;&#39;&#39;&gt; (
     &lt;[]&gt; foo = *
@@ -151,44 +75,27 @@ Phrase (
   = &quot;value&quot;
   Foo = 2
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="implicit_clauses">Implicit Clauses</h2>
+</code></pre>
+<h2 id="implicit-clauses">Implicit&nbsp;Clauses</h2>
 <p>Sometimes, it is required to build a complex definition, where some clause
-should be placed deeply inside the object within the phrase object's definition.
-For that, an implicit clauses can be used.</p>
+should be placed deeply inside the object within the phrase object’s definition.
+For that, an implicit clauses can be&nbsp;used.</p>
 <p>An implicit clause is a clause, which does not correspond to any phrase part.
 But it may contain other clauses, which are not implicit. Thus, when a clause
 corresponding to some phrase part is searched, the clause will be searched
 inside the implicit clauses also. If found, the implicit clause will be applied
-before the found one.</p>
-<p>An implicit clause identifier has the following syntax:</p>
+before the found&nbsp;one.</p>
+<p>An implicit clause identifier has the following&nbsp;syntax:</p>
 <blockquote>
-<p><code>'*' [&lt;name&gt;]</code></p>
+<p><code>&#39;*&#39; [&lt;name&gt;]</code></p>
 </blockquote>
 <p>where <code>&lt;name&gt;</code> is an optional clause name. In contrast to the
-<a href="clauses.html#name">name</a> clause, this name won't be used when searching for the
+<a href="clauses.html#name">name</a> clause, this name won’t be used when searching for the
 clause. But it still should be unique. When the <code>&lt;name&gt;</code> is omitted, the clause
 is called <em>anonymous</em>. A clause identifier will be generated automatically.
-Multiple anonymous clauses allowed: their identifiers won't conflict with each other.</p>
-<p>An example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="codehilite"><pre>Println :=&gt; void (
+Multiple anonymous clauses allowed: their identifiers won’t conflict with each&nbsp;other.</p>
+<p>An&nbsp;example:</p>
+<pre><code class="lang-o42a">Println :=&gt; void (
   &lt;*Printer&gt; { ~~ Implicit clause, which constructs an imperative block.
     &lt;*&gt; Print ( ~~ Anonymous implicit clause, which constructs an expression.
       &lt;&#39;&#39;&gt; Text = * ~~ Single-quoted string clause.
@@ -204,29 +111,10 @@ Println (
     Print (Text = &quot;\n&quot;)
   }
 )
-</pre></div>
-</td></tr></table>
-
-<h3 id="nested_implicit_clauses">Nested Implicit Clauses</h3>
-<p>Implicit clauses inside implicit clauses are also allowed:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre></div></td><td class="code"><div class="codehilite"><pre>Println :=&gt; void (
+</code></pre>
+<h3 id="nested-implicit-clauses">Nested Implicit&nbsp;Clauses</h3>
+<p>Implicit clauses inside implicit clauses are also&nbsp;allowed:</p>
+<pre><code class="lang-o42a">Println :=&gt; void (
   &lt;*Printer&gt; {            ~~ Implicit clause, which constructs an imperative block.
     &lt;*&gt; Print (           ~~ Anonymous implicit clause, which constructs an expression.
       &lt;*&gt; Text = string ( ~~ Implicit clause, overriding the field `text`.
@@ -244,36 +132,19 @@ Println (
     Print (Text = &quot;\n&quot;)
   }
 )
-</pre></div>
-</td></tr></table>
-
-<h3 id="naming_conflicts">Naming Conflicts</h3>
+</code></pre>
+<h3 id="naming-conflicts">Naming&nbsp;Conflicts</h3>
 <p>Because the clause corresponding to a phrase part is searched in the scope
 (either object or enclosing clause) and all of the implicit clauses within this
-scope, the clauses declared there should not have the same identifiers:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase :=&gt; string (
+scope, the clauses declared there should not have the same&nbsp;identifiers:</p>
+<pre><code class="lang-o42a">Phrase :=&gt; string (
   &lt;[]&gt;
   &lt;*&gt; (
     &lt;[Enclosed]&gt; = String () ~~ Conflicts with a clause at top level.
   )
 )
-</pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre>Phrase :=&gt; string (
+</code></pre>
+<pre><code class="lang-o42a">Phrase :=&gt; string (
   Foo :=&lt; string
   &lt;*Implicit 1&gt; (
     &lt;[]&gt; Foo = *
@@ -282,94 +153,44 @@ scope, the clauses declared there should not have the same identifiers:</p>
     &lt;[Enclosed]&gt; = String () ~~ Conflicts with a clause declared in `implicit 1`.
   )
 )
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../phrases/clauses.html">Clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/clause_content.html">Clause Content</a>
-  </li>
-  
-  <li class="active">
-      <a href="../phrases/compound.html">Compound Phrase</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/reuse.html">Reusing clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/continuations.html">Phrase Completeness</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/outcome.html">Phrase Outcome</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/operators.html">Operators Override</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+</code></pre>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="index.html">Phrases</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="clauses.html">Clauses</a></li>
+                  <li><a href="clause_content.html">Clause Content</a></li>
+                  <li class="active"><a href="">Compound Phrase</a></li>
+                  <li><a href="reuse.html">Reusing Clauses</a></li>
+                  <li><a href="continuations.html">Phrase Completeness</a></li>
+                  <li><a href="operators.html">Operators Override</a></li>
+                </ul>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

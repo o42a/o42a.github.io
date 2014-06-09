@@ -1,109 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Operators Override</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Operators Override</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Phrases</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="operators_override">Operators Override</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Phrases</a></li>
+          <li class="active">Operators Override</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="operators-override">Operators&nbsp;Override</h1>
 <!--
 Copyright (C) 2010-2013 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
@@ -116,31 +52,16 @@ Free Documentation License".
 
 <p>Arithmetic and comparison operators in o42a are just a special forms of phrases
 and can be defined by corresponding clauses. Operators of basic types are all
-defined this way.</p>
+defined this&nbsp;way.</p>
 <p>Identifiers of operator clauses have the same syntax as their corresponding
 operators. The first operand of such identifier should be either a clause name
-or an asterisk (<strong><code>*</code></strong>). The second one should always be an asterisk.</p>
-<h2 id="unary_operators">Unary Operators</h2>
-<p><a href="../expressions/unary.html">Unary</a> plus (<strong><code>+</code></strong>) and minus (<strong><code>-</code></strong>) can be
-overridden.</p>
+or an asterisk (<strong><code>*</code></strong>). The second one should always be an&nbsp;asterisk.</p>
+<h2 id="unary-operators">Unary&nbsp;Operators</h2>
+<p><a href="../expressions/unary.html">Unary</a> plus (<strong><code>+</code></strong>) and minus (<strong><code>-</code></strong>) can be&nbsp;overridden.</p>
 <p>An operand is a phrase prefix and can be substituted with either <code>$prefix</code> or
 <code>()</code> expressions.</p>
-<p>Here is a definition of unary operators for complex numbers:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="codehilite"><pre>Complex numbers := void (
+<p>Here is a definition of unary operators for complex&nbsp;numbers:</p>
+<pre><code class="lang-o42a">Complex numbers := void (
   Minus :=&gt; complex (
     Operand :=&lt; `complex
     Real = -operand: real
@@ -155,36 +76,14 @@ Complex :=&gt; void (
     &lt;-*&gt; Operand = () ~~ Substitute the operand as `operand` field.
   )
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="binary_operators">Binary Operators</h2>
+</code></pre>
+<h2 id="binary-operators">Binary&nbsp;Operators</h2>
 <p><a href="../expressions/binary.html">Binary</a> arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, and
-<code>/</code>) can be overridden by corresponding clauses.</p>
+<code>/</code>) can be overridden by corresponding&nbsp;clauses.</p>
 <p>The left operand is a phrase prefix and can be substituted with <code>$prefix</code>
-expression. The right operand is handled as a clause value.</p>
-<p>Here is a definition of addition operator for complex numbers:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="codehilite"><pre>Complex numbers := void (
+expression. The right operand is handled as a clause&nbsp;value.</p>
+<p>Here is a definition of addition operator for complex&nbsp;numbers:</p>
+<pre><code class="lang-o42a">Complex numbers := void (
   Add :=&gt; complex (
     Left operand :=&lt; `complex
     Right operand :=&lt; `complex
@@ -205,37 +104,19 @@ Complex :=&gt; void (
     )
   )
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="comparison_operators">Comparison Operators</h2>
+</code></pre>
+<h2 id="-comparison-operators"> Comparison&nbsp;Operators</h2>
 <p><a href="../expressions/binary.html">Comparison</a> operators can be overridden in
 conjunction, by clauses identified by <strong><code>&lt;=&gt;</code></strong> and <strong><code>==</code></strong>. I.e. a single
-clause defines multiple operators.</p>
+clause defines multiple&nbsp;operators.</p>
 <p>Operands of comparison operators are handled the same way as the ones of the
-binary arithmetic operators.</p>
+binary arithmetic&nbsp;operators.</p>
 <p>The <strong><code>==</code></strong> clause defines both <em>equals</em> (<strong><code>==</code></strong>) and <em>not equals</em> (<strong><code>&lt;&gt;</code></strong>)
 operators. It should declare an expression, which logical value interpreted as
 equality. I.e. if the result is <code>false</code>, the values considered not equal,
-otherwise they considered equal.</p>
-<p>Here is a definition of complex numbers equality check:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="codehilite"><pre>Complex numbers := void (
+otherwise they considered&nbsp;equal.</p>
+<p>Here is a definition of complex numbers equality&nbsp;check:</p>
+<pre><code class="lang-o42a">Complex numbers := void (
   Equals :=&gt; void (
     What :=&lt; `complex
     To :=&lt; `complex
@@ -252,135 +133,75 @@ Complex :=&gt; void (
      )
   )
 )
-</pre></div>
-</td></tr></table>
-
-<p>The <strong><code>&lt;=&gt;</code></strong> clause defines a <em>compare</em> (<strong><code>&lt;=&gt;</code></strong>) operator.</p>
+</code></pre>
+<p>The <strong><code>&lt;=&gt;</code></strong> clause defines a <em>compare</em> (<strong><code>&lt;=&gt;</code></strong>)&nbsp;operator.</p>
 <p>This clause can define any expression. But in order to all comparison operators
 (<strong><code>&lt;</code></strong>, <strong><code>&lt;=</code></strong>, <strong><code>&gt;</code></strong>, and <strong><code>&gt;=</code></strong>) to work, such expression should have
-an integer value. This value is interpreted the following way:</p>
+an integer value. This value is interpreted the following&nbsp;way:</p>
 <ul>
 <li>if the value is negative, then the left operand considered less than the
-  right one;</li>
+right&nbsp;one;</li>
 <li>if the value is positive, then the left operand considered greater than the
-  right one;</li>
-<li>if the value is zero, then operands considered equal.</li>
+right&nbsp;one;</li>
+<li>if the value is zero, then operands considered&nbsp;equal.</li>
 </ul>
 <p>This clause will be used to interpret an <em>equals</em> (<strong><code>==</code></strong>) and <em>not equals</em>
-(<strong><code>&lt;&gt;</code></strong>) operators, if the <strong><code>==</code></strong> clause is not declared.</p>
-<h2 id="suffix_operator">Suffix Operator</h2>
+(<strong><code>&lt;&gt;</code></strong>) operators, if the <strong><code>==</code></strong> clause is not&nbsp;declared.</p>
+<h2 id="suffix-operator">Suffix&nbsp;Operator</h2>
 <p>The <a href="../expressions/binary.html">suffix</a> operator (<code>~</code>) differs from the rest
 of binary operators by the meaning of its operands. The ordinal binary operator
 interprets its left operand as a phrase prefix, and the right one as argument.
 The suffix operator uses <strong>the right operand</strong> to find a phrase prefix, and the
-the left one as argument. This makes it suitable for representing things like
-quantities.</p>
-<p>If the right operand contains a phrase, this phrase's prefix is used as a
+the left one as argument. This makes it suitable for representing things like&nbsp;quantities.</p>
+<p>If the right operand contains a phrase, this phrase’s prefix is used as a
 resulting phrase prefix, the left operand is used as argument, and the right
-operand's phrase parts are appended to the resulting phrase <strong>after</strong> the left
-operand.</p>
-<p>The suffix operand can be overridden with corresponding clause:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>Minutes :=&gt; integer (
+operand’s phrase parts are appended to the resulting phrase <strong>after</strong> the left&nbsp;operand.</p>
+<p>The suffix operand can be overridden with corresponding&nbsp;clause:</p>
+<pre><code class="lang-o42a">Minutes :=&gt; integer (
   &lt;How many ~ *&gt;
 )
 
 3~minutes
 ~~ Canonical form:
 Minutes (= 3)
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../phrases/clauses.html">Clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/clause_content.html">Clause Content</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/compound.html">Compound Phrase</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/reuse.html">Reusing clauses</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/continuations.html">Phrase Completeness</a>
-  </li>
-  
-  <li class="">
-      <a href="../phrases/outcome.html">Phrase Outcome</a>
-  </li>
-  
-  <li class="active">
-      <a href="../phrases/operators.html">Operators Override</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
+</code></pre>
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="../objects/index.html">Objects</a>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="index.html">Phrases</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="clauses.html">Clauses</a></li>
+                  <li><a href="clause_content.html">Clause Content</a></li>
+                  <li><a href="compound.html">Compound Phrase</a></li>
+                  <li><a href="reuse.html">Reusing Clauses</a></li>
+                  <li><a href="continuations.html">Phrase Completeness</a></li>
+                  <li class="active"><a href="">Operators Override</a></li>
+                </ul>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>

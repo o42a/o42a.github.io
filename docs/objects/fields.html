@@ -1,111 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>o42a » Fields</title>
-
-  <link rel="stylesheet" type="text/css" href="../../media/css/o42a.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/bootstrap.min.css" media="screen, projection" />
-  <link rel="stylesheet" type="text/css" href="../../media/css/pygments.css" media="screen, projection" />
-
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20313524-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  
-
-  <script type="text/javascript">
-    var root_path = "../../";
-  </script>
-</head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button
-            id="magic-btn"
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="pull-right">
-          <a
-              class="brand"
-              href="../../index.html">
-            o42a Programming Language
-          </a>
-        </div>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li >
-              <a href="../intro/features.html">
-                Features
-              </a>
-            </li>
-            <li class="active">
-              <a href="../index.html">
-                Documentation
-              </a>
-            </li>
-            <li >
-              <a href="../../devel/index.html">
-                Development
-              </a>
-            </li>
-            <li >
-              <a href="../../downloads.html">
-                Downloads
-              </a>
-            </li>
-            <li>
-              <a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">
-                Issues
-              </a>
-            </li>
-          </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>o42a » Fields</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-20313524-1', 'o42a.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" title="o42a Programming Language" class="navbar-brand">o42a</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="../intro/features.html">Features</a></li>
+          <li class="active"><a href="../index.html">Documentation</a></li>
+          <li><a href="../../devel/index.html">Development</a></li>
+          <li><a href="../../downloads.html">Downloads</a></li>
+          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
+    </header>
     <div class="container-fluid">
-      <ul class="breadcrumb">
-            <li>
-              <a href="../../index.html">o42a</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../index.html">Documentation</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="./index.html">Objects</a>
-              <span class="divider">/</span>
-            </li>
-      </ul>
-    </div>
-  
-
-  <div class="container-fluid">
-     <div class="row-fluid">
-  <div class="span9">
-    <h1 id="fields">Fields</h1>
+      <div class="row">
+        <ol class="breadcrumb visible-md visible-lg">
+          <li><a href="../../index.html">o42a</a></li>
+          <li><a href="../index.html">Documentation</a></li>
+          <li><a href="index.html">Objects</a></li>
+          <li class="active">Fields</li>
+        </ol>
+      </div>
+      <div class="row">
+        <article class="col-md-9"><h1 id="fields">Fields</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -115,42 +51,42 @@ Free Documentation License".
 -->
 
 <p>A field is a nested object, which can be accessed by identifier. An object can
-have an arbitrary number of fields.</p>
+have an arbitrary number of&nbsp;fields.</p>
 <p>Identifiers of fields declared within the same object should be unique, but
 object <strong>may</strong> declare a new field with the same identifier as a field of
 ascendant. In the latter case, two <strong>different</strong> fields with the same identifier
 will co-exist in the object. See the
-<a href="#naming_conflicts_resolution">naming conflicts resolution</a> section below.</p>
-<h2 id="field_declaration">Field Declaration</h2>
-<p>Field declaration syntax is:</p>
+<a href="#naming-conflicts-resolution">naming conflicts resolution</a> section&nbsp;below.</p>
+<h2 id="field-declaration">Field&nbsp;Declaration</h2>
+<p>Field declaration syntax&nbsp;is:</p>
 <blockquote>
-<p><code>[&lt;visibility&gt;] &lt;name&gt; [ ['@' ['('] &lt;ascendant&gt; [')'] ] | ':'] [{'=' | '=&gt;' | '=&lt;' | '=&lt;&gt;'}] &lt;definition&gt;</code></p>
+<p><code>[&lt;visibility&gt;] &lt;name&gt; [&#39;@&#39; [&#39;(&#39;] &lt;ascendant&gt; [&#39;)&#39;] | &#39;:&#39;] [&#39;=&#39; | &#39;=&gt;&#39; | &#39;=&lt;&#39; | &#39;=&lt;&gt;&#39;] &lt;definition&gt;</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;visibility&gt;</code> is one of:<ul>
-<li>'<strong><code>:</code></strong>' - to declare <em>private</em> field;</li>
-<li>'<strong><code>::</code></strong>' - to declare <em>protected</em> field;</li>
+<li>‘<strong><code>:</code></strong>‘ - to declare <em>private</em>&nbsp;field;</li>
+<li>‘<strong><code>::</code></strong>‘ - to declare <em>protected</em>&nbsp;field;</li>
 <li>otherwise:<ul>
-<li>the field is <em>public</em>, if it is a new field declaration;</li>
-<li>the field has the same visibility as overridden field, if it is a field
-  override;</li>
+<li>the field is <em>public</em>, if it is a new field&nbsp;declaration;</li>
+<li>the field has the same visibility as overridden field, if it is a field&nbsp;override;</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>&lt;name&gt;</code> is arbitrary field name;</li>
-<li><code>&lt;ascendant&gt;</code> is a reference to object's ascendant, the overridden field is
-  present in;</li>
+<li><code>&lt;name&gt;</code> is arbitrary field&nbsp;name;</li>
+<li><code>&lt;ascendant&gt;</code> is a reference to object’s ascendant, the overridden field is
+present&nbsp;in;</li>
 <li><code>&lt;definition&gt;</code> is an expression either constructing a new object or referring
-  to its ancestor.</li>
+to its&nbsp;ancestor.</li>
 </ul>
 <p>The <em>colon</em> (<strong><code>:</code></strong>) presence before the <em>equals sign</em> (<strong><code>=</code></strong>) indicates the
-field declaration, while it's absence means the field override. In the latter
+field declaration, while its absence means the field <a href="propagation.html#field-override">override</a>. In the latter
 case it is expected that the field with the same identifier is present in
-object's ascendant. Because object may have multiple ascendants, it is possible
-to explicitly specify an <code>&lt;ascendant&gt;</code> the overridden field is originated from.</p>
-<p>The sign following the <em>equals sign</em> indicates the following:</p>
+object’s ascendant. Because object may have multiple ascendants, it is possible
+to explicitly specify an <code>&lt;ascendant&gt;</code> the overridden field is originated&nbsp;from.</p>
+<p>There is also a <a href="propagation.html#short-syntax">short form</a> of field override&nbsp;syntax.</p>
+<p>The sign following the <em>equals sign</em> indicates the&nbsp;following:</p>
 <table>
 <thead>
 <tr>
@@ -165,7 +101,7 @@ to explicitly specify an <code>&lt;ascendant&gt;</code> the overridden field is 
 </tr>
 <tr>
 <td><code>=&gt;</code></td>
-<td>Prototype declaration. Prototype is an incompletely defined object, which doesn't have an instance. The contents of prototype are not accessible from outside the prototype itself, but prototype can be derived.</td>
+<td>Prototype declaration. Prototype is an incompletely defined object, which doesn’t have an instance. The contents of prototype are not accessible from outside the prototype itself, but prototype can be derived.</td>
 </tr>
 <tr>
 <td><code>=&lt;</code></td>
@@ -178,17 +114,7 @@ to explicitly specify an <code>&lt;ascendant&gt;</code> the overridden field is 
 </tbody>
 </table>
 <p>Example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>Binary operation :=&gt; float ( ~~ Public prototype.
+<pre><code class="lang-o42a">Binary operation :=&gt; float ( ~~ Public prototype.
   ::Operand 1 :=&lt; float ~~ Protected input field.
   ::Operand 2 :=&lt; float ~~ Protected input field. 
 )
@@ -199,57 +125,42 @@ Addition :=&gt; binary operation ( ~~ Public prototype.
   Operand 1 = 11 ~~ Override `operand 1`.
   Operand 2 = 31 ~~ Override `operand 2`.
 )
-</pre></div>
-</td></tr></table>
-
-<h2 id="field_visibility">Field Visibility</h2>
-<p>As mentioned above, there are three kinds of visibility:</p>
+</code></pre>
+<h2 id="field-visibility">Field&nbsp;Visibility</h2>
+<p>As mentioned above, there are three kinds of&nbsp;visibility:</p>
 <ul>
-<li><em>public</em> - field is visible from everywhere;</li>
+<li><em>public</em> - field is visible from&nbsp;everywhere;</li>
 <li><em>protected</em> - field is visible from the same file, from nested objects and
-  definitions, and from derived objects;</li>
+definitions, and from derived&nbsp;objects;</li>
 <li><em>private</em> - field is only visible from the same file or from nested objects
-  and definitions.</li>
+and&nbsp;definitions.</li>
 </ul>
-<p>A field can not change its visibility when overridden.</p>
-<p>Private fields can not be overridden, even if they are visible to the derived
-object.</p>
-<h2 id="field_access">Field Access</h2>
-<p>The field of an object can be accessed by its name with the following syntax:</p>
+<p>A field can not change its visibility when&nbsp;overridden.</p>
+<p>Private fields can not be overridden, even if they are visible to the derived&nbsp;object.</p>
+<h2 id="field-access">Field&nbsp;Access</h2>
+<p>The field of an object can be accessed by its name with the following&nbsp;syntax:</p>
 <blockquote>
-<p><code>&lt;owner&gt; ':' &lt;name&gt; ['@' ['('] &lt;ascendant&gt; [')'] ]</code></p>
+<p><code>&lt;owner&gt; &#39;:&#39; &lt;name&gt; [&#39;@&#39; [&#39;(&#39;] &lt;ascendant&gt; [&#39;)&#39;] ]</code></p>
 </blockquote>
 <p>where:</p>
 <ul>
 <li><code>&lt;owner&gt;</code> is an arbitrary <a href="../expressions/index.html">expression</a>
-  resolving to an object containing the field;</li>
-<li><code>&lt;name&gt;</code> is a field name;</li>
-<li><code>&lt;ascendant&gt;</code> is the owner's ascendant
-  <a href="../expressions/references.html">reference</a>, the field is present in.</li>
+resolving to an object containing the&nbsp;field;</li>
+<li><code>&lt;name&gt;</code> is a field&nbsp;name;</li>
+<li><code>&lt;ascendant&gt;</code> is the owner’s ascendant
+<a href="../expressions/references.html">reference</a>, the field is present&nbsp;in.</li>
 </ul>
 <p>Examples:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre>foo: field
+<pre><code class="lang-o42a">foo: field
 foo: field @foo ascendant
-</pre></div>
-</td></tr></table>
-
-<h3 id="naming_conflicts_resolution">Naming Conflicts Resolution</h3>
+</code></pre>
+<h3 id="naming-conflicts-resolution">Naming Conflicts&nbsp;Resolution</h3>
 <p>An object derived from another object can declare a new field with the same
-identifier (name or adapter interface) as  the one of ascendant's field. In this
+identifier (name or adapter interface) as  the one of ascendant’s field. In this
 case an unqualified field access means access to the explicitly declared field.
-To access the field derived from ascendant an explicit qualification required.</p>
+To access the field derived from ascendant an explicit qualification&nbsp;required.</p>
 <p>Example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
+<pre><code class="lang-o42a">A := void (
   Foo := 1 ~~ Declare the field `foo`.
 )
 B := a ( ~~ Inherit `a`.
@@ -259,131 +170,88 @@ B := a ( ~~ Inherit `a`.
 B: foo    ~~ Access the field `foo` declared in `b`.
 B: foo @b ~~ The same as above. Qualifier is redundant here.
 B: foo @a ~~ Access the field `foo` of object `b` derived from `a`.
-</pre></div>
-</td></tr></table>
-
-<p>If an object has multiple ascendants and some ascendants contain different
-fields with the same identifier, then unqualified field access means access to
-the <strong>last</strong> ascendant in the list. To access the fields derived from other
-ascendants an explicit qualification required.</p>
-<p>Example:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre>A := void (
-  Foo := 1 ~~ Declare the field `foo`.
+</code></pre>
+<h2 id="static-fields">Static&nbsp;Fields</h2>
+<p>Static fields are named objects declared only once. They never
+<a href="propagation.html">propagated</a> to inherited objects, but still accessible from
+them, just like any other&nbsp;field.</p>
+<p>Static field declarations syntax is the same as ordinary one, except the <code>::=</code>
+symbol is used instead of <code>:=</code>:</p>
+<p>Static fields are not propagated, so they can not be overridden. A field
+override syntax is irrelevant to&nbsp;them.</p>
+<p>Static fields can be accessed with exactly the same syntax as ordinary&nbsp;fields.</p>
+<p>A static field can only be declared in module or inside another static&nbsp;field.</p>
+<h2 id="aliases">Aliases</h2>
+<p>Aliases are named expressions, which can be accessed just like&nbsp;fields.</p>
+<p>An alias declaration syntax is similar to field declaration, except the <code>:-</code>
+symbol is used instead of <code>:=</code>:</p>
+<blockquote>
+<p><code>[&lt;visibility&gt;] &lt;name&gt; &#39;:-&#39; &lt;expression&gt;</code></p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li><code>&lt;visibility&gt;</code> is an alias visibility, similar to field&nbsp;visibility,</li>
+<li><code>&lt;name&gt;</code> is an alias&nbsp;name,</li>
+<li><code>&lt;expression&gt;</code> is arbitrary&nbsp;expression.</li>
+</ul>
+<p>If an alias expression constructs an object, then such object will be
+constructed at most once per owner&nbsp;object.</p>
+<p>Aliases can be accessed with exactly the same syntax as&nbsp;fields.</p>
+<p>Aliases can not be overridden. But there is a special case. If the alias
+expression is a reference to a field of the same owner object, then such alias
+becomes just another name for aliased field. So, overriding such alias becomes
+equal to overriding the aliased&nbsp;field:</p>
+<pre><code class="lang-o42a">A := void (
+  Field := 1     ~~ Declare a field.
+  Alias :- field ~~ Create an alias for `field`.
 )
-B := void (
-  Foo := 1 ~~ Declare a field with the same name `foo`.
+A: field ~~ 1
+A: alias ~~ 1, the same as `a: field`.
+
+B := a (
+  Alias = 2      ~~ This is valid.
 )
-C := * &amp; a &amp; b ~~ `C` derived from both `a` and `b`.
+B: field ~~ 2, overridden with alias.
+B: alias ~~ 2, the same as `b: field`.
+</code></pre>
 
-C: foo    ~~ Access the field `foo` of object `c` derived from `b`.
-C: foo @b ~~ The same as above. Qualifier is not required here, but may be a good idea.
-B: foo @a ~~ Access the field `foo` of object `c` derived from `a`.
-</pre></div>
-</td></tr></table>
-  </div>
-  <div class="span3 well">
-    <ul class="nav nav-list">
-  <li class=" nav-header">
-      <a href="../intro/index.html">Introduction</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../syntax/index.html">Basic Syntax</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../objects/index.html">Objects</a>
-  </li>
-  <li>
-      <ul class="nav nav-list">
-  <li class="">
-      <a href="../objects/creation.html">Object Creation</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/value.html">Object Value</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/definition.html">Value Definition</a>
-  </li>
-  
-  <li class="active">
-      <a href="../objects/fields.html">Fields</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/adapters.html">Adapters</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/inheritance.html">Inheritance</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/propagation.html">Field Propagation</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/samples.html">Sample Propagation</a>
-  </li>
-  
-  <li class="">
-      <a href="../objects/inheritance_vs_propagation.html">Inheritance vs Propagation</a>
-  </li>
-  
-  </ul>
-    </li>
-  <li class=" nav-header">
-      <a href="../expressions/index.html">Expressions</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sentences/index.html">Sentences</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../phrases/index.html">Phrases</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../core/index.html">Core Objects</a>
-  </li>
-  
-  <li class=" nav-header">
-      <a href="../sources/index.html">Source Files</a>
-  </li>
-  
-  </ul>
-  </div>
-</div>
-  </div>
-
-  <footer class="footer">
-    <div class="container-fluid">
-      <p>
-        Powered by <a href="http://markdoc.org/">Markdoc</a>
-      </p>
-      <ul class="footer-links">
-        <li>
-          <a href="../../imprint.html">Imprint</a>
-        </li>
-      </ul>
+        </article>
+        <aside class="col-md-3">
+          <div class="well">
+            <ul class="nav nav-pills nav-stacked nav-header">
+              <li><a href="../intro/index.html">Introduction</a>
+              </li>
+              <li><a href="../syntax/index.html">Basic Syntax</a>
+              </li>
+              <li><a href="index.html">Objects</a>
+                <ul class="nav nav-pills nav-stacked nav-nested">
+                  <li><a href="creation.html">Object Creation</a></li>
+                  <li><a href="value.html">Object Value</a></li>
+                  <li><a href="definition.html">Value Definition</a></li>
+                  <li class="active"><a href="">Fields</a></li>
+                  <li><a href="adapters.html">Adapters</a></li>
+                  <li><a href="inheritance.html">Inheritance</a></li>
+                  <li><a href="propagation.html">Field Propagation</a></li>
+                </ul>
+              </li>
+              <li><a href="../expressions/index.html">Expressions</a>
+              </li>
+              <li><a href="../sentences/index.html">Sentences</a>
+              </li>
+              <li><a href="../phrases/index.html">Phrases</a>
+              </li>
+              <li><a href="../core/index.html">Core Objects</a>
+              </li>
+              <li><a href="../sources/index.html">Source Files</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
-  </footer>
-
-  <script type="application/javascript" src="../../media/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../media/js/bootstrap.min.js"></script>
-  
-</body>
+    <footer class="footer">
+      <p>Powered by&nbsp;<a href="http://wintersmith.io">Wintersmith</a></p>
+      <p><a href="../../imprint.html">Imprint</a></p>
+    </footer>
+  </body>
 </html>
