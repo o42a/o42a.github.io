@@ -64,11 +64,16 @@
 Foo: bar: baz ~~ Accessing field `baz` of field `bar` of object `foo`
 </code></pre>
 </li>
-<li>o42a supports <em>phrases</em> - a pure syntactic, customizable way to build a
+<li><p>o42a supports <em>phrases</em> - a pure syntactic, customizable way to build a
 domain-specific expressions. It is possible to declare syntactic rules
-to interpret the following expressions:<pre><code class="lang-o42a">Print &quot;Hello, World!&quot; nl
+to interpret the following&nbsp;expressions:</p>
+<pre><code class="lang-o42a">Print &quot;Hello, World!&quot; nl
+
 Use object &#39;main&#39; from &#39;console&#39; as &#39;run&#39;
-SELECT [&#39;t1.foo&#39;, &#39;t1.bar&#39;, &#39;t2.baz&#39;] FROM &#39;t1&#39; LEFT OUTER JOIN &#39;t2&#39; ON &#39;id&#39; ORDER BY &#39;foo&#39;
+
+SELECT [&#39;t1.foo&#39;, &#39;t1.bar&#39;, &#39;t2.baz&#39;]
+_FROM &#39;t1&#39; LEFT OUTER JOIN &#39;t2&#39; ON &#39;id&#39;
+_ORDER BY &#39;foo&#39;
 </code></pre>
 </li>
 </ul>
@@ -100,11 +105,11 @@ They all could be easily replaced by logical&nbsp;values.</li>
 <li>Every expression has a logical meaning derived from the value it produces.
 The syntax is designed in favor of this. For example, here is a definition of
 the arithmetic <code>signum</code> function:<pre><code class="lang-o42a">Signum :=&gt; integer (
-Arg :=&lt; integer
-Arg &gt; 0? = 1  ~~ If the `arg` is positive, return 1.
-Arg &lt; 0? = -1 ~~ Otherwise, if the `arg` is negative, return -1.
-= Arg         ~~ Otherwise, return the `arg` itself.
-              ~~ Can be either zero or false.
+  Arg :=&lt; integer
+  Arg &gt; 0? = 1  ~~ If the `arg` is positive, return 1.
+  Arg &lt; 0? = -1 ~~ Otherwise, if the `arg` is negative, return -1.
+  = Arg         ~~ Otherwise, return the `arg` itself.
+                ~~ Can be either zero or false.
 )
 </code></pre>
 </li>
@@ -122,15 +127,15 @@ structure by declaring its&nbsp;members.</li>
 <li>The <a href="http://wikipedia.org/wiki/Imperative_programming">imperative code</a> may contain advanced evaluation algorithms,
 such as loops:<pre><code class="lang-o42a">$I = ``0 ~~ Local variable initialized to zero. 
 {
-~~ Some code here. ~~
-I +&lt;&lt; 1   ~~ Increase `i`.
-I &lt; 10?.. ~~ While `i` less than 10, repeat.
+  ~~ Some code here. ~~
+  I +&lt;&lt; 1   ~~ Increase `i`.
+  I &lt; 10?.. ~~ While `i` less than 10, repeat.
 }
 {
-~~ Some code here. ~~
-I +&lt;&lt; 1    ~~ Increase `i`.
-I &gt;= 20?!  ~~ Exit when `i` greater or equal to 20.
-...        ~~ Repeat otherwise.
+  ~~ Some code here. ~~
+  I +&lt;&lt; 1    ~~ Increase `i`.
+  I &gt;= 20?!  ~~ Exit when `i` greater or equal to 20.
+  ...        ~~ Repeat otherwise.
 }
 </code></pre>
 </li>
