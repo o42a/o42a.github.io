@@ -74,10 +74,10 @@ evaluating it on each&nbsp;request.</p>
 <pre><code>@Main := * (
   Print &quot;Hello, World!&quot; nl  
 )
-</code></pre><p>The short syntax construct either overrides an inherited adapter, or to declares
+</code></pre><p>The short syntax construct either overrides an inherited adapter, or declares
 a new&nbsp;one.</p>
 <h2 id="short-field-override-syntax">Short Field Override&nbsp;Syntax</h2>
-<p>Field can be overridden now with shorter syntax&nbsp;too.</p>
+<p>A field can be overridden with shorter syntax&nbsp;too.</p>
 <p>The&nbsp;following:</p>
 <pre><code>*Field (
   ~~ Definition
@@ -96,20 +96,19 @@ allows to override fields, but not to declare new&nbsp;ones. </p>
 </code></pre><p>Static fields are named objects declared only once. They never propagated
 to inherited objects, and can not be overridden. But they still accessible from
 inherited objects, just like any other&nbsp;field.</p>
-<p>A static field can only be declared in module or inside another static&nbsp;field.</p>
+<p>A static field can only be declared in a module or inside another static&nbsp;field.</p>
 <h2 id="aliases">Aliases</h2>
-<p>Aliases are named expressions, which can be accessed just like&nbsp;fields.</p>
+<p>Aliases are named expressions which can be accessed just like&nbsp;fields.</p>
 <p>An alias can be declared like&nbsp;this:</p>
 <pre><code>Alias :- expression
 </code></pre><p>Aliases can not be overridden. But when the alias expression is a reference to
-the field of the same owner object, an alias becomes just another name for that
+the field of the same owner object, the alias becomes just another name for that
 field, and can be used interchangeably with&nbsp;it.  </p>
 <h2 id="yield-statement">Yield&nbsp;Statement</h2>
 <p>A new <em>yield</em> statements was&nbsp;added:</p>
 <pre><code>&lt;&lt; value
 </code></pre><p>Just like a return statement this one returns a value. But next time the value
-of the same object will be requested, the value evaluation will continue from
-the next&nbsp;statement.</p>
+of the same object requested, the value evaluation continues from the next&nbsp;statement.</p>
 <p>This allows to easily create value&nbsp;generators:</p>
 <pre><code>Generator := integer (
   &lt;&lt; 1
@@ -124,16 +123,16 @@ I.e. sentences terminating with ellipsis (<code>...</code>).</p>
 <p>Also, a combined sentence terminators were added: <em>continued exclamation</em>
 (<code>!..</code>), which allows to exit a named block, and <em>continued interrogation</em>
 (<code>?..</code>), which is a short syntax for empty continuation sentence immediately
-following the interrogative one, i.e. the same as <code>? ...</code>.</p>
+following an interrogative one, i.e. the same as <code>? ...</code>.</p>
 <p>The local declarations now always require a <code>$</code> prefix to avoid possible
-conflicts with field declarations. Tha <code>:=</code> and <code>=</code> signs can be used
+conflicts with field declarations. The <code>:=</code> and <code>=</code> signs can be used
 interchangeably for local declarations. So, a valid local declarations could
 look like&nbsp;this:</p>
 <pre><code>$Local 1 = value 1
 $Local 2 := value 2
 </code></pre><p>The value assignment syntax was changed completely to avoid any possible
-similarities with field or local declarations. Now, a <code>&lt;&lt;</code> symbol used for value
-assignments, including combined&nbsp;assignments:</p>
+similarities with field or local declarations. Now, a <code>&lt;&lt;</code> symbol is used for
+value assignments, including combined&nbsp;assignments:</p>
 <pre><code>Variable &lt;&lt; value ~~ Assign `value` to `variable`
 I +&lt;&lt; 1           ~~ Increase `i`.
 </code></pre><p>Also, the value assignment is implemented using eager value evaluation. So that
@@ -143,7 +142,7 @@ it became just a syntax sugar for binding statement like&nbsp;this:</p>
 <p>The phrase outcome feature was removed. It wasn’t very useful. And without it
 a meaning of a phrase is easier to&nbsp;estimate.</p>
 <p>The multi-section source files are no longer supported. Along with it,
-an explicit inclusion statement became unnecessary and was removed&nbsp;too.</p>
+an explicit inclusion statement became unnecessary and was&nbsp;removed.</p>
 
         </article>
         <aside class="col-md-3">
