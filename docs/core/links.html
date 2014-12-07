@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -93,7 +92,7 @@ Bar := target` link = target ~~ The same as above.
 <li>Otherwise, the link interface is an ancestor of the target expression
 result:<pre><code class="lang-o42a">Link 1 := `&quot;Target value&quot; ~~ Link interface is `string`.
 Link 2 := `foo (          ~~ Link interface is `foo`.
-Bar = 2
+Bar := 2
 )
 Link 3 := `foo <span class="amp">&amp;</span> bar      ~~ Link interface is `foo`.
 </code></pre>
@@ -154,12 +153,12 @@ A := void (
   Link := `target
 )
 B := a (
-  Link = integer` link = target
+  Link = integer` * = target
   ~~ **Error**: `integer` is not derived from `target`.
 )
 C := a (
   Foo := target
-  Link = target` link = foo
+  Link = target` * = foo
   ~~ Interface remains the same, while the target is changed.
 )
 D := a (

@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -124,7 +123,7 @@ object’s&nbsp;ascendant:</p>
 )
 Object := void (
   @Adapter := * (
-    Foo = 2
+    Foo = * (= 2)
   )
 )
 
@@ -175,7 +174,7 @@ of it’s&nbsp;interface:</p>
   Foo := 2
 )
 @Type := * (
-  Foo = 4
+  Foo = * (= 4)
 )
 </code></pre>
 <p>to indicate that adapter has the same ancestor as its&nbsp;interface.</p>

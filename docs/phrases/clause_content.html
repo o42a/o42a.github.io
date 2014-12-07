@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -78,7 +77,7 @@ object is inherited from phrase&nbsp;prefix;</li>
 Phrase () [2] ~~ Constructs an object inherited from `phrase`.
 ~~ Canonical form:
 Phrase (
-  Foo = 2
+  Foo = * (= 2)
 )
 
 Phrase () &#39;value&#39; ~~ Constructs an object inherited from `phrase`.
@@ -94,7 +93,7 @@ String (= &quot;value&quot;)
 Phrase [2] ~~ Constructs an object inherited from `phrase`.
 ~~ Canonical form:
 Phrase (
-  Foo = 2
+  Foo = * (= 2)
 )
 </code></pre>
 <h3 id="phrase-object-definition">Phrase Object&nbsp;Definition</h3>
@@ -139,20 +138,18 @@ reproduced as a field override of the constructing&nbsp;object:</p>
 
 Phrase [42] ~~ The same as:
 Phrase (
-  Foo = 42
+  Foo = * (= 42)
 )
 </code></pre>
-<p>A special syntax can be used to substitute the value as a field definition. For
-that, use an empty parentheses as field&nbsp;definition:</p>
+<p>A short syntax can also be&nbsp;used:</p>
 <pre><code class="lang-o42a">Phrase :=&gt; void (
-  Value :=&lt; `string      ~~ Link to a `string` object.
-  &lt;[]&gt; Value = ()        ~~ Substitution.
+  &lt;[]&gt; *Value ~~ A short form of the above.
 )
 
-Str := &quot;Some string&quot;
-
-Phrase [str]             ~~ Link to existing `str` object.
-Phrase (Value = str)     ~~ Canonical form of the above.
+Phrase [42]    ~~ The same as:
+Phrase (
+  *Foo (= 42)  ~~ Note that this is just a short form of field override syntax.
+)
 </code></pre>
 <h2 id="expression">Expression</h2>
 <p>When the clause content is an arbitrary expression, this expression is

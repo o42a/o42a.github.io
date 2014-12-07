@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -88,8 +87,8 @@ initial value; the number of items defines an array&nbsp;length.</p>
 <p>Every array is an object and can be constructed by the
 object <a href="../objects/creation.html#constructor-expression">constructor expression</a>. The type of array
 elements can be specified as a type&nbsp;parameters:</p>
-<pre><code class="lang-o42a">Foo :=&gt; void (Int :=&lt; integer)
-Bar :=&gt; foo (Str :=&lt; string)
+<pre><code class="lang-o42a">Foo :=&gt; void (Int :=&lt; integer `link)
+Bar :=&gt; foo (Str :=&lt; string `link)
 
 Foo row := [foo (Int = 1), foo (Int = 2)] ~~ Elements type is `foo`.
 

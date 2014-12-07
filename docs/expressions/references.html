@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -123,25 +122,24 @@ Free Documentation License".
 <p>Example:</p>
 <pre><code class="lang-o42a">Foo := //~~Root~~ void ~~This can be written without `//` prefix.~~ (
   Value :=&lt; //~~Root~~ integer ~~This can be written without `//` prefix~~
-  Sum :=&gt; :: ~~Parent field, i.e. `foo`~~ (
-    Arg :=&lt; / ~~Refers the module object~~ foo ~~Refers module field `foo`~~
-    Value = foo: value + :~~Parent object, i.e. `sum`~~ arg: value
-  )
+  :: ~~Parent field, i.e. `foo`~~
+  Arg := / ~~Refers the module object~~ foo ~~Refers module field `foo`~~
+  Double value := foo: value + :~~Parent object, i.e. `foo`~~ arg: value
 )
 </code></pre>
 <blockquote>
 <p>Notice the difference between the self (<code>:</code>) and parent member (<code>::</code>)
 references. They mean the same in the following piece of&nbsp;code:</p>
 <pre><code class="lang-o42a">Foo := void (
-  Bar :=&gt; :  ~~ Refers the `foo` field.
-  Baz :=&gt; :: ~~ Also refers the `foo` field.
+  :  ~~ Refers the enclosing object `foo`.
+  :: ~~ Also refers the enclosing object `foo`.
 )
 </code></pre>
 <p>But have different meanings&nbsp;here:</p>
 <pre><code class="lang-o42a">Foo := void (
   Bar (
-    F :=&gt; :  ~~ Refers the enclosing object inherited from `bar`.
-    G :=&gt; :: ~~ Refers the `foo` field.
+    :  ~~ Refers the enclosing object inherited from `bar`.
+    :: ~~ Refers the enclosing object `foo`.
   )
 )
 </code></pre>
@@ -227,7 +225,7 @@ $$field of anonymous local
 <p><code>&lt;expression&gt; &#39;&gt;&gt;&#39;</code></p>
 </blockquote>
 <p>Normally, an object value is (re-)evaluated on each request. This not always a
-required behaviour, as the result of evaluations may differ, or could be very
+required behaviour, as the results of evaluations may differ, or could be very
 excessive in terms of performance and resources&nbsp;usage.</p>
 <p>Also, an object value is evaluated when requested. I.e. it won’t be evaluated
 immediately when object (e.g. field or local)&nbsp;constructed.</p>
@@ -235,9 +233,9 @@ immediately when object (e.g. field or local)&nbsp;constructed.</p>
 eager reference could be used. Eager reference evaluates the value of
 <code>&lt;expression&gt;</code>, constructs a new object inherited from <code>&lt;expression&gt;</code> and
 returns it. The value of the resulting object is constant, and equal to
-previously evaluated value of <code>&lt;expression&gt;</code>.</p>
-<p>Note, that any object inherited from eager reference inherits its value too,
-unless the value definition is overridden in inherited&nbsp;object.</p>
+previously evaluated value of <code>&lt;expression&gt;</code>. Such object is called
+<em>eager object</em>.</p>
+<p><strong>It is not possible to inherit eager objects or override eager&nbsp;fields.</strong></p>
 <h2 id="other">Other</h2>
 <p>These references are also supported, but discussed&nbsp;later:</p>
 <table>

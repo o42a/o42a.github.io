@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -54,7 +53,7 @@ Free Documentation License".
 inherited object has the same fields as ancestor, and the same value type,
 unless&nbsp;overridden.</p>
 <h2 id="ancestor-object-evaluation">Ancestor Object&nbsp;Evaluation</h2>
-<p>An object inherits not than just an ancestor object. In fact, it inherits an
+<p>An object inherits not just an ancestor object. In fact, it inherits an
 ancestor expression. An ancestor expression is evaluated once per object,
 in the scope of the enclosing object. When executed in different scopes,
 an ancestor expression can resolve to different&nbsp;objects.</p>
@@ -75,9 +74,30 @@ B := a (
 result to <code>b: foo</code> object, which contains a new field <code>g</code>. So an expression
 <code>b: bar: g</code> is valid and returns <code>2</code>.</p>
 <blockquote>
-<p>Note that when object inherits object from another module, or inherits a
-<a href="fields.html#static-fields">static field</a> the ancestor expression always resolves to the same ancestor&nbsp;object.</p>
+<p>Note that when an object inherits an object from another module or inherits a
+<a href="fields.html#static-fields">static field</a>, the ancestor expression is static and always resolves to
+the same ancestor&nbsp;object.</p>
 </blockquote>
+<h2 id="limitations">Limitations</h2>
+<p>There are limitations of what could be&nbsp;inherited.</p>
+<p>It is not possible to inherit an object, which structure is only known at run
+time. For example, it is not possible to inherit a <a href="../core/links.html">link</a>
+target, or <a href="../core/variables.html">variable</a>&nbsp;value:</p>
+<pre><code class="lang-o42a">A := `1       ~~ A link.
+B := a-&gt;(= 2) ~~ Link target can not be inherited.
+</code></pre>
+<p>An object can not inherit enclosing&nbsp;objects:</p>
+<pre><code class="lang-o42a">A ::= void (
+  B := void (
+    B ()     ~~ This is not possible, as `b` is enclosing object.
+    A ()     ~~ This is also not possible.
+    /A ()    ~~ This is possible, because it is an inheritance of
+             ~~ static object `a`, not an enclosing object `a`.
+    A: b ()  ~~ This is also possible, as this is an inheritance of
+             ~~ field `b` of enclosing object `a`, not an enclosing object `b`.
+  )
+)
+</code></pre>
 <h2 id="definition-inheritance">Definition&nbsp;Inheritance</h2>
 <p>By default, the inherited object has the same definition as&nbsp;ancestor.</p>
 <p>For&nbsp;example:</p>
@@ -96,8 +116,8 @@ result to a different&nbsp;value.</p>
 )
 
 Object := Ancestor (
-  Arg 1 = 2
-  Arg 2 = 4
+  Arg 1 = * (= 2)
+  Arg 2 = * (= 4)
 )
 </code></pre>
 <p>Here <code>object</code> has value <code>8</code>, despite it has the same definition as <code>ancestor</code>,
@@ -118,14 +138,14 @@ value&nbsp;type.</p>
 <p>Every field present in ancestor is <a href="propagation.html">propagated</a> to inherited
 object and can be&nbsp;overridden.</p>
 <p>Note that despite <em>private</em> fields are propagated to inherited object, they are
-not accessible (and thus can not be&nbsp;overridden).</p>
+not accessible and thus can not be&nbsp;overridden.</p>
 <p>Also, an inherited object may declare new&nbsp;fields.</p>
 <p>Example:</p>
 <pre><code class="lang-o42a">Ancestor := void (
   Foo := 2
 )
 Object := ancestor (
-  Foo = 3            ~~ Override field &quot;foo&quot; declared in &quot;ancestor&quot;.
+  Foo = * (= 3)      ~~ Override field &quot;foo&quot; declared in &quot;ancestor&quot;.
   Bar := &quot;new field&quot; ~~ Declare new field &quot;bar&quot;.
 )
 </code></pre>

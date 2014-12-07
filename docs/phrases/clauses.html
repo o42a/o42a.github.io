@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -152,7 +151,7 @@ Phrase _clause (= 2)
 
 ~~ A canonical form of the above phrase:
 Phrase (
-  Foo = 2
+  Foo = * (= 2)
 )
 </code></pre>
 <p>No need in underscore in the following&nbsp;case:</p>
@@ -168,7 +167,7 @@ Phrase &quot;value&quot; clause (= 2)
 ~~ Canonical form:
 Phrase (
   = &quot;value&quot;
-  Foo = 2
+  Foo = * (= 2)
 )
 </code></pre>
 <h2 id="array-constructor">Array&nbsp;Constructor</h2>
@@ -207,8 +206,8 @@ correspond to the clause open/closed kind. An asterisk or clause name should be
 placed to corresponding bound. The other bound should be&nbsp;omitted.</p>
 <p>Here is an example of a fully-bounded right-open substring clause&nbsp;declaration:</p>
 <pre><code class="lang-o42a">&lt;*Substring&gt; Substring (
-  &lt;[From...) | to&gt; From = ()
-  &lt;[...To)!&gt; To = ()
+  &lt;[From...) | to&gt; *From
+  &lt;[...To)!&gt; *To
 )
 </code></pre>
 <h3 id="half-bounded-interval">Half-Bounded&nbsp;Interval</h3>
@@ -218,11 +217,11 @@ contain either <code>-</code> or <code>∞</code> (U+221E) sign. Note that just 
 won’t work, because such identifiers are reserved for fully-bounded&nbsp;intervals.</p>
 <p>Here are examples of half-bounded (leading and trailing) substring clause&nbsp;declarations:</p>
 <pre><code class="lang-o42a">&lt;*Leading substring&gt; Substring (
-  &lt;(-...To)!&gt; To = ()
+  &lt;(-...To)!&gt; *To
 )
 
 &lt;*Trailing substring&gt; Substring (
-  &lt;[From...-)!&gt; From = ()
+  &lt;[From...-)!&gt; *From
 )
 </code></pre>
 <h3 id="unbounded-interval">Unbounded&nbsp;Interval</h3>

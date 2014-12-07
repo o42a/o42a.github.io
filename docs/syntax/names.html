@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -41,7 +40,7 @@
       <div class="row">
         <article class="col-md-9"><h1 id="names">Names</h1>
 <!--
-Copyright (C) 2010-2013 Ruslan Lopatin.
+Copyright (C) 2010-2014 Ruslan Lopatin.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
@@ -71,10 +70,6 @@ space, like&nbsp;this:</p>
 <blockquote>
 <p><code>Hello World</code></p>
 </blockquote>
-<p>or&nbsp;this:</p>
-<blockquote>
-<p><code>Hello                 World</code></p>
-</blockquote>
 <h2 id="number">Number</h2>
 <p>A number is a sequence of decimal digits (<code>0...9</code>).</p>
 <p>The name can not start with a number. So, the following is not a valid&nbsp;name:</p>
@@ -95,10 +90,29 @@ the&nbsp;same:</p>
 <p>Names may contain hyphens (<code>-</code>). There are multiple hyphen characters in
 <a href="http://wikipedia.org/wiki/Unicode">Unicode</a>. o42a makes no difference between them internally, but applies
 different syntactic rules for the sake of grammatical correctness. The following
-hyphen symbols recognized:
-| U+002D | <span class="caps">HYPHEN</span>-MINUS        |
-| U+2010 | HYPHEN              |
-| U+2011 | NON-BREAKING HYPHEN&nbsp;|</p>
+hyphen symbols&nbsp;recognized:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U+002D</td>
+<td><span class="caps">HYPHEN</span>-MINUS</td>
+</tr>
+<tr>
+<td>U+2010</td>
+<td><span class="caps">HYPHEN</span></td>
+</tr>
+<tr>
+<td>U+2011</td>
+<td><span class="caps">NON</span>-BREAKING HYPHEN</td>
+</tr>
+</tbody>
+</table>
 <p>The following rules apply to the hyphen usage in&nbsp;names:</p>
 <ul>
 <li>the name should not start with a&nbsp;hyphen,</li>

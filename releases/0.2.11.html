@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>o42a » 0.1.1 Release Notes</title>
+    <title>o42a » 0.2.11 Release Notes</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -33,38 +33,50 @@
         <ol class="breadcrumb visible-md visible-lg">
           <li><a href="../index.html">o42a</a></li>
           <li><a href="index.html">Releases</a></li>
-          <li class="active">0.1.1 Release Notes</li>
+          <li class="active">0.2.11 Release Notes</li>
         </ol>
       </div>
       <div class="row">
-        <article class="col-md-9"><h1 id="o42a-0-1-1-release-notes">o42a-0.1.1 Release&nbsp;Notes</h1>
-<p>This is a maintenance release of o42a. It seriously improves the compiler
-performance and provides the support for arbitrary source file&nbsp;encodings.</p>
-<h2 id="improvements">Improvements</h2>
-<h3 id="compiler-memory-consumption-decreased">Compiler Memory Consumption&nbsp;Decreased</h3>
-<p>The <code>o42ac</code> in release 0.1.0 was able to compile the test suite with
-<code>--vmargs -Xmx576m</code> (which means the maximum memory allocation pool set to 576
-megabytes) and was unable to compile it with lesser memory&nbsp;limit.</p>
-<p>Now, the same suite can be compiled with <code>--vmargs -Xmx160m</code>, which means that
-<strong>compiler consumes over 70% less memory</strong>.</p>
-<h3 id="compiler-performance-increased">Compiler Performance&nbsp;Increased</h3>
-<p>The test suite compilation time decreased from 8.5 seconds in 0.1.0 to 4.9
-seconds in 0.1.1 on my overclocked Core i7, which means that
-<strong>compiler works more than 40% faster</strong>.</p>
-<h2 id="new-features">New&nbsp;Features</h2>
-<p>New <code>o42ac</code> options:</p>
-<ul>
-<li><code>-encoding</code>, <code>-E</code> - source files encoding (<span class="caps">UTF</span>-8 by&nbsp;default);</li>
-<li><code>-F</code> - a shorthand for <code>-format</code> option.</li>
-</ul>
-<h2 id="bug-fixes">Bug&nbsp;Fixes</h2>
-<p>Proper support for supplementary code points in source&nbsp;files.</p>
+        <article class="col-md-9"><h1 id="o42a-0-2-11-release-notes">o42a-0.2.11 Release&nbsp;Notes</h1>
+<p>This release does not contain any new language features. Instead it focuses
+on the language runtime improvements. E.g. executables are more than two times
+smaller now, as compared to previous version of compiler.
+Also, the programs are faster now, and consume less&nbsp;memory.</p>
+<h2 id="run-time-object-structure">Run Time Object&nbsp;Structure</h2>
+<p>Before this release an object was represented at run time as a set of
+structures, each of which corresponded to object ascendant. This caused a lot of
+problems. E.g. a simple field access required a lookup among these structures,
+and new object construction was a quite complicated&nbsp;task.</p>
+<p>Now, every object is represented as a simple structure, which is <em>known at
+compile time</em>. Also, every object has a virtual method table (<span class="caps">VMT</span>), which
+is built at compile time and contains pointers to field construction methods
+(these pointers were stored in object itself previously). This made run
+time object representation much simpler and smaller, fields accessed by simple
+memory offset, and new object construction is cleaner and faster process.
+Also, this simplified the compiler itself, and opened a lot of new possibilities
+for further&nbsp;optimizations.</p>
+<p>There is a cost however. To make this work, some limitations were applied to the
+language semantics. It is not possible to inherit absolutely any object now.
+It is required that compiler know the structure of inherited object.
+E.g. it is not possible to inherit link target or variable value. But it is
+always possible to inherit static object or object field. Also, it is always
+possible to construct an eager object out of any one. But the eager object
+itself can not be&nbsp;inherited.</p>
+<h2 id="escape-analysis">Escape&nbsp;Analysis</h2>
+<p>Using a simple escape analysis, the compiler may decide to allocate some objects
+on stack instead of a heap. The life cycle of stack-allocated object is not
+controlled by garbage collector. This reduces the <span class="caps">GC</span> overhead. Also, when
+a simple field can be allocated on stack, it doesn’t occupy any space in its
+owner, thus reducing its size and simplifying its&nbsp;structure.</p>
+<p>The escape analysis is primitive right now. But even in its current
+implementation it significantly optimizes the runtime. By improving this
+technique more impressive results could be&nbsp;achieved.</p>
 
         </article>
         <aside class="col-md-3">
           <div class="well">
             <ul class="nav nav-pills nav-stacked">
-                          <li><a href="0.2.11.html">0.2.11</a></li>
+                          <li class="active"><a href="">0.2.11</a></li>
             </ul>
             <ul class="nav bav-pills nav-stacked nav-header">
               <li><a class="text-muted">Older Releases</a></li>
@@ -91,7 +103,7 @@ seconds in 0.1.1 on my overclocked Core i7, which means that
                             <li><a href="0.1.4.html">0.1.4</a></li>
                             <li><a href="0.1.3.html">0.1.3</a></li>
                             <li><a href="0.1.2.html">0.1.2</a></li>
-                            <li class="active"><a href="">0.1.1</a></li>
+                            <li><a href="0.1.1.html">0.1.1</a></li>
                             <li><a href="0.1.0.html">0.1.0</a></li>
               </ul>
             </ul>

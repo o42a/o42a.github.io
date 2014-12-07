@@ -25,7 +25,6 @@
           <li class="active"><a href="../index.html">Documentation</a></li>
           <li><a href="../../devel/index.html">Development</a></li>
           <li><a href="../../downloads.html">Downloads</a></li>
-          <li><a href="https://bitbucket.org/o42a/o42a/issues?status=new&amp;status=open">Issues</a></li>
         </ul>
       </div>
     </header>
@@ -74,23 +73,14 @@ inherited object. Nested fields can be overridden&nbsp;also.</p>
 )
 
 Object := ancestor (
-  Foo = 3
+  Foo = * (= 3)
 )
 </code></pre>
 <p>In this case the <code>object: foo</code> value is <code>3</code>.</p>
 <h2 id="implied-scope-usage">Implied Scope&nbsp;Usage</h2>
-<p>When overriding a field it is possible to use an <em>implied scope reference</em> (<code>*</code>)
-to indicate that the field definition didn’t&nbsp;change:</p>
-<pre><code class="lang-o42a">Ancestor := void (
-  Foo := 2
-)
-
-Object := ancestor (
-  Foo = *
-)
-</code></pre>
-<p>Implied scope reference can also be used as an ancestor placeholder in
-<a href="creation.html#constructor%20expression">constructor expression</a>:</p>
+<p>When overriding a field it is not possible to change the field’s ancestor.
+Instead, an <em>implied scope reference</em> (<code>*</code>) can be used as an ancestor
+placeholder in <a href="creation.html#constructor%20expression">constructor expression</a>: </p>
 <pre><code class="lang-o42a">Ancestor := void (
   Foo := void (
     Bar := 2
@@ -99,8 +89,18 @@ Object := ancestor (
 
 Object := ancestor (
   Foo = * (
-    Bar = 4
+    Bar = * (= 4)
   )
+)
+</code></pre>
+<p>It is also possible to use an implied scope reference alone to indicate that
+the field definition didn’t&nbsp;change:</p>
+<pre><code class="lang-o42a">Ancestor := void (
+  Foo := 2
+)
+
+Object := ancestor (
+  Foo = *
 )
 </code></pre>
 <h2 id="short-syntax">Short&nbsp;Syntax</h2>
@@ -121,34 +121,13 @@ Object := ancestor (
 )
 
 B := a (
-  *Field (= 2) ~~ Short override syntax.
+  *Field (= 2)     ~~ Short override syntax.
 )
 
 C := a (
-  Field := * (
-    = 2        ~~ Full override syntax equal to the short one.
-  )
+  Field := * (= 2) ~~ Full override syntax equal to the short one above.
 )
 </code></pre>
-<h2 id="ancestor-upgrade">Ancestor&nbsp;Upgrade</h2>
-<p>When overriding a field, it is possible to upgrade its&nbsp;ancestor.</p>
-<p>Propagated field’s ancestor should be derived from overridden field’s&nbsp;one.</p>
-<p>Here is an&nbsp;example:</p>
-<pre><code class="lang-o42a">Ancestor := void (
-  Foo := void (
-    Bar := 2
-  )
-)
-
-Object := ancestor (
-  Foo = string (~~ `object: foo` is `string`, despite it&#39;s propagated from `ancestor: foo`, which is `void`.
-    Bar = 4
-    = &quot;four&quot;
-  )
-)
-</code></pre>
-<p>Note that in the above example the <code>object: foo</code> upgraded its type to <em>string</em>
-from <em>void</em> in addition to ancestor&nbsp;upgrade.</p>
 
         </article>
         <aside class="col-md-3">
